@@ -398,6 +398,80 @@ img{max-width:100%;height:auto;display:block;}a{text-decoration:none;transition:
   .hero-cert-badges{gap:6px;}
   .hcb{font-size:0.65rem;padding:4px 10px;}
 }
+
+/* ---- certification cards, rebuilt ---- */
+.cvc-group{margin:34px 0 14px;}
+.cvc-group:first-of-type{margin-top:8px;}
+.cvc-group-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;
+  padding-bottom:12px;border-bottom:1px solid var(--border);}
+.cvc-group-title{font-family:var(--font-sans);font-weight:700;font-size:0.95rem;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--cyan-light);margin:0;}
+.cvc-group-sub{font-size:0.8rem;color:var(--text-dim);flex:1;min-width:180px;}
+.cvc-group-count{font-family:var(--font-mono);font-size:0.72rem;color:var(--text-dim);
+  border:1px solid var(--border);border-radius:var(--radius-full);padding:2px 10px;}
+.cvc{position:relative;height:100%;display:flex;flex-direction:column;
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);
+  padding:18px 18px 14px;transition:var(--transition);overflow:hidden;}
+.cvc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:var(--gradient-cyan);opacity:0;transition:var(--transition);}
+.cvc:hover{border-color:var(--border-hover);transform:translateY(-3px);box-shadow:var(--shadow-md);}
+.cvc:hover::before{opacity:1;}
+.cvc-top{display:flex;gap:12px;align-items:flex-start;}
+.cvc-icon{width:36px;height:36px;flex-shrink:0;border-radius:9px;display:flex;
+  align-items:center;justify-content:center;font-size:0.95rem;color:var(--cyan-light);
+  background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.15);transition:var(--transition);}
+.cvc:hover .cvc-icon{background:rgba(6,182,212,0.14);transform:scale(1.05);}
+.cvc-head{min-width:0;}
+.cvc-name{font-size:0.88rem;font-weight:650;color:var(--text-white);
+  margin:0 0 3px;line-height:1.4;}
+.cvc-org{font-size:0.76rem;color:var(--text-muted);margin:0;line-height:1.4;}
+.cvc-id{display:flex;align-items:center;gap:8px;margin:12px 0 0;}
+.cvc-id-label{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:.12em;
+  color:var(--text-dim);text-transform:uppercase;}
+.cvc-id code{font-family:var(--font-mono);font-size:0.7rem;color:var(--text-light);
+  background:rgba(148,163,184,0.06);border:1px solid var(--border);
+  border-radius:5px;padding:2px 7px;word-break:break-all;}
+.cvc-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin-top:auto;padding-top:13px;}
+.cvc-date{font-family:var(--font-mono);font-size:0.68rem;color:var(--text-dim);}
+.cvc-verify{display:inline-flex;align-items:center;gap:6px;font-size:0.72rem;font-weight:600;
+  color:var(--cyan-light);text-decoration:none;padding:5px 11px;border-radius:var(--radius-full);
+  background:rgba(6,182,212,0.07);border:1px solid rgba(6,182,212,0.2);transition:var(--transition);white-space:nowrap;}
+.cvc-verify i{font-size:0.62rem;transition:var(--transition);}
+.cvc-verify:hover{background:rgba(6,182,212,0.16);border-color:rgba(6,182,212,0.45);color:#fff;}
+.cvc-verify:hover i{transform:translate(2px,-2px);}
+.cvc-verify:focus-visible{outline:2px solid var(--cyan-light);outline-offset:3px;}
+.cvc-noverify{font-family:var(--font-mono);font-size:0.66rem;color:var(--text-dim);
+  border:1px dashed var(--border);border-radius:var(--radius-full);padding:4px 10px;white-space:nowrap;}
+@media(max-width:575px){
+  .cvc{padding:16px 15px 13px;}
+  .cvc-foot{flex-direction:column;align-items:flex-start;gap:9px;}
+  .cvc-group-head{gap:8px;}
+}
+/* ---- keyboard focus, site wide ---- */
+a:focus-visible,button:focus-visible,.btn-cyber:focus-visible,.btn-cyber-outline:focus-visible{
+  outline:2px solid var(--cyan-light);outline-offset:3px;border-radius:4px;}
+/* ---- respect reduced motion ---- */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important;}
+  [data-aos]{opacity:1!important;transform:none!important;}
+}
+
+
+/* ---- contain decorative overflow on small screens ---- */
+html{overflow-x:hidden;}
+.hero-bg-effects{overflow:hidden;}
+.marquee,.marquee-track,.marquee-wrapper{overflow:hidden;max-width:100%;}
+
+
+/* ---- comfortable touch targets on small screens ---- */
+@media(max-width:767px){
+  .cvc-verify{padding:10px 16px;font-size:0.76rem;min-height:44px;}
+  .cvc-noverify{padding:9px 14px;min-height:40px;display:inline-flex;align-items:center;}
+  .cvc-foot{gap:10px;}
+}
+
 </style>
 </head>
 <body>
@@ -889,7 +963,7 @@ img{max-width:100%;height:auto;display:block;}a{text-decoration:none;transition:
                     <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
                         <div class="tl-dot"><i class="fas fa-headset"></i></div>
                         <div class="tl-card">
-                            <div class="tl-header"><span class="tl-date"><i class="far fa-calendar-alt me-1"></i> Feb 2015, Oct 2016</span></div>
+                            <div class="tl-header"><span class="tl-date"><i class="far fa-calendar-alt me-1"></i> Feb 2015 &ndash; Oct 2016</span></div>
                             <h4 class="tl-title">IT Support Officer, Help Desk</h4>
                             <div class="tl-company"><i class="fas fa-building me-2"></i>Madani Channel</div>
                             <ul class="tl-list">
@@ -903,7 +977,7 @@ img{max-width:100%;height:auto;display:block;}a{text-decoration:none;transition:
                     <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
                         <div class="tl-dot"><i class="fas fa-sitemap"></i></div>
                         <div class="tl-card">
-                            <div class="tl-header"><span class="tl-date"><i class="far fa-calendar-alt me-1"></i> Nov 2011, Apr 2013</span></div>
+                            <div class="tl-header"><span class="tl-date"><i class="far fa-calendar-alt me-1"></i> Nov 2011 &ndash; Apr 2013</span></div>
                             <h4 class="tl-title">IT Support and Network Solutions</h4>
                             <div class="tl-company"><i class="fas fa-building me-2"></i>SINA Sadiq Intl News (Pvt.) Ltd.</div>
                             <ul class="tl-list">
@@ -916,7 +990,7 @@ img{max-width:100%;height:auto;display:block;}a{text-decoration:none;transition:
                     <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
                         <div class="tl-dot"><i class="fas fa-lock"></i></div>
                         <div class="tl-card">
-                            <div class="tl-header"><span class="tl-date"><i class="far fa-calendar-alt me-1"></i> Sep 2011, Mar 2012</span></div>
+                            <div class="tl-header"><span class="tl-date"><i class="far fa-calendar-alt me-1"></i> Sep 2011 &ndash; Mar 2012</span></div>
                             <h4 class="tl-title">System Security and Network Support</h4>
                             <div class="tl-company"><i class="fas fa-building me-2"></i>Sunny Co International (Pvt.) Ltd.</div>
                             <ul class="tl-list">
@@ -928,7 +1002,7 @@ img{max-width:100%;height:auto;display:block;}a{text-decoration:none;transition:
                     <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
                         <div class="tl-dot"><i class="fas fa-chalkboard-teacher"></i></div>
                         <div class="tl-card">
-                            <div class="tl-header"><span class="tl-date"><i class="far fa-calendar-alt me-1"></i> Aug 2011, Nov 2014</span></div>
+                            <div class="tl-header"><span class="tl-date"><i class="far fa-calendar-alt me-1"></i> Aug 2011 &ndash; Nov 2014</span></div>
                             <h4 class="tl-title">IT Instructor</h4>
                             <div class="tl-company"><i class="fas fa-building me-2"></i>Finest Computer Institute (Pvt.) Ltd.</div>
                             <ul class="tl-list">
@@ -951,142 +1025,341 @@ img{max-width:100%;height:auto;display:block;}a{text-decoration:none;transition:
             <h2 class="section-title">Professional <span class="text-gradient">Certifications</span></h2>
             <p class="section-desc">20+ industry credentials, specializing in offensive security, forensics &amp; compliance</p>
             <div class="section-line"></div>
+            </div>
+            <div class="cvc-group" data-aos="fade-up">
+                <div class="cvc-group-head">
+                    <h3 class="cvc-group-title">Current &amp; Relevant</h3>
+                    <span class="cvc-group-sub">Active credentials most relevant to current work</span>
+                    <span class="cvc-group-count">8</span>
+                </div>
+            </div>
+            <div class="row g-3 cvc-row">
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="60">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-certificate" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">ISO/IEC 27001 Information Security Associate</h4>
+                                <p class="cvc-org">SkillFront</p>
+                            </div>
+                        </div>
+                        
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Issued Jan 2021</span>
+                            <a class="cvc-verify" href="https://www.skillfront.com/Badges/72935224449384" target="_blank" rel="noopener noreferrer" aria-label="Verify ISO/IEC 27001 Information Security Associate credential, opens in a new tab">Verify <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="120">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-user-lock" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">Cybersecurity Awareness Professional (CAPC)</h4>
+                                <p class="cvc-org">CertiProf</p>
+                            </div>
+                        </div>
+                        
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Valid to Sep 2027</span>
+                            <a class="cvc-verify" href="https://www.credly.com/badges/9db2a363-b654-4488-9ed3-8c1986de2093/public_url" target="_blank" rel="noopener noreferrer" aria-label="Verify Cybersecurity Awareness Professional (CAPC) credential, opens in a new tab">Verify <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="180">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-network-wired" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">CNSS Certified Network Security Specialist</h4>
+                                <p class="cvc-org">ICSI</p>
+                            </div>
+                        </div>
+                        <div class="cvc-id"><span class="cvc-id-label">ID</span><code>17436327</code></div>
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Issued May 2020</span>
+                            <a class="cvc-verify" href="https://www.credential.net/56f01ad3-747e-42f1-94f2-eae037be9c4c" target="_blank" rel="noopener noreferrer" aria-label="Verify CNSS Certified Network Security Specialist credential, opens in a new tab">Verify <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="cvc-group" data-aos="fade-up">
+                <div class="cvc-group-head">
+                    <h3 class="cvc-group-title">Earlier &amp; Foundational</h3>
+                    <span class="cvc-group-sub">Historical credentials that built the technical base</span>
+                    <span class="cvc-group-count">10</span>
+                </div>
+            </div>
+            <div class="row g-3 cvc-row">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="60">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-fingerprint" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">Computer Hacking Forensic Investigator (CHFI)</h4>
+                                <p class="cvc-org">EC-Council</p>
+                            </div>
+                        </div>
+                        <div class="cvc-id"><span class="cvc-id-label">ID</span><code>ECC9386405217</code></div>
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Issued Aug 2026</span>
+                            <span class="cvc-noverify">On file</span>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="120">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-user-shield" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">Certified Information Systems Auditor (CISA)</h4>
+                                <p class="cvc-org">ISACA</p>
+                            </div>
+                        </div>
+                        <div class="cvc-id"><span class="cvc-id-label">ID</span><code>16133028</code></div>
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Valid to Dec 2026</span>
+                            <span class="cvc-noverify">On file</span>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="180">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-skull-crossbones" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">Certified Ethical Hacker (CEH)</h4>
+                                <p class="cvc-org">EC-Council</p>
+                            </div>
+                        </div>
+                        <div class="cvc-id"><span class="cvc-id-label">ID</span><code>ECC9126053874</code></div>
+                        <div class="cvc-foot">
+                            <span class="cvc-date"></span>
+                            <span class="cvc-noverify">On file</span>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="60">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-terminal" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">Practical Network Penetration Tester (PNPT)</h4>
+                                <p class="cvc-org">TCM Security</p>
+                            </div>
+                        </div>
+                        <div class="cvc-id"><span class="cvc-id-label">ID</span><code>113940089</code></div>
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Issued Sep 2025</span>
+                            <a class="cvc-verify" href="https://certified.tcm-sec.com/20060208-f09c-40b7-89a8-cdd025eb1bfc" target="_blank" rel="noopener noreferrer" aria-label="Verify Practical Network Penetration Tester (PNPT) credential, opens in a new tab">Verify <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="120">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-bug" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">eJPT v2, Junior Penetration Tester</h4>
+                                <p class="cvc-org">INE Security</p>
+                            </div>
+                        </div>
+                        <div class="cvc-id"><span class="cvc-id-label">ID</span><code>173841033</code></div>
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Issued Feb 2026</span>
+                            <span class="cvc-noverify">On file</span>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="180">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">Certified SOC Analyst (CSA) v1</h4>
+                                <p class="cvc-org">EC-Council</p>
+                            </div>
+                        </div>
+                        <div class="cvc-id"><span class="cvc-id-label">ID</span><code>ECC0475381296</code></div>
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Sep 2022 &ndash; Sep 2025</span>
+                            <a class="cvc-verify" href="https://aspen.eccouncil.org/VerifyBadge?type=certification&a=umx10WJUJ/JO0P2daXuGINb2Wh27MFXNlfuAapOCOpI=" target="_blank" rel="noopener noreferrer" aria-label="Verify Certified SOC Analyst (CSA) v1 credential, opens in a new tab">Verify <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="60">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">Introduction to Cybersecurity</h4>
+                                <p class="cvc-org">Cisco Networking Academy</p>
+                            </div>
+                        </div>
+                        
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Issued Apr 2021</span>
+                            <a class="cvc-verify" href="https://www.credly.com/badges/6b53159c-0623-4255-8fd0-739701bc41b7" target="_blank" rel="noopener noreferrer" aria-label="Verify Introduction to Cybersecurity credential, opens in a new tab">Verify <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="120">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-shield" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">Cyber Security Foundation Professional (CSFPC)</h4>
+                                <p class="cvc-org">CertiProf</p>
+                            </div>
+                        </div>
+                        <div class="cvc-id"><span class="cvc-id-label">ID</span><code>54846644</code></div>
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Issued Jan 2021</span>
+                            <a class="cvc-verify" href="https://www.credly.com/badges/d9dcc611-6cfb-4c49-88c8-740c228a0a40" target="_blank" rel="noopener noreferrer" aria-label="Verify Cyber Security Foundation Professional (CSFPC) credential, opens in a new tab">Verify <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="180">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-fire" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">Network Security Expert, NSE 1 and NSE 2</h4>
+                                <p class="cvc-org">Fortinet</p>
+                            </div>
+                        </div>
+                        <div class="cvc-id"><span class="cvc-id-label">ID</span><code>z0hC8VTQpq &middot; CJrGCGs3dT</code></div>
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Issued Apr 2020</span>
+                            <span class="cvc-noverify">On file</span>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="60">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-cloud" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">Microsoft Specialist: Azure Infrastructure &middot; MCSA Office 365 &middot; MCP</h4>
+                                <p class="cvc-org">Microsoft</p>
+                            </div>
+                        </div>
+                        <div class="cvc-id"><span class="cvc-id-label">ID</span><code>10FR4C-CBD442 &middot; 4036C8-4B5K2F &middot; 7A3E3D-3E5EYE</code></div>
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Issued 2014</span>
+                            <a class="cvc-verify" href="https://learn.microsoft.com/en-us/users/syedfarhanahmed-7469/credentials" target="_blank" rel="noopener noreferrer" aria-label="Verify Microsoft Specialist: Azure Infrastructure &middot; MCSA Office 365 &middot; MCP credential, opens in a new tab">Verify <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="120">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-server" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">MCSE PC &amp; Internet Security &middot; MCITP Enterprise Server 2008</h4>
+                                <p class="cvc-org">CTTC Training Institute</p>
+                            </div>
+                        </div>
+                        
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Issued 2013</span>
+                            <span class="cvc-noverify">On file</span>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="180">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-diagram-project" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">CCNA Discovery 4.0 &amp; CCNA 8.0</h4>
+                                <p class="cvc-org">Cisco Networking Academy</p>
+                            </div>
+                        </div>
+                        
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Issued 2013</span>
+                            <span class="cvc-noverify">On file</span>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="60">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-microchip" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">CompTIA A+ &amp; Network+</h4>
+                                <p class="cvc-org">CTTC Enterprise Institute</p>
+                            </div>
+                        </div>
+                        
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Issued 2012</span>
+                            <span class="cvc-noverify">On file</span>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="120">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">Remote Worker Professional (RWPC)</h4>
+                                <p class="cvc-org">CertiProf</p>
+                            </div>
+                        </div>
+                        
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Issued Dec 2022</span>
+                            <a class="cvc-verify" href="https://www.credly.com/badges/c802e56a-df49-452c-9827-1b47827ce926/public_url" target="_blank" rel="noopener noreferrer" aria-label="Verify Remote Worker Professional (RWPC) credential, opens in a new tab">Verify <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="180">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-list-check" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">Scrum Foundation Professional (SFPC)</h4>
+                                <p class="cvc-org">CertiProf</p>
+                            </div>
+                        </div>
+                        <div class="cvc-id"><span class="cvc-id-label">ID</span><code>81704468</code></div>
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Issued Dec 2022</span>
+                            <span class="cvc-noverify">On file</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="cvc-group" data-aos="fade-up">
+                <div class="cvc-group-head">
+                    <h3 class="cvc-group-title">Professional Training</h3>
+                    <span class="cvc-group-sub">Instructor-led technical training</span>
+                    <span class="cvc-group-count">1</span>
+                </div>
+            </div>
+            <div class="row g-3 cvc-row">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="60">
+                    <article class="cvc">
+                        <div class="cvc-top">
+                            <div class="cvc-icon"><i class="fas fa-crosshairs" aria-hidden="true"></i></div>
+                            <div class="cvc-head">
+                                <h4 class="cvc-name">Advanced APT Threat Hunting &amp; Incident Response</h4>
+                                <p class="cvc-org">Black Hat USA 2023 &middot; 16 credit hours</p>
+                            </div>
+                        </div>
+                        <div class="cvc-id"><span class="cvc-id-label">ID</span><code>79289732</code></div>
+                        <div class="cvc-foot">
+                            <span class="cvc-date">Aug 2023</span>
+                            <a class="cvc-verify" href="https://certificates.blackhat.com/139d2431-69c3-495d-8d98-83a3b175d822" target="_blank" rel="noopener noreferrer" aria-label="Verify Advanced APT Threat Hunting &amp; Incident Response credential, opens in a new tab">Verify <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </div>
-        <div class="row g-4 mb-4">
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="cert-card cert-primary">
-                    <div class="cert-primary-glow"></div>
-                    <div class="cert-primary-badge">Primary</div>
-                    <div class="cc-icon cc-ec-lg"><i class="fas fa-user-shield"></i></div>
-                    <h4 class="cc-name-lg">CISA &ndash; Certified Information Systems Auditor</h4>
-                    <p class="cc-desc">ISACA. Information systems auditing, IT governance, risk management and internal controls.</p>
-                    <span class="cc-org">ISACA</span>
-                    <div class="cc-footer"><span class="cc-date">16133028</span><span class="cc-status verified"><i class="fas fa-check-circle"></i> Verified</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="120">
-                <div class="cert-card cert-primary">
-                    <div class="cert-primary-glow"></div>
-                    <div class="cert-primary-badge">Primary</div>
-                    <div class="cc-icon cc-ec-lg"><i class="fas fa-terminal"></i></div>
-                    <h4 class="cc-name-lg">PNPT &ndash; Practical Network Penetration Tester</h4>
-                    <p class="cc-desc">TCM Security. Hands-on network penetration testing assessed by full engagement and report.</p>
-                    <span class="cc-org">TCM Security &middot; 2025</span>
-                    <div class="cc-footer"><span class="cc-date">113940089</span><span class="cc-status verified"><i class="fas fa-check-circle"></i> Verified</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="140">
-                <div class="cert-card cert-primary">
-                    <div class="cert-primary-glow"></div>
-                    <div class="cert-primary-badge">Primary</div>
-                    <div class="cc-icon cc-ec-lg"><i class="fas fa-bug"></i></div>
-                    <h4 class="cc-name-lg">eJPT v2 &ndash; Junior Penetration Tester</h4>
-                    <p class="cc-desc">INE Security. Practical penetration testing across network, host and web application targets.</p>
-                    <span class="cc-org">INE Security &middot; 2026</span>
-                    <div class="cc-footer"><span class="cc-date">173841033</span><span class="cc-status verified"><i class="fas fa-check-circle"></i> Verified</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="cert-card cert-primary">
-                    <div class="cert-primary-glow"></div>
-                    <div class="cert-primary-badge">Primary</div>
-                    <div class="cc-icon cc-ec-lg"><i class="fas fa-skull-crossbones"></i></div>
-                    <h4 class="cc-name-lg">CEH, Certified Ethical Hacker</h4>
-                    <p class="cc-desc">EC-Council Certified Ethical Hacker. Penetration testing methodology, vulnerability identification and exploitation.</p>
-                    <span class="cc-org">EC-Council</span>
-                    <div class="cc-footer"><span class="cc-date">ECC9126053874</span><span class="cc-status verified"><i class="fas fa-check-circle"></i> Verified</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="cert-card cert-primary">
-                    <div class="cert-primary-glow"></div>
-                    <div class="cert-primary-badge">Primary</div>
-                    <div class="cc-icon cc-ec-lg"><i class="fas fa-fingerprint"></i></div>
-                    <h4 class="cc-name-lg">CHFI, Computer Hacking Forensic Investigator</h4>
-                    <p class="cc-desc">EC-Council CHFI 2025, Digital forensics, evidence acquisition, mobile/windows forensics, malware analysis, and legal investigation procedures.</p>
-                    <span class="cc-org">EC-Council International</span>
-                    <div class="cc-footer"><span class="cc-date">2025</span><span class="cc-status pending"><i class="fas fa-clock"></i> Int'l Exam Pending</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="cert-card cert-primary">
-                    <div class="cert-primary-glow"></div>
-                    <div class="cert-primary-badge">Primary</div>
-                    <div class="cc-icon cc-iso-lg"><i class="fas fa-certificate"></i></div>
-                    <h4 class="cc-name-lg">ISO/IEC 27001, Information Security Associate™</h4>
-                    <p class="cc-desc">ISMS framework implementation, security controls, risk assessment methodologies, and compliance auditing.</p>
-                    <span class="cc-org">Credly Verified</span>
-                    <div class="cc-footer"><span class="cc-date">Jan 2021</span><span class="cc-status verified"><i class="fas fa-check-circle"></i> Verified</span></div>
-                </div>
-            </div>
-        </div>
-        <div class="row g-3">
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="cert-card cert-secondary">
-                    <div class="cc-icon cc-ec"><i class="fas fa-user-secret"></i></div>
-                    <div class="cc-body"><h5 class="cc-name">Certified SOC Analyst v1</h5><span class="cc-org">EC-Council, ECC0475381296</span></div>
-                    <div class="cc-footer"><span class="cc-date">Dec 2022</span><span class="cc-status verified"><i class="fas fa-check-circle"></i> Verified</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
-                <div class="cert-card cert-secondary">
-                    <div class="cc-icon cc-bh"><i class="fas fa-hat-wizard"></i></div>
-                    <div class="cc-body"><h5 class="cc-name">Black Hat APT Threat Hunting &amp; IR</h5><span class="cc-org">Black Hat, ID: 79289732</span></div>
-                    <div class="cc-footer"><span class="cc-date">Dec 2023</span><span class="cc-status verified"><i class="fas fa-check-circle"></i> Verified</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="cert-card cert-secondary">
-                    <div class="cc-icon cc-iso"><i class="fas fa-shield-virus"></i></div>
-                    <div class="cc-body"><h5 class="cc-name">CSFPC, Cyber Security Foundation</h5><span class="cc-org">Credly Verified</span></div>
-                    <div class="cc-footer"><span class="cc-date">Jan 2021</span><span class="cc-status verified"><i class="fas fa-check-circle"></i> Verified</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
-                <div class="cert-card cert-secondary">
-                    <div class="cc-icon cc-ec"><i class="fas fa-network-wired"></i></div>
-                    <div class="cc-body"><h5 class="cc-name">PNPT, Practical Network Pentester</h5><span class="cc-org">TCM Security, ID: 113940089</span></div>
-                    <div class="cc-footer"><span class="cc-date">Aug 2024</span><span class="cc-status verified"><i class="fas fa-check-circle"></i> Verified</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="cert-card cert-secondary">
-                    <div class="cc-icon cc-cisco"><i class="fas fa-network-wired"></i></div>
-                    <div class="cc-body"><h5 class="cc-name">Cisco ICS &amp; CCNA Discovery 4.0</h5><span class="cc-org">Cisco / Netacad</span></div>
-                    <div class="cc-footer"><span class="cc-date">2013, 2021</span><span class="cc-status verified"><i class="fas fa-check-circle"></i> Verified</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
-                <div class="cert-card cert-secondary">
-                    <div class="cc-icon cc-cisco"><i class="fas fa-lock"></i></div>
-                    <div class="cc-body"><h5 class="cc-name">CNSS, Network Security Specialist</h5><span class="cc-org">ID: 17436327</span></div>
-                    <div class="cc-footer"><span class="cc-date">May 2020</span><span class="cc-status verified"><i class="fas fa-check-circle"></i> Verified</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="cert-card cert-secondary">
-                    <div class="cc-icon cc-fort"><i class="fas fa-fire"></i></div>
-                    <div class="cc-body"><h5 class="cc-name">Fortinet NSE Level 1 &amp; 2</h5><span class="cc-org">Fortinet Systems</span></div>
-                    <div class="cc-footer"><span class="cc-date">Apr 2020</span><span class="cc-status verified"><i class="fas fa-check-circle"></i> Verified</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
-                <div class="cert-card cert-secondary">
-                    <div class="cc-icon cc-ms"><i class="fab fa-microsoft"></i></div>
-                    <div class="cc-body"><h5 class="cc-name">Azure Infrastructure &middot; MCSA Office 365 &middot; MCP</h5><span class="cc-org">Microsoft Certified</span></div>
-                    <div class="cc-footer"><span class="cc-date">2013, 2014</span><span class="cc-status verified"><i class="fas fa-check-circle"></i> Verified</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                <div class="cert-card cert-secondary">
-                    <div class="cc-icon cc-comp"><i class="fas fa-microchip"></i></div>
-                    <div class="cc-body"><h5 class="cc-name">CompTIA A+ · Network+ · RWPC</h5><span class="cc-org">CompTIA / Credly</span></div>
-                    <div class="cc-footer"><span class="cc-date">2012, 2022</span><span class="cc-status verified"><i class="fas fa-check-circle"></i> Verified</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
 <!-- HALL OF FAME -->
 <section id="halloffame" class="section section-alt">
