@@ -1681,6 +1681,74 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan-light);outline
   .skill-card:hover .skc-icon{transform:none;}
 }
 
+
+/* a course completion can carry a reference number too */
+.tc-ref{display:inline-flex;align-items:center;gap:5px;margin-top:8px;
+  font-family:var(--font-mono);font-size:0.62rem;letter-spacing:.04em;
+  color:var(--text-dim);padding:3px 9px;border-radius:var(--radius-full);
+  background:rgba(148,163,184,.05);border:1px solid rgba(148,163,184,.1);}
+.tc-ref i{font-size:0.54rem;opacity:.7;}
+
+/* ================= Hafiz-e-Quran, deliberately not one of the IT rows ================= */
+.hz-card{display:flex;align-items:flex-start;gap:18px;width:100%;
+  margin-top:10px;padding:24px 26px;border-radius:var(--radius-lg);
+  background:linear-gradient(135deg,rgba(16,185,129,.055),rgba(227,184,114,.045));
+  border:1px solid rgba(16,185,129,.22);
+  box-shadow:inset 0 1px 0 rgb(255 255 255/.05);
+  position:relative;overflow:hidden;
+  transition:transform var(--dur-base) var(--ease-out-quint),
+             border-color var(--dur-base) var(--ease-out-quint),
+             box-shadow var(--dur-base) var(--ease-out-quint);}
+.hz-card::after{content:'';position:absolute;inset:0;pointer-events:none;
+  border-radius:inherit;
+  background:radial-gradient(70% 120% at 12% 0%,rgba(16,185,129,.16),transparent 68%);
+  opacity:.7;transition:opacity var(--dur-base) var(--ease-out-quint);}
+.hz-mark{display:grid;place-items:center;flex-shrink:0;width:48px;height:48px;
+  border-radius:14px;font-size:1.05rem;color:var(--green);
+  background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.28);
+  box-shadow:inset 0 1px 0 rgba(16,185,129,.22);
+  transition:transform var(--dur-base) var(--ease-out-quint),
+             box-shadow var(--dur-base) var(--ease-out-quint);}
+.hz-body{flex:1;min-width:0;position:relative;z-index:1;}
+.hz-tag{display:inline-block;font-family:var(--font-mono);font-size:0.55rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--green);
+  padding:3px 9px;border-radius:var(--radius-full);margin-bottom:8px;
+  background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.24);}
+.hz-name{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;
+  font-family:var(--font-display);font-weight:800;font-size:1.05rem;
+  color:var(--text-white);margin:0 0 4px;}
+.hz-ar{font-family:'Segoe UI','Noto Naskh Arabic',serif;font-size:1.15rem;
+  font-weight:600;color:var(--green);line-height:1.6;}
+.hz-org{display:block;font-size:0.78rem;color:var(--text-dim);margin-bottom:7px;}
+.hz-note{font-size:0.82rem;color:var(--text-muted);line-height:1.6;margin:0 0 10px;}
+.hz-meta{display:flex;flex-wrap:wrap;gap:6px;}
+.hz-chip{display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--font-mono);font-size:0.62rem;color:var(--text-dim);
+  padding:4px 10px;border-radius:var(--radius-full);
+  background:rgba(148,163,184,.05);border:1px solid rgba(148,163,184,.1);}
+.hz-chip i{font-size:0.54rem;opacity:.7;}
+.hz-date{display:inline-flex;align-items:center;gap:6px;flex-shrink:0;
+  position:relative;z-index:1;
+  font-family:var(--font-mono);font-size:0.66rem;font-weight:700;letter-spacing:.05em;
+  color:var(--cc-gold);padding:6px 12px;border-radius:var(--radius-full);
+  background:linear-gradient(180deg,rgba(227,184,114,.10),rgba(227,184,114,.045));
+  border:1px solid rgba(227,184,114,.22);white-space:nowrap;}
+.hz-date i{font-size:0.58rem;color:var(--cc-gold-dim);}
+@media (hover:hover) and (pointer:fine){
+  .hz-card:hover{transform:translateY(-3px);border-color:rgba(16,185,129,.45);
+    box-shadow:0 16px 38px -14px rgba(16,185,129,.35),0 2px 6px rgb(2 6 23/.4);}
+  .hz-card:hover::after{opacity:1;}
+  .hz-card:hover .hz-mark{transform:translateY(-2px) scale(1.06) rotate(-4deg);
+    box-shadow:0 8px 20px -8px rgba(16,185,129,.7);}
+}
+@media(max-width:575px){
+  .hz-card{flex-wrap:wrap;padding:20px;gap:14px;}
+  .hz-date{order:3;}
+}
+@media(prefers-reduced-motion:reduce){
+  .hz-card:hover,.hz-card:hover .hz-mark{transform:none;}
+}
+
 </style>
 </head>
 <body>
@@ -2354,16 +2422,21 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan-light);outline
         <div class="section-header text-center" data-aos="fade-up">
             <span class="section-badge"><i class="fas fa-graduation-cap"></i> Foundations</span>
             <h2 class="section-title">Training &amp; <span class="text-gradient">Course Completions</span></h2>
-            <p class="section-desc">Five classroom and academy courses completed early in my career. These are completion certificates from the training provider, not credentials issued by the certifying body, so they are listed separately from the certifications above.</p>
+            <p class="section-desc">Nine classroom, academy and online courses completed across my career. These are completion certificates from the training provider, not credentials issued by the certifying body, so they are listed separately from the certifications above.</p>
             <div class="section-line"></div>
         </div>
         <div class="row g-3">
-<div class="col-lg-6" data-aos="fade-up" data-aos-delay="0"><div class="tc-card"><div class="tc-mark"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><div class="tc-body"><div class="tc-head"><h4 class="tc-name">MCITP Enterprise Server 2008</h4><span class="tc-date">Aug &ndash; Dec 2014</span></div><span class="tc-org">CTTC (Pvt) Ltd</span><p class="tc-note">Windows 7, Server 2008 network, directory and applications infrastructure</p></div></div></div>
-<div class="col-lg-6" data-aos="fade-up" data-aos-delay="60"><div class="tc-card"><div class="tc-mark"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><div class="tc-body"><div class="tc-head"><h4 class="tc-name">A+ Certification</h4><span class="tc-date">Jun &ndash; Aug 2012</span></div><span class="tc-org">CTTC (Pvt) Ltd</span><p class="tc-note">Hardware, operating systems and end user support</p></div></div></div>
-<div class="col-lg-6" data-aos="fade-up" data-aos-delay="120"><div class="tc-card"><div class="tc-mark"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><div class="tc-body"><div class="tc-head"><h4 class="tc-name">Network Plus</h4><span class="tc-date">Jul &ndash; Sep 2012</span></div><span class="tc-org">CTTC (Pvt) Ltd</span><p class="tc-note">Networking fundamentals, media, protocols and troubleshooting</p></div></div></div>
-<div class="col-lg-6" data-aos="fade-up" data-aos-delay="180"><div class="tc-card"><div class="tc-mark"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><div class="tc-body"><div class="tc-head"><h4 class="tc-name">CCNA Discovery: Networking for Home &amp; Small Businesses</h4><span class="tc-date">Dec 2008</span></div><span class="tc-org">Cisco Networking Academy</span><p class="tc-note">Small business networking, connectivity and basic IP services</p></div></div></div>
-<div class="col-lg-6" data-aos="fade-up" data-aos-delay="240"><div class="tc-card"><div class="tc-mark"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><div class="tc-body"><div class="tc-head"><h4 class="tc-name">MCSE PC &amp; Internet Security</h4><span class="tc-date">Undated</span></div><span class="tc-org">Microsoft Certificate of Excellence</span><p class="tc-note">PC and internet security, held as a paper certificate</p></div></div></div>
-        </div>
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="0"><div class="tc-card"><div class="tc-mark"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><div class="tc-body"><div class="tc-head"><h4 class="tc-name">TIC CIU Certified WAN Associate</h4><span class="tc-date">Dec 2014</span></div><span class="tc-org">Technology Incubation Center CIU</span><p class="tc-note">Career certification programme, scored 81 per cent</p><span class="tc-ref"><i class="fas fa-hashtag" aria-hidden="true"></i>TCCWA3948220238</span></div></div></div>
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="50"><div class="tc-card"><div class="tc-mark"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><div class="tc-body"><div class="tc-head"><h4 class="tc-name">HP LIFE e-Learning: IT for Business Success</h4><span class="tc-date">Dec 2014</span></div><span class="tc-org">HP</span><p class="tc-note">Choosing and putting technology solutions in place against business goals</p><span class="tc-ref"><i class="fas fa-hashtag" aria-hidden="true"></i>1613875-39098</span></div></div></div>
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100"><div class="tc-card"><div class="tc-mark"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><div class="tc-body"><div class="tc-head"><h4 class="tc-name">MCITP Enterprise Server 2008</h4><span class="tc-date">Aug &ndash; Dec 2014</span></div><span class="tc-org">CTTC (Pvt) Ltd</span><p class="tc-note">Windows 7, Server 2008 network, directory and applications infrastructure</p></div></div></div>
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="150"><div class="tc-card"><div class="tc-mark"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><div class="tc-body"><div class="tc-head"><h4 class="tc-name">Network Plus</h4><span class="tc-date">Jul &ndash; Sep 2012</span></div><span class="tc-org">CTTC (Pvt) Ltd</span><p class="tc-note">Networking fundamentals, media, protocols and troubleshooting</p></div></div></div>
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="200"><div class="tc-card"><div class="tc-mark"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><div class="tc-body"><div class="tc-head"><h4 class="tc-name">A+ Certification</h4><span class="tc-date">Jun &ndash; Aug 2012</span></div><span class="tc-org">CTTC (Pvt) Ltd</span><p class="tc-note">Hardware, operating systems and end user support</p></div></div></div>
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="250"><div class="tc-card"><div class="tc-mark"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><div class="tc-body"><div class="tc-head"><h4 class="tc-name">Network+ Certification</h4><span class="tc-date">Dec 2011</span></div><span class="tc-org">Silicon Technologies</span><p class="tc-note">Hands-on, lab oriented course in building and maintaining computers</p><span class="tc-ref"><i class="fas fa-hashtag" aria-hidden="true"></i>Student ID 00659</span></div></div></div>
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="300"><div class="tc-card"><div class="tc-mark"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><div class="tc-body"><div class="tc-head"><h4 class="tc-name">CCNA Discovery: Networking for Home &amp; Small Businesses</h4><span class="tc-date">Dec 2008</span></div><span class="tc-org">Cisco Networking Academy</span><p class="tc-note">Small business networking, connectivity and basic IP services</p></div></div></div>
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="300"><div class="tc-card"><div class="tc-mark"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><div class="tc-body"><div class="tc-head"><h4 class="tc-name">MS Office Diploma</h4><span class="tc-date">Apr &ndash; Sep 2004</span></div><span class="tc-org">Finest Computer Institute, Karachi</span><p class="tc-note">Word, Excel and PowerPoint XP, graded A-One</p></div></div></div>
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="300"><div class="tc-card"><div class="tc-mark"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><div class="tc-body"><div class="tc-head"><h4 class="tc-name">MCSE PC &amp; Internet Security</h4><span class="tc-date">Undated</span></div><span class="tc-org">Microsoft Certificate of Excellence</span><p class="tc-note">PC and internet security, held as a paper certificate</p></div></div></div>
+<div class="col-12" data-aos="fade-up" data-aos-delay="120"><div class="hz-card"><div class="hz-mark"><i class="fas fa-book-open" aria-hidden="true"></i></div><div class="hz-body"><span class="hz-tag">Personal</span><h4 class="hz-name">Hafiz-e-Quran<span class="hz-ar" dir="rtl" lang="ar">&#1581;&#1575;&#1601;&#1592; &#1575;&#1604;&#1602;&#1585;&#1570;&#1606;</span></h4><span class="hz-org">Madrasa-tul-Madina, Landhi, Karachi</span><p class="hz-note">Complete memorisation of the Quran, certified after examination.</p><div class="hz-meta"><span class="hz-chip"><i class="fas fa-hashtag" aria-hidden="true"></i>Registration 153</span><span class="hz-chip"><i class="fas fa-hashtag" aria-hidden="true"></i>Certificate 4676</span></div></div><span class="hz-date"><i class="fas fa-calendar-day" aria-hidden="true"></i>Sep 2005</span></div></div>
+</div>
     </div>
 </section>
 
