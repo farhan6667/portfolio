@@ -1448,6 +1448,91 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan-light);outline
 .cc-item-verify:focus-visible{outline:2px solid var(--cyan-light);outline-offset:3px;}
 @media(max-width:767px){.cc-item-verify{padding:7px 12px;font-size:0.66rem;}}
 
+
+/* EC-Council verify their credentials by number and candidate name together,
+   and the name differs across the three, so each carries its own, copyable */
+.cc-namerow{margin-top:6px!important;background:rgba(148,163,184,.028)!important;
+  border-color:rgba(148,163,184,.09)!important;}
+.cc-namerow .cc-idval{font-family:var(--font-sans);font-size:0.74rem;
+  font-weight:500;letter-spacing:0;color:var(--text-light);}
+.cc-namerow .cc-idlabel{color:var(--text-dim);}
+[data-tool-card]:hover .cc-namerow{
+  border-color:color-mix(in oklab, var(--cc-hue) 26%, transparent)!important;}
+
+
+/* ================= certification sort and filter bar ================= */
+.cert-controls{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  gap:14px 18px;margin:0 0 30px;position:relative;z-index:3;}
+
+/* segmented control, the active pill slides between the two options */
+.cc-seg{position:relative;display:inline-flex;padding:4px;border-radius:var(--radius-full);
+  background:rgba(148,163,184,.06);border:1px solid var(--border);
+  box-shadow:inset 0 1px 0 rgb(255 255 255/.04);}
+.cc-seg-pill{position:absolute;top:4px;left:0;height:calc(100% - 8px);
+  border-radius:var(--radius-full);pointer-events:none;
+  background:linear-gradient(135deg,rgba(6,182,212,.20),rgba(139,92,246,.20));
+  border:1px solid rgba(6,182,212,.34);
+  box-shadow:0 4px 16px -6px rgba(6,182,212,.6);
+  transform:translateX(0);width:0;opacity:0;
+  transition:transform var(--dur-base) var(--ease-out-quint),
+             width var(--dur-base) var(--ease-out-quint),
+             opacity var(--dur-fast) var(--ease-out-quint);}
+.cc-seg-btn{position:relative;z-index:1;display:inline-flex;align-items:center;gap:7px;
+  border:0;background:none;cursor:pointer;white-space:nowrap;
+  padding:9px 18px;border-radius:var(--radius-full);
+  font-family:var(--font-mono);font-size:0.68rem;font-weight:600;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--text-dim);
+  transition:color var(--dur-fast) var(--ease-out-quint);}
+.cc-seg-btn i{font-size:0.66rem;opacity:.85;}
+.cc-seg-btn:hover{color:var(--text-light);}
+.cc-seg-btn.is-active{color:var(--cyan-light);}
+.cc-seg-btn:focus-visible{outline:2px solid var(--cyan-light);outline-offset:3px;}
+
+/* year chips */
+.cc-years{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;}
+.cc-year{border:1px solid var(--border);background:rgba(148,163,184,.04);
+  color:var(--text-dim);cursor:pointer;
+  padding:6px 12px;border-radius:var(--radius-full);
+  font-family:var(--font-mono);font-size:0.66rem;font-weight:600;letter-spacing:.06em;
+  transition:color var(--dur-fast) var(--ease-out-quint),
+             background-color var(--dur-fast) var(--ease-out-quint),
+             border-color var(--dur-fast) var(--ease-out-quint),
+             transform var(--dur-fast) var(--ease-out-quint);}
+.cc-year:hover{color:var(--text-light);border-color:rgba(6,182,212,.3);
+  background:rgba(6,182,212,.07);}
+.cc-year.is-active{color:#04121a;border-color:transparent;
+  background:linear-gradient(135deg,var(--cyan),var(--cyan-light));
+  box-shadow:0 4px 14px -6px rgba(6,182,212,.8);}
+.cc-year:focus-visible{outline:2px solid var(--cyan-light);outline-offset:3px;}
+.cc-year:active{transform:translateY(0) scale(.96);transition-duration:80ms;}
+
+.cc-count-live{flex-basis:100%;text-align:center;margin:0;
+  font-family:var(--font-mono);font-size:0.64rem;letter-spacing:.08em;
+  color:var(--text-dim);min-height:1em;}
+
+/* a filtered out card leaves the flow entirely */
+#certifications .col-lg-4[hidden]{display:none!important;}
+
+@media(hover:hover) and (pointer:fine){
+  .cc-year:hover{transform:translateY(-1px);}
+}
+@media(max-width:575px){
+  .cert-controls{gap:12px;}
+  .cc-seg-btn{padding:9px 14px;font-size:0.64rem;}
+  .cc-years{gap:5px;}
+  .cc-year{padding:7px 11px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .cc-seg-pill{transition:none;}
+  .cc-year:hover,.cc-year:active{transform:none;}
+}
+@media print{.cert-controls{display:none;}}
+
+
+/* the compact rows hide their label, but a bare name needs one or the reader
+   cannot tell it is the name ASPEN asks for alongside the number */
+.cc-namerow .cc-idlabel{display:inline!important;flex-shrink:0;}
+
 </style>
 </head>
 <body>
@@ -2002,7 +2087,21 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan-light);outline
             <p class="section-desc">20+ industry credentials, specializing in offensive security, forensics &amp; compliance</p>
             <div class="section-line"></div>
         </div>
-        <div class="row g-4">
+        
+        <div class="cert-controls" data-print-hidden="true">
+            <div class="cc-seg" role="tablist" aria-label="Order the certifications">
+                <span class="cc-seg-pill" aria-hidden="true"></span>
+                <button type="button" class="cc-seg-btn is-active" data-sort="group"
+                        role="tab" aria-selected="true">
+                    <i class="fas fa-layer-group" aria-hidden="true"></i>Grouped</button>
+                <button type="button" class="cc-seg-btn" data-sort="year"
+                        role="tab" aria-selected="false">
+                    <i class="fas fa-calendar-day" aria-hidden="true"></i>By year</button>
+            </div>
+            <div class="cc-years" role="group" aria-label="Filter the certifications by year"></div>
+            <p class="cc-count-live" role="status" aria-live="polite"></p>
+        </div>
+<div class="row g-4">
 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
 <div data-issuer="tcm" style="--cc-hue:#6dbe45" data-tool-card="true" class="cert-card">
 <div class="cc-top">
@@ -2082,7 +2181,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan-light);outline
 
 <div class="cc-footer"><span class="cc-date"><i class="fas fa-calendar-day cc-dicon" aria-hidden="true"></i><span class="cc-dlab">Issued</span><span class="cc-dm">Apr</span><span class="cc-dy">2020</span></span>
 <a class="cc-status cc-verify" href="https://training.fortinet.com/mod/customcert/verify_certificate.php" target="_blank" rel="noopener noreferrer" aria-label="Verify the Fortinet NSE certificates on the Fortinet Training Institute portal, opens in a new tab"><i class="fas fa-circle-check" aria-hidden="true"></i> Verify<i class="fas fa-arrow-up-right-from-square cc-ext" aria-hidden="true"></i></a></div></div></div>
-<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400"><div data-issuer="eccouncil" style="--cc-hue:#d7262f" data-tool-card="true" class="cert-card"><div class="cc-top"><span class="cc-iconwrap"><div class="cc-icon cc-icon-brand"><img class="cc-orglogo cc-orglogo-wide" src="data:image/png;base64,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" alt="EC-Council logo" width="440" height="110" loading="lazy" decoding="async"></div><svg class="cc-arc" viewBox="0 0 106 57" aria-hidden="true" focusable="false"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"/></svg></span><div class="cc-chips"><span class="cc-flag">Primary</span><span class="cc-count"><i class="fas fa-layer-group" aria-hidden="true"></i>3 credentials</span></div></div><span class="cc-code">CHFI &middot; CSA &middot; CEH</span><h4 class="cc-name">EC-Council Certifications</h4><span class="cc-org">EC-Council</span><ul class="cc-items"><li class="cc-item"><div class="cc-item-head"><span class="cc-item-name">CHFI, Computer Hacking Forensic Investigator</span><span class="cc-item-date">Aug 2026</span></div><button type="button" class="cc-idrow cc-idrow-sm" data-cid="ECC9386405217" aria-label="Copy certification ID ECC9386405217 to clipboard"><span class="cc-idlabel">Certification ID</span><span class="cc-idval">ECC9386405217</span><i class="far fa-copy cc-idcopy" aria-hidden="true"></i><span class="cc-idok" aria-hidden="true">Copied</span></button></li><li class="cc-item"><div class="cc-item-head"><span class="cc-item-name">CSA, Certified SOC Analyst</span><span class="cc-item-date">Sep 2022</span></div><button type="button" class="cc-idrow cc-idrow-sm" data-cid="ECC0475381296" aria-label="Copy certification ID ECC0475381296 to clipboard"><span class="cc-idlabel">Certification ID</span><span class="cc-idval">ECC0475381296</span><i class="far fa-copy cc-idcopy" aria-hidden="true"></i><span class="cc-idok" aria-hidden="true">Copied</span></button><a class="cc-item-verify" href="https://aspen.eccouncil.org/VerifyBadge?type=certification&amp;a=umx10WJUJ/JO0P2daXuGINb2Wh27MFXNlfuAapOCOpI=" target="_blank" rel="noopener noreferrer" aria-label="Verify the Certified SOC Analyst badge on EC-Council ASPEN, opens in a new tab"><i class="fas fa-circle-check" aria-hidden="true"></i> Verify<i class="fas fa-arrow-up-right-from-square cc-ext" aria-hidden="true"></i></a></li><li class="cc-item"><div class="cc-item-head"><span class="cc-item-name">CEH, Certified Ethical Hacker</span><span class="cc-item-date">Jun 2021</span></div><button type="button" class="cc-idrow cc-idrow-sm" data-cid="ECC9126053874" aria-label="Copy certification ID ECC9126053874 to clipboard"><span class="cc-idlabel">Certification ID</span><span class="cc-idval">ECC9126053874</span><i class="far fa-copy cc-idcopy" aria-hidden="true"></i><span class="cc-idok" aria-hidden="true">Copied</span></button></li></ul><div class="cc-footer"><span class="cc-date"><i class="fas fa-calendar-day cc-dicon" aria-hidden="true"></i><span class="cc-dlab">Issued</span><span class="cc-dy">2021 &ndash; 2026</span></span><a class="cc-status cc-verify" href="https://aspen.eccouncil.org/Verify" target="_blank" rel="noopener noreferrer" aria-label="Verify the EC-Council certifications on ASPEN, opens in a new tab"><i class="fas fa-circle-check" aria-hidden="true"></i> Verify<i class="fas fa-arrow-up-right-from-square cc-ext" aria-hidden="true"></i></a></div></div></div>
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400"><div data-issuer="eccouncil" style="--cc-hue:#d7262f" data-tool-card="true" class="cert-card"><div class="cc-top"><span class="cc-iconwrap"><div class="cc-icon cc-icon-brand"><img class="cc-orglogo cc-orglogo-wide" src="data:image/png;base64,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" alt="EC-Council logo" width="440" height="110" loading="lazy" decoding="async"></div><svg class="cc-arc" viewBox="0 0 106 57" aria-hidden="true" focusable="false"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"/></svg></span><div class="cc-chips"><span class="cc-flag">Primary</span><span class="cc-count"><i class="fas fa-layer-group" aria-hidden="true"></i>3 credentials</span></div></div><span class="cc-code">CHFI &middot; CSA &middot; CEH</span><h4 class="cc-name">EC-Council Certifications</h4><span class="cc-org">EC-Council</span><ul class="cc-items"><li class="cc-item"><div class="cc-item-head"><span class="cc-item-name">CHFI, Computer Hacking Forensic Investigator</span><span class="cc-item-date">Aug 2026</span></div><button type="button" class="cc-idrow cc-idrow-sm" data-cid="ECC9386405217" aria-label="Copy certification ID ECC9386405217 to clipboard"><span class="cc-idlabel">Certification ID</span><span class="cc-idval">ECC9386405217</span><i class="far fa-copy cc-idcopy" aria-hidden="true"></i><span class="cc-idok" aria-hidden="true">Copied</span></button><button type="button" class="cc-idrow cc-idrow-sm cc-namerow" data-cid="Syed Farhan Ahmed" aria-label="Copy candidate name Syed Farhan Ahmed to clipboard"><span class="cc-idlabel">Candidate</span><span class="cc-idval">Syed Farhan Ahmed</span><i class="far fa-copy cc-idcopy" aria-hidden="true"></i><span class="cc-idok" aria-hidden="true">Copied</span></button></li><li class="cc-item"><div class="cc-item-head"><span class="cc-item-name">CSA, Certified SOC Analyst</span><span class="cc-item-date">Sep 2022</span></div><button type="button" class="cc-idrow cc-idrow-sm" data-cid="ECC0475381296" aria-label="Copy certification ID ECC0475381296 to clipboard"><span class="cc-idlabel">Certification ID</span><span class="cc-idval">ECC0475381296</span><i class="far fa-copy cc-idcopy" aria-hidden="true"></i><span class="cc-idok" aria-hidden="true">Copied</span></button><button type="button" class="cc-idrow cc-idrow-sm cc-namerow" data-cid="Farhan Ahmed" aria-label="Copy candidate name Farhan Ahmed to clipboard"><span class="cc-idlabel">Candidate</span><span class="cc-idval">Farhan Ahmed</span><i class="far fa-copy cc-idcopy" aria-hidden="true"></i><span class="cc-idok" aria-hidden="true">Copied</span></button><a class="cc-item-verify" href="https://aspen.eccouncil.org/VerifyBadge?type=certification&amp;a=umx10WJUJ/JO0P2daXuGINb2Wh27MFXNlfuAapOCOpI=" target="_blank" rel="noopener noreferrer" aria-label="Verify the Certified SOC Analyst badge on EC-Council ASPEN, opens in a new tab"><i class="fas fa-circle-check" aria-hidden="true"></i> Verify<i class="fas fa-arrow-up-right-from-square cc-ext" aria-hidden="true"></i></a></li><li class="cc-item"><div class="cc-item-head"><span class="cc-item-name">CEH, Certified Ethical Hacker</span><span class="cc-item-date">Jun 2021</span></div><button type="button" class="cc-idrow cc-idrow-sm" data-cid="ECC9126053874" aria-label="Copy certification ID ECC9126053874 to clipboard"><span class="cc-idlabel">Certification ID</span><span class="cc-idval">ECC9126053874</span><i class="far fa-copy cc-idcopy" aria-hidden="true"></i><span class="cc-idok" aria-hidden="true">Copied</span></button><button type="button" class="cc-idrow cc-idrow-sm cc-namerow" data-cid="Farhan Ahmed Bhutto" aria-label="Copy candidate name Farhan Ahmed Bhutto to clipboard"><span class="cc-idlabel">Candidate</span><span class="cc-idval">Farhan Ahmed Bhutto</span><i class="far fa-copy cc-idcopy" aria-hidden="true"></i><span class="cc-idok" aria-hidden="true">Copied</span></button></li></ul><div class="cc-footer"><span class="cc-date"><i class="fas fa-calendar-day cc-dicon" aria-hidden="true"></i><span class="cc-dlab">Issued</span><span class="cc-dy">2021 &ndash; 2026</span></span><a class="cc-status cc-verify" href="https://aspen.eccouncil.org/Verify" target="_blank" rel="noopener noreferrer" aria-label="Verify the EC-Council certifications on ASPEN, opens in a new tab"><i class="fas fa-circle-check" aria-hidden="true"></i> Verify<i class="fas fa-arrow-up-right-from-square cc-ext" aria-hidden="true"></i></a></div></div></div>
 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400"><div data-issuer="certiprof" style="--cc-hue:#e8542a" data-tool-card="true" class="cert-card"><div class="cc-top"><span class="cc-iconwrap"><div class="cc-icon cc-icon-brand"><img class="cc-orglogo" src="data:image/png;base64,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" alt="CertiProf logo" width="96" height="96" loading="lazy" decoding="async"></div><svg class="cc-arc" viewBox="0 0 106 57" aria-hidden="true" focusable="false"><path d="M102 4c0 27.1-21.9 49-49 49S4 31.1 4 4"/></svg></span><div class="cc-chips"><span class="cc-count"><i class="fas fa-layer-group" aria-hidden="true"></i>3 credentials</span></div></div><span class="cc-code">CSFP &middot; CAPC &middot; RWPC</span><h4 class="cc-name">CertiProf Certifications</h4><span class="cc-org">CertiProf, via Credly</span><ul class="cc-items"><li class="cc-item"><div class="cc-item-head"><span class="cc-item-name">Cybersecurity Awareness Professional Certification</span><span class="cc-item-date">Sep 2024</span></div><span class="cc-item-org">CAPC</span><button type="button" class="cc-idrow cc-idrow-sm" data-cid="d1dd82be" aria-label="Copy certification ID d1dd82be to clipboard"><span class="cc-idlabel">Certification ID</span><span class="cc-idval">d1dd82be</span><i class="far fa-copy cc-idcopy" aria-hidden="true"></i><span class="cc-idok" aria-hidden="true">Copied</span></button></li><li class="cc-item"><div class="cc-item-head"><span class="cc-item-name">Remote Work Professional Certification</span><span class="cc-item-date">Dec 2022</span></div><span class="cc-item-org">RWPC</span></li><li class="cc-item"><div class="cc-item-head"><span class="cc-item-name">Cyber Security Foundation Professional Certificate</span><span class="cc-item-date">Jan 2021</span></div><span class="cc-item-org">CSFPC</span><button type="button" class="cc-idrow cc-idrow-sm" data-cid="54846644" aria-label="Copy certification ID 54846644 to clipboard"><span class="cc-idlabel">Certification ID</span><span class="cc-idval">54846644</span><i class="far fa-copy cc-idcopy" aria-hidden="true"></i><span class="cc-idok" aria-hidden="true">Copied</span></button></li></ul><div class="cc-footer"><span class="cc-date"><i class="fas fa-calendar-day cc-dicon" aria-hidden="true"></i><span class="cc-dlab">Issued</span><span class="cc-dy">2021 &ndash; 2024</span></span><a class="cc-status cc-verify" href="https://www.credly.com/users/syed-farhan-ahmed.f0edf63a/badges/credly" target="_blank" rel="noopener noreferrer" aria-label="Verify the CertiProf credentials on the public Credly wallet, opens in a new tab"><i class="fas fa-circle-check" aria-hidden="true"></i> Verify<i class="fas fa-arrow-up-right-from-square cc-ext" aria-hidden="true"></i></a></div></div></div>
 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
 <div data-issuer="microsoft" style="--cc-hue:#0078d4" data-tool-card="true" class="cert-card">
@@ -2575,6 +2674,157 @@ document.addEventListener('DOMContentLoaded', function () {
         card = c; cx = e.clientX; cy = e.clientY;
         if (!frame) frame = requestAnimationFrame(write);
     }, { passive: true });
+})();
+</script>
+
+<script>
+/* Certification wall: order by grouping or by year, and filter to a single
+   year. Cards are never moved in the DOM, only their CSS order changes, and
+   the shuffle is animated with FLIP through the Web Animations API. */
+(function () {
+    var bar = document.querySelector('.cert-controls');
+    var grid = document.querySelector('#certifications .row');
+    if (!bar || !grid) return;
+
+    var RM = window.matchMedia &&
+             matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var MON = { Jan:1, Feb:2, Mar:3, Apr:4, May:5, Jun:6,
+                Jul:7, Aug:8, Sep:9, Oct:10, Nov:11, Dec:12 };
+
+    function when(text) {
+        var ys = (text.match(/\b(?:19|20)\d{2}\b/g) || []).map(Number);
+        var ms = (text.match(/\b[A-Z][a-z]{2}\b/g) || [])
+                    .filter(function (m) { return MON[m]; });
+        return { y: ys.length ? Math.max.apply(null, ys) : 0,
+                 m: ms.length ? MON[ms[ms.length - 1]] : 0,
+                 all: ys };
+    }
+
+    var model = [].map.call(grid.querySelectorAll('.cert-card'), function (card, i) {
+        var col = card.parentElement;
+        var dates = [].map.call(card.querySelectorAll('.cc-item-date'),
+                                function (e) { return e.textContent; });
+        if (!dates.length) {
+            /* the footer pill renders label, month and year as adjacent spans,
+               so textContent runs them together and the year loses its word
+               boundary. Read the two parts instead. */
+            var dm = card.querySelector('.cc-dm'), dy = card.querySelector('.cc-dy');
+            dates = [((dm ? dm.textContent : '') + ' ' + (dy ? dy.textContent : '')).trim()];
+        }
+        var years = [], newest = { y: 0, m: 0 };
+        dates.forEach(function (t) {
+            var w = when(t);
+            w.all.forEach(function (y) { if (years.indexOf(y) < 0) years.push(y); });
+            if (w.y > newest.y || (w.y === newest.y && w.m > newest.m)) newest = w;
+        });
+        return { col: col, i: i, years: years, newest: newest,
+                 count: card.querySelectorAll('.cc-item').length || 1 };
+    });
+
+    /* year chips, newest first, built from what the wall actually holds */
+    var allYears = [];
+    model.forEach(function (r) {
+        r.years.forEach(function (y) { if (allYears.indexOf(y) < 0) allYears.push(y); });
+    });
+    allYears.sort(function (a, b) { return b - a; });
+    var years = bar.querySelector('.cc-years');
+    function chip(label, value, active) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'cc-year' + (active ? ' is-active' : '');
+        b.setAttribute('data-year', value);
+        b.setAttribute('aria-pressed', active ? 'true' : 'false');
+        b.textContent = label;
+        years.appendChild(b);
+    }
+    chip('All', 'all', true);
+    allYears.forEach(function (y) { chip(String(y), String(y), false); });
+
+    var sortMode = 'group', yearFilter = 'all';
+    var live = bar.querySelector('.cc-count-live');
+
+    function apply() {
+        var visible = model.filter(function (r) {
+            return yearFilter === 'all' || r.years.indexOf(+yearFilter) >= 0;
+        });
+        var ordered = visible.slice().sort(function (a, b) {
+            if (sortMode === 'group' && a.count !== b.count) return a.count - b.count;
+            if (a.newest.y !== b.newest.y) return b.newest.y - a.newest.y;
+            if (a.newest.m !== b.newest.m) return b.newest.m - a.newest.m;
+            return a.i - b.i;
+        });
+        model.forEach(function (r) { r.col.hidden = visible.indexOf(r) < 0; });
+        ordered.forEach(function (r, n) { r.col.style.order = n; });
+        var n = ordered.length;
+        live.textContent = yearFilter === 'all'
+            ? n + ' cards, ' + model.reduce(function (s, r) { return s + r.count; }, 0)
+              + ' credentials'
+            : n + (n === 1 ? ' card' : ' cards') + ' holding a credential from ' + yearFilter;
+    }
+
+    /* FLIP: measure, reorder, then play the difference */
+    function shuffle(change) {
+        var items = model.map(function (r) { return r.col; });
+        var first = items.map(function (el) {
+            return el.hidden ? null : el.getBoundingClientRect(); });
+        change();
+        /* nothing to animate for a reader who cannot see it */
+        if (RM || document.hidden || !items[0] || !items[0].animate) return;
+        items.forEach(function (el, k) {
+            var a = first[k];
+            if (!a || el.hidden) return;
+            var b = el.getBoundingClientRect();
+            var dx = a.left - b.left, dy = a.top - b.top;
+            if (!dx && !dy) return;
+            /* a fast second click must not stack a new slide on the old one */
+            if (el._flip) { el._flip.cancel(); el._flip = null; }
+            var a = el.animate([{ transform: 'translate(' + dx + 'px,' + dy + 'px)' },
+                                { transform: 'none' }],
+                               { duration: 420, easing: 'cubic-bezier(.22,1,.36,1)' });
+            el._flip = a;
+            a.finished.then(function () { el._flip = null; },
+                            function () { /* cancelled, nothing to clear up */ });
+        });
+    }
+
+    function movePill() {
+        var pill = bar.querySelector('.cc-seg-pill');
+        var on = bar.querySelector('.cc-seg-btn.is-active');
+        if (!pill || !on) return;
+        pill.style.width = on.offsetWidth + 'px';
+        pill.style.transform = 'translateX(' + on.offsetLeft + 'px)';
+        pill.style.opacity = '1';
+    }
+
+    bar.addEventListener('click', function (e) {
+        var seg = e.target.closest('.cc-seg-btn');
+        if (seg) {
+            if (seg.classList.contains('is-active')) return;
+            [].forEach.call(bar.querySelectorAll('.cc-seg-btn'), function (b) {
+                b.classList.toggle('is-active', b === seg);
+                b.setAttribute('aria-selected', b === seg ? 'true' : 'false');
+            });
+            sortMode = seg.getAttribute('data-sort');
+            movePill();
+            shuffle(apply);
+            return;
+        }
+        var yr = e.target.closest('.cc-year');
+        if (yr) {
+            [].forEach.call(bar.querySelectorAll('.cc-year'), function (b) {
+                b.classList.toggle('is-active', b === yr);
+                b.setAttribute('aria-pressed', b === yr ? 'true' : 'false');
+            });
+            yearFilter = yr.getAttribute('data-year');
+            shuffle(apply);
+        }
+    });
+
+    addEventListener('resize', movePill, { passive: true });
+    apply();
+    movePill();
+    /* fonts can land after first paint and change the button width */
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(movePill);
 })();
 </script>
 </body>
