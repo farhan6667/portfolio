@@ -2853,9 +2853,11 @@ document.addEventListener('DOMContentLoaded', function () {
             w.all.forEach(function (y) { if (years.indexOf(y) < 0) years.push(y); });
             if (w.y > newest.y || (w.y === newest.y && w.m > newest.m)) newest = w;
         });
+        var pill = card.querySelector('.cc-date');
         return { col: col, card: card, i: i, years: years, newest: newest,
                  items: [].slice.call(card.querySelectorAll('.cc-item')),
                  chip: card.querySelector('.cc-count'),
+                 pill: pill, pillHTML: pill ? pill.innerHTML : null,
                  count: card.querySelectorAll('.cc-item').length || 1 };
     });
 
@@ -2899,6 +2901,34 @@ document.addEventListener('DOMContentLoaded', function () {
             if (r.chip) {
                 r.chip.lastChild.nodeValue = (live === r.count ? r.count : live + ' of ' + r.count)
                     + ' credentials';
+            }
+            /* the footer said the card's whole span even when one credential was
+               left showing, which read as the wrong year */
+            if (r.pill && r.items.length) {
+                if (live === r.count) {
+                    r.pill.innerHTML = r.pillHTML;
+                } else {
+                    var on = r.items.filter(function (li) { return !li.hidden; });
+                    var txt = on.map(function (li) {
+                        var w = li.querySelector('.cc-item-when');
+                        return w ? w.textContent.trim() : ''; });
+                    var head = r.pillHTML.split('<span class="cc-dm"')[0]
+                                         .split('<span class="cc-dy"')[0];
+                    var body;
+                    if (txt.length === 1) {
+                        var p = txt[0].split(/\s+/);
+                        body = p.length > 1
+                            ? '<span class="cc-dm">' + p[0] + '</span><span class="cc-dy">' + p[1] + '</span>'
+                            : '<span class="cc-dy">' + txt[0] + '</span>';
+                    } else {
+                        var ys = txt.map(function (t) {
+                            return parseInt((t.match(/(?:19|20)\d{2}/) || ['0'])[0], 10); })
+                            .filter(Boolean).sort();
+                        body = '<span class="cc-dy">' + (ys[0] === ys[ys.length - 1]
+                            ? ys[0] : ys[0] + ' – ' + ys[ys.length - 1]) + '</span>';
+                    }
+                    r.pill.innerHTML = head + body;
+                }
             }
         });
         var visible = model.filter(function (r) { return r.live > 0; });
