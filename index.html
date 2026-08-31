@@ -1314,6 +1314,106 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan-light);outline
   [data-tool-card]:hover .cc-icon-brand{transform:none!important;}
 }
 
+
+/* =================================================================
+   Interaction techniques rebuilt from nexaforgesite.vercel.app/tools
+   Motion only. Colours, radii and spacing are the portfolio's own.
+   ================================================================= */
+@property --spot-a{syntax:'<number>';inherits:false;initial-value:0;}
+@property --field-angle{syntax:'<angle>';inherits:false;initial-value:-90deg;}
+
+/* ---- pointer tracked spotlight, mouse only ---- */
+@media (hover:hover) and (pointer:fine){
+  [data-spot]{
+    position:relative;
+    --spot-tint:var(--cc-hue,var(--cyan));
+    background-image:radial-gradient(15rem circle at var(--cx,50%) var(--cy,50%),
+      color-mix(in oklab, var(--spot-tint) calc(var(--spot-a) * 16%), transparent) 0%,
+      color-mix(in oklab, var(--purple) calc(var(--spot-a) * 8%), transparent) 45%,
+      transparent 70%);
+    background-repeat:no-repeat;
+    transition:--spot-a var(--dur-base) var(--ease-out-quint),
+               transform var(--dur-base) var(--ease-out-quint),
+               border-color var(--dur-base) var(--ease-out-quint),
+               box-shadow var(--dur-base) var(--ease-out-quint);}
+  [data-spot]:hover{--spot-a:1;}
+
+  /* one pixel edge that follows the pointer, drawn with the mask ring trick */
+  [data-spot]::after{
+    content:'';position:absolute;inset:0;pointer-events:none;
+    border-radius:inherit;padding:1px;opacity:0;
+    background:radial-gradient(11rem circle at var(--cx,50%) var(--cy,50%),
+      var(--spot-tint), var(--purple) 42%, transparent 68%);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    mask-composite:exclude;
+    transition:opacity var(--dur-base) var(--ease-out-quint);}
+  [data-spot]:hover::after{opacity:.8;}
+
+  /* press feedback, the tools grid settles faster than it lifts */
+  [data-spot]:active{transform:translateY(0) scale(.994);transition-duration:80ms;}
+
+  /* glyph tiles pick up the same lift, scale and slight counter rotation */
+  .service-card .sc-icon,.hof-card .hof-icon-wrap,.edu-card .edu-icon,
+  .contact-card .ccard-icon,.tc-card .tc-mark{
+    transition:transform var(--dur-base) var(--ease-out-quint),
+               box-shadow var(--dur-base) var(--ease-out-quint),
+               color var(--dur-base) var(--ease-out-quint);}
+  .service-card:hover .sc-icon,.hof-card:hover .hof-icon-wrap,
+  .edu-card:hover .edu-icon,.contact-card:hover .ccard-icon,
+  .tc-card:hover .tc-mark{transform:translateY(-2px) scale(1.06) rotate(-3deg);}
+
+  /* nav keeps its own underline, it just gains a light sweeping across it */
+  .nav-link{border-radius:var(--radius-full);
+    background-image:linear-gradient(100deg,transparent 0%,
+      rgba(6,182,212,.11) 45%,transparent 90%);
+    background-size:220% 100%;background-position:170% 0;background-repeat:no-repeat;
+    transition:color var(--dur-fast) var(--ease-out-quint),
+               background-position var(--dur-base) var(--ease-out-quint);}
+  .nav-link:hover,.nav-link.active{background-position:-40% 0;}
+}
+
+/* ---- form fields: a conic edge that sweeps once on focus then orbits ---- */
+.form-input{background-origin:border-box;
+  transition:border-color var(--dur-fast) var(--ease-out-quint),
+             box-shadow var(--dur-fast) var(--ease-out-quint);}
+.form-input:hover:not(:focus){
+  box-shadow:0 0 0 3px color-mix(in oklab, var(--cyan) 9%, transparent);}
+.form-input:focus{
+  border-color:transparent;
+  background-image:linear-gradient(var(--bg-elevated),var(--bg-elevated)),
+    conic-gradient(from var(--field-angle),
+      var(--cyan) 0deg, var(--purple) 90deg,
+      var(--cyan) 180deg, var(--purple) 270deg, var(--cyan) 360deg);
+  background-clip:padding-box,border-box;
+  box-shadow:0 0 0 3px color-mix(in oklab, var(--cyan) 11%, transparent),
+             0 0 16px -3px color-mix(in oklab, var(--cyan) 45%, transparent);}
+@media (prefers-reduced-motion:no-preference){
+  .form-input:focus{animation:fieldSweep .28s var(--ease-out-quint) both,
+                              fieldOrbit 4.2s linear .28s infinite;}
+}
+@keyframes fieldSweep{from{--field-angle:-90deg;}to{--field-angle:270deg;}}
+@keyframes fieldOrbit{from{--field-angle:0deg;}to{--field-angle:360deg;}}
+
+/* ---- copy confirmation gets a short pop on top of the existing sweep ---- */
+@media (prefers-reduced-motion:no-preference){
+  .cc-idrow.copied{animation:idPop .34s var(--ease-out-quint);}
+}
+@keyframes idPop{0%{transform:scale(1);}38%{transform:scale(1.022);}100%{transform:scale(1);}}
+
+/* ---- touch and reduced motion keep the content, drop the movement ---- */
+@media (prefers-reduced-motion:reduce){
+  [data-spot]{background-image:none;transition:none;}
+  [data-spot]::after{display:none;}
+  [data-spot]:active{transform:none;}
+  .service-card:hover .sc-icon,.hof-card:hover .hof-icon-wrap,
+  .edu-card:hover .edu-icon,.contact-card:hover .ccard-icon,
+  .tc-card:hover .tc-mark{transform:none;}
+  .nav-link{background-image:none;}
+  .form-input:focus{animation:none;border-color:var(--cyan);background-image:none;}
+}
+
 </style>
 </head>
 <body>
@@ -2469,5 +2569,36 @@ document.addEventListener('DOMContentLoaded', function () {
         </span>
     </a>
 
+
+<script>
+/* Pointer spotlight. One delegated listener for every card on the page,
+   throttled to one write per frame, mouse pointers only. Nothing is loaded
+   from any external site. */
+(function () {
+    if (!window.matchMedia) return;
+    if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var SEL = '.cert-card,.service-card,.hof-card,.edu-card,.contact-card,.tc-card,.tl-card';
+    document.querySelectorAll(SEL).forEach(function (c) { c.setAttribute('data-spot', ''); });
+
+    var frame = null, card = null, cx = 0, cy = 0;
+    function write() {
+        frame = null;
+        if (!card) return;
+        var r = card.getBoundingClientRect();
+        if (!r.width || !r.height) return;
+        card.style.setProperty('--cx', (((cx - r.left) / r.width) * 100).toFixed(1) + '%');
+        card.style.setProperty('--cy', (((cy - r.top) / r.height) * 100).toFixed(1) + '%');
+    }
+    document.addEventListener('pointermove', function (e) {
+        if (e.pointerType && e.pointerType !== 'mouse') return;
+        var c = e.target && e.target.closest ? e.target.closest('[data-spot]') : null;
+        if (!c) { card = null; return; }
+        card = c; cx = e.clientX; cy = e.clientY;
+        if (!frame) frame = requestAnimationFrame(write);
+    }, { passive: true });
+})();
+</script>
 </body>
 </html>
