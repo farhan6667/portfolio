@@ -1414,6 +1414,24 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan-light);outline
   .form-input:focus{animation:none;border-color:var(--cyan);background-image:none;}
 }
 
+
+/* ---- the lift lost its zoom when the tools-grid rule replaced the earlier
+   cert-card transform, so the scale is restored here, after every
+   reduced-motion override, with its own override to match ---- */
+@media (hover:hover) and (pointer:fine){
+  [data-tool-card]:hover{transform:translateY(-3px) scale(1.018);}
+  .service-card:hover,.hof-card:hover,.edu-card:hover,
+  .contact-card:hover{transform:translateY(-3px) scale(1.015);}
+  .tc-card:hover{transform:translateY(-2px) scale(1.012);}
+  .tl-card:hover{transform:translateY(-3px) scale(1.008);}
+  [data-spot]:active{transform:translateY(-1px) scale(.995);transition-duration:80ms;}
+}
+@media (prefers-reduced-motion:reduce){
+  [data-tool-card]:hover,.service-card:hover,.hof-card:hover,.edu-card:hover,
+  .contact-card:hover,.tc-card:hover,.tl-card:hover,
+  [data-spot]:active{transform:none;}
+}
+
 </style>
 </head>
 <body>
@@ -2522,9 +2540,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 var r = card.getBoundingClientRect();
                 var x = e.clientX - r.left, y = e.clientY - r.top;
                 var rx = (y - r.height / 2) / 25, ry = (r.width / 2 - x) / 25;
-                card.style.transform = 'perspective(1000px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateY(-6px)';
+                card.style.transform = 'perspective(1000px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateY(-6px) scale(1.015)';
             });
-            card.addEventListener('mouseleave', function () { card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)'; });
+            card.addEventListener('mouseleave', function () { card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)'; });
         });
     }
 
