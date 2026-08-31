@@ -1861,6 +1861,47 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan-light);outline
 }
 @media(prefers-reduced-motion:reduce){.tc-card:hover .tc-mark{transform:none;}}
 
+
+/* ---- a thin light runs around a chip on hover, in that issuer's own colour ---- */
+@property --neon-angle{syntax:'<angle>';inherits:false;initial-value:0deg;}
+
+@media (hover:hover) and (pointer:fine){
+  .cc-iss,.cc-year,.cc-seg-btn{position:relative;isolation:isolate;}
+  .cc-iss::after,.cc-year::after,.cc-seg-btn::after{
+    content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+    border-radius:inherit;padding:1.5px;opacity:0;
+    background:conic-gradient(from var(--neon-angle),
+      transparent 0deg,
+      var(--neon,var(--cyan)) 40deg,
+      color-mix(in oklab, var(--neon,var(--cyan)) 55%, #ffffff) 70deg,
+      var(--neon,var(--cyan)) 100deg,
+      transparent 150deg,
+      transparent 360deg);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    mask-composite:exclude;
+    transition:opacity var(--dur-fast) var(--ease-out-quint);}
+  .cc-iss{--neon:var(--iss-hue,var(--cyan));}
+  .cc-year,.cc-seg-btn{--neon:var(--cyan);}
+  .cc-iss:hover::after,.cc-year:hover::after,.cc-seg-btn:hover::after,
+  .cc-iss:focus-visible::after,.cc-year:focus-visible::after,.cc-seg-btn:focus-visible::after{
+    opacity:1;animation:neonRun 1.9s linear infinite;}
+  /* a soft bloom of the same colour under the chip */
+  .cc-iss:hover{box-shadow:0 4px 18px -8px color-mix(in oklab, var(--iss-hue,var(--cyan)) 75%, transparent);}
+  .cc-year:hover{box-shadow:0 4px 16px -8px rgba(6,182,212,.7);}
+}
+@keyframes neonRun{to{--neon-angle:360deg;}}
+
+@supports not (color:color-mix(in oklab, red, red)){
+  .cc-iss::after,.cc-year::after,.cc-seg-btn::after{display:none;}
+}
+@media(prefers-reduced-motion:reduce){
+  .cc-iss:hover::after,.cc-year:hover::after,.cc-seg-btn:hover::after,
+  .cc-iss:focus-visible::after,.cc-year:focus-visible::after,
+  .cc-seg-btn:focus-visible::after{animation:none;opacity:.85;}
+}
+
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person",
@@ -3080,7 +3121,7 @@ document.addEventListener('DOMContentLoaded', function () {
         years.appendChild(b);
     }
     var totalCreds = model.reduce(function (s, r) { return s + r.count; }, 0);
-    chip('All', 'all', true, totalCreds);
+    chip('All years', 'all', true, totalCreds);
     allYears.forEach(function (y) {
         var n = model.reduce(function (s, r) {
             return s + (r.items.length
@@ -3093,12 +3134,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /* one chip per issuing body, wearing that body's own mark */
     var issuerBox = bar.querySelector('.cc-issuers');
-    function issuerChip(label, value, logo, count, active) {
+    function issuerChip(label, value, logo, count, active, hue) {
         var b = document.createElement('button');
         b.type = 'button';
         b.className = 'cc-iss' + (active ? ' is-active' : '');
         b.setAttribute('data-issuer-filter', value);
         b.setAttribute('aria-pressed', active ? 'true' : 'false');
+        if (hue) b.style.setProperty('--iss-hue', hue);
         if (logo) {
             var plate = document.createElement('span');
             plate.className = 'cc-iss-plate';
@@ -3132,8 +3174,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 var org = r.card.querySelector('.cc-org');
                 name = org ? org.textContent.split(',')[0].trim() : '';
             }
-            issuerChip(name, r.card.getAttribute('data-issuer'),
-                       r.card.querySelector('.cc-orglogo'), r.count, false);
+            var hue = (r.card.getAttribute('style') || '').match(/--cc-hue:\s*(#[0-9a-f]{6})/i);
+            if (hue) r.hue = hue[1];
+        issuerChip(name, r.card.getAttribute('data-issuer'),
+                       r.card.querySelector('.cc-orglogo'), r.count, false, r.hue);
         });
 
     var sortMode = 'group', yearFilter = 'all', issuerFilter = 'all';
@@ -3241,6 +3285,16 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    /* filtering can shrink the wall by thousands of pixels, which leaves the
+       reader looking at the empty space the cards used to fill */
+    function keepInView() {
+        var top = bar.getBoundingClientRect().top;
+        if (top >= 0 && top < innerHeight * 0.5) return;
+        var y = bar.getBoundingClientRect().top + scrollY - 96;
+        try { scrollTo({ top: y, behavior: RM ? 'auto' : 'smooth' }); }
+        catch (err) { scrollTo(0, y); }
+    }
+
     function movePill() {
         var pill = bar.querySelector('.cc-seg-pill');
         var on = bar.querySelector('.cc-seg-btn.is-active');
@@ -3261,6 +3315,7 @@ document.addEventListener('DOMContentLoaded', function () {
             sortMode = seg.getAttribute('data-sort');
             movePill();
             shuffle(apply);
+            keepInView();
             return;
         }
         if (e.target.closest('.cc-clear')) {
@@ -3274,6 +3329,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 b.classList.toggle('is-active', on);
                 b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
             shuffle(apply);
+            keepInView();
             return;
         }
         var isb = e.target.closest('.cc-iss');
@@ -3284,6 +3340,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
             issuerFilter = isb.getAttribute('data-issuer-filter');
             shuffle(apply);
+            keepInView();
             return;
         }
         var yr = e.target.closest('.cc-year');
@@ -3294,6 +3351,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
             yearFilter = yr.getAttribute('data-year');
             shuffle(apply);
+            keepInView();
         }
     });
 
