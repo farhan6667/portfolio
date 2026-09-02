@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://fonts.googleapis.com; script-src 'self' https://cdn.jsdelivr.net https://unpkg.com 'sha256-t+QZdxwxUzBgQXLFYkgW/9yU/3JnDNBZVJV1vRQisEo=' 'sha256-1VG4h1SxNocN5XL8+Y/PQwjj4HZ/EkVLQOiQWX7PWHA=' 'sha256-VYIbyYvSIyor2B9A9dImAkt8iaWNiLKgWWl+KoR5Fxg=' 'sha256-U0cHG1lNYXdIvO9DlwC/TCrCP3wdvWOV34Z+4pCqHzI=' 'sha256-hwSBpZTLFFrTKQH3HJ5LLRn92bpsubOAKqi+BEpI/Qc=' 'sha256-NV3PXlYsg6g7U8IWFuW7gdHRwmjwnLoPGuV15jhiBFY=' 'sha256-nB0awktbl6IWe9ugFssylgGkBXjeaO5eAVAmFAAYVqA=' 'sha256-bQr7rP83F/7k0d30PAKIE7Co+rI/8IoiUROBCcNMXxo='; connect-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://fonts.googleapis.com; script-src 'self' https://cdn.jsdelivr.net https://unpkg.com 'sha256-t+QZdxwxUzBgQXLFYkgW/9yU/3JnDNBZVJV1vRQisEo=' 'sha256-1VG4h1SxNocN5XL8+Y/PQwjj4HZ/EkVLQOiQWX7PWHA=' 'sha256-ZzlZ8KjglC1tQHIx0O3sv183H6YxlbkPPuDUBEVU2Rg=' 'sha256-U0cHG1lNYXdIvO9DlwC/TCrCP3wdvWOV34Z+4pCqHzI=' 'sha256-hwSBpZTLFFrTKQH3HJ5LLRn92bpsubOAKqi+BEpI/Qc=' 'sha256-NV3PXlYsg6g7U8IWFuW7gdHRwmjwnLoPGuV15jhiBFY=' 'sha256-nB0awktbl6IWe9ugFssylgGkBXjeaO5eAVAmFAAYVqA=' 'sha256-bQr7rP83F/7k0d30PAKIE7Co+rI/8IoiUROBCcNMXxo='; connect-src 'self'">
     <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Syed Farhan Ahmed, Head of Cyber Security. CISM, CISA, CHFI, CEH, PNPT and eJPT certified. 15 years in IT, the last nine in security.">
@@ -2432,6 +2432,191 @@ html[data-theme="light"] .about-image img{filter:saturate(.95) brightness(.98);}
 html[data-theme="light"] .cc-seg-btn.is-active,
 html[data-theme="light"] .cc-seg .cc-seg-btn.is-active{color:#0a4a5c;}
 html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
+
+/* ============================================================================
+   SFA ICON SYSTEM
+   Thirteen one-off icon treatments, nine plate sizes and three stray circles
+   are replaced by one chip taken from the SFA mark: a rounded square on an
+   indigo surface with two circuit ticks, at three sizes, with the glyph held
+   at a fixed share of the plate. Geometry only for the plates that carry a
+   real company logo, so those keep their white ground.
+   ========================================================================= */
+:root{
+  --sfa-chip-sm:34px; --sfa-chip-md:44px; --sfa-chip-lg:54px;
+  --sfa-chip-radius:.3;                 /* of the plate */
+  --sfa-ink:#a78bfa;                    /* the glyph */
+  --sfa-ink-hi:#c4b5fd;
+  --sfa-edge:rgba(139,92,246,.30);
+  --sfa-face:linear-gradient(150deg,rgba(124,58,237,.22),rgba(79,70,229,.10));
+  --sfa-tick:rgba(167,139,250,.55);
+  --sfa-tick-soft:rgba(167,139,250,.30);
+}
+html[data-theme="light"]{
+  --sfa-ink:#5b21b6;
+  --sfa-ink-hi:#4c1d95;
+  --sfa-edge:rgba(91,33,182,.22);
+  --sfa-face:linear-gradient(150deg,rgba(124,58,237,.10),rgba(79,70,229,.05));
+  --sfa-tick:rgba(91,33,182,.42);
+  --sfa-tick-soft:rgba(91,33,182,.22);
+}
+
+/* the chip surface, shared by every glyph plate */
+.info-icon,.ach-icon,.fb-icon,.tc-mark,
+.sc-icon,.skc-icon,.hz-mark,
+.edu-icon,.ccard-icon,.hof-icon-wrap{
+  display:grid;place-items:center;flex-shrink:0;
+  color:var(--sfa-ink);
+  background-color:transparent;
+  background-image:
+    radial-gradient(circle at calc(100% - 7px) 7px, var(--sfa-tick) 0 1.6px, transparent 1.7px),
+    radial-gradient(circle at 7px calc(100% - 7px), var(--sfa-tick-soft) 0 1.6px, transparent 1.7px),
+    var(--sfa-face);
+  border:1px solid var(--sfa-edge);
+  box-shadow:inset 0 1px 0 rgb(255 255 255/.06);
+}
+
+/* three sizes, and the glyph always the same share of the plate */
+.info-icon,.ach-icon,.fb-icon,.tc-mark{
+  width:var(--sfa-chip-sm);height:var(--sfa-chip-sm);
+  border-radius:calc(var(--sfa-chip-sm) * var(--sfa-chip-radius));
+  font-size:calc(var(--sfa-chip-sm) * .42);}
+.skc-icon,.hz-mark{
+  width:var(--sfa-chip-md);height:var(--sfa-chip-md);
+  border-radius:calc(var(--sfa-chip-md) * var(--sfa-chip-radius));
+  font-size:calc(var(--sfa-chip-md) * .42);}
+.sc-icon,.edu-icon,.ccard-icon,.hof-icon-wrap{
+  width:var(--sfa-chip-lg);height:var(--sfa-chip-lg);
+  border-radius:calc(var(--sfa-chip-lg) * var(--sfa-chip-radius))!important;
+  font-size:calc(var(--sfa-chip-lg) * .42);}
+
+/* the service row carried six different hues in one grid. One family now. */
+.sc-icon-cyan,.sc-icon-purple,.sc-icon-gold,.sc-icon-green,
+.sc-icon-blue,.sc-icon-pink,.sc-icon-orange{color:var(--sfa-ink);}
+
+/* rank is real information, so the three ranked cards keep their gold;
+   the eight acknowledgements join the family */
+.hof-icon-gold{color:var(--cc-gold-hi);
+  background-image:
+    radial-gradient(circle at calc(100% - 7px) 7px, rgba(227,184,114,.55) 0 1.6px, transparent 1.7px),
+    radial-gradient(circle at 7px calc(100% - 7px), rgba(227,184,114,.30) 0 1.6px, transparent 1.7px),
+    linear-gradient(150deg,rgba(227,184,114,.20),rgba(180,132,58,.08));
+  border-color:rgba(227,184,114,.30);}
+.hof-icon-cyan{color:var(--sfa-ink);}
+html[data-theme="light"] .hof-icon-gold{color:#7c4a06;
+  background-image:
+    radial-gradient(circle at calc(100% - 7px) 7px, rgba(161,98,7,.42) 0 1.6px, transparent 1.7px),
+    radial-gradient(circle at 7px calc(100% - 7px), rgba(161,98,7,.22) 0 1.6px, transparent 1.7px),
+    linear-gradient(150deg,rgba(161,98,7,.10),rgba(161,98,7,.04));
+  border-color:rgba(161,98,7,.22);}
+
+/* the memorisation card is deliberately not one of the IT rows, so it keeps
+   its own hue and only takes the shared geometry */
+.hz-mark{color:var(--green);
+  background-image:
+    radial-gradient(circle at calc(100% - 7px) 7px, rgba(16,185,129,.5) 0 1.6px, transparent 1.7px),
+    radial-gradient(circle at 7px calc(100% - 7px), rgba(16,185,129,.28) 0 1.6px, transparent 1.7px),
+    linear-gradient(150deg,rgba(16,185,129,.16),rgba(16,185,129,.05));
+  border-color:rgba(16,185,129,.28);}
+
+/* plates that hold a real company logo keep their white ground and only
+   take the shared corner treatment */
+.cc-icon,.mq-mark,.tp-plate{border-radius:9px;}
+
+/* the SFA mark is the anchor, so it wears the chip most explicitly */
+.brand-shield{
+  width:38px;height:38px;border-radius:11px;font-size:1rem;
+  display:grid;place-items:center;
+  color:#ddd6fe;
+  background-color:transparent;
+  background-image:
+    radial-gradient(circle at calc(100% - 8px) 8px, rgba(196,181,253,.75) 0 1.7px, transparent 1.8px),
+    radial-gradient(circle at 8px calc(100% - 8px), rgba(196,181,253,.45) 0 1.7px, transparent 1.8px),
+    linear-gradient(150deg,#6d28d9,#4338ca);
+  border:1px solid rgba(167,139,250,.45);
+  box-shadow:inset 0 1px 0 rgb(255 255 255/.18),0 4px 14px -6px rgba(109,40,217,.7);}
+html[data-theme="light"] .brand-shield{
+  color:#f5f3ff;
+  background-image:
+    radial-gradient(circle at calc(100% - 8px) 8px, rgba(221,214,254,.8) 0 1.7px, transparent 1.8px),
+    radial-gradient(circle at 8px calc(100% - 8px), rgba(221,214,254,.5) 0 1.7px, transparent 1.8px),
+    linear-gradient(150deg,#5b21b6,#3730a3);
+  border-color:rgba(91,33,182,.35);
+  box-shadow:inset 0 1px 0 rgb(255 255 255/.22),0 4px 14px -8px rgba(67,56,202,.55);}
+
+@media (hover:hover) and (pointer:fine){
+  .service-card:hover .sc-icon,.skill-card:hover .skc-icon,
+  .hof-card:hover .hof-icon-wrap,.edu-card:hover .edu-icon,
+  .contact-card:hover .ccard-icon,.tc-card:hover .tc-mark{
+    color:var(--sfa-ink-hi);border-color:var(--sfa-edge);}
+  .hof-card:hover .hof-icon-gold{color:var(--cc-gold-hi);}
+}
+
+/* ============================================================================
+   LIGHT THEME COLOUR RAMP
+   Twenty-six distinct text colours were painted, five of them near-greys doing
+   the same job. Three steps now, all built on the same navy, so the light
+   theme reads as the same brand in daylight.
+   ========================================================================= */
+html[data-theme="light"]{
+  --text-white:#0b1220;      /* headings */
+  --text-light:#1e293b;      /* secondary */
+  --text-muted:#43536b;      /* body */
+  --text-dim:#55637a;        /* metadata */
+}
+/* the strays that were set by hand during earlier contrast work */
+html[data-theme="light"] .cc-year,html[data-theme="light"] .cc-iss,
+html[data-theme="light"] .cc-ydrop,html[data-theme="light"] .cc-yopt,
+html[data-theme="light"] .cc-seg-btn,html[data-theme="light"] .cc-chipnum,
+html[data-theme="light"] .cc-iss-name{color:var(--text-muted);}
+html[data-theme="light"] .tl-company{color:var(--text-light);}
+html[data-theme="light"] .sc-featured-badge{color:var(--text-dim);}
+/* a dark theme mint had leaked into the light theme on the copy confirmation */
+html[data-theme="light"] .cc-idok{color:#046c4e;}
+
+
+/* the skill cards coloured their plate through the card class, which sat
+   above the shared rule */
+.skill-card-cyan .skc-icon,.skill-card-purple .skc-icon,
+.skill-card-amber .skc-icon,.skill-card-green .skc-icon{
+  color:var(--sfa-ink);
+  background-color:transparent;
+  background-image:
+    radial-gradient(circle at calc(100% - 7px) 7px, var(--sfa-tick) 0 1.6px, transparent 1.7px),
+    radial-gradient(circle at 7px calc(100% - 7px), var(--sfa-tick-soft) 0 1.6px, transparent 1.7px),
+    var(--sfa-face);
+  border:1px solid var(--sfa-edge);}
+
+/* the rank badge in the hero reads gold, the way a rank does in the wall */
+.fb-icon-rank{color:var(--cc-gold-hi);
+  background-image:
+    radial-gradient(circle at calc(100% - 7px) 7px, rgba(227,184,114,.55) 0 1.6px, transparent 1.7px),
+    radial-gradient(circle at 7px calc(100% - 7px), rgba(227,184,114,.30) 0 1.6px, transparent 1.7px),
+    linear-gradient(150deg,rgba(227,184,114,.20),rgba(180,132,58,.08));
+  border-color:rgba(227,184,114,.30);}
+html[data-theme="light"] .fb-icon-rank{color:#7c4a06;
+  background-image:
+    radial-gradient(circle at calc(100% - 7px) 7px, rgba(161,98,7,.42) 0 1.6px, transparent 1.7px),
+    radial-gradient(circle at 7px calc(100% - 7px), rgba(161,98,7,.22) 0 1.6px, transparent 1.7px),
+    linear-gradient(150deg,rgba(161,98,7,.10),rgba(161,98,7,.04));
+  border-color:rgba(161,98,7,.22);}
+
+
+/* the training marks keep their provider hue, which identifies who ran the
+   course, and take the same chip surface so they still read as one family */
+@supports (color: color-mix(in oklab, red, blue)){
+  .tc-mark{
+    background-color:transparent;
+    background-image:
+      radial-gradient(circle at calc(100% - 7px) 7px,
+        color-mix(in oklab, var(--tc-hue) 60%, transparent) 0 1.6px, transparent 1.7px),
+      radial-gradient(circle at 7px calc(100% - 7px),
+        color-mix(in oklab, var(--tc-hue) 32%, transparent) 0 1.6px, transparent 1.7px),
+      linear-gradient(150deg,
+        color-mix(in oklab, var(--tc-hue) 16%, transparent),
+        color-mix(in oklab, var(--tc-hue) 5%, transparent));
+    border:1px solid color-mix(in oklab, var(--tc-hue) 28%, transparent);}
+}
+
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person",
@@ -2506,7 +2691,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
 <nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
     <div class="container">
         <a class="navbar-brand" href="#hero">
-            <span class="brand-shield"><i class="fas fa-shield-halved"></i></span>
+            <span class="brand-shield"><i class="fas fa-shield-halved" aria-hidden="true"></i></span>
             <span class="brand-name">SFA</span>
         </a>
         <button class="navbar-toggler" type="button" aria-label="Open the navigation menu" data-bs-toggle="collapse" data-bs-target="#navContent">
@@ -2523,7 +2708,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
                 <li class="nav-item"><a class="nav-link" href="#halloffame">Hall of Fame</a></li>
                 <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
                 <li class="nav-item ms-lg-3">
-                    <button type="button" class="theme-btn" id="themeBtn" aria-label="Switch to the light theme" title="Switch theme"><span class="theme-knob"><i class="fas fa-moon theme-i-moon" aria-hidden="true"></i><i class="fas fa-sun theme-i-sun" aria-hidden="true"></i></span></button><a class="nav-cta" href="#contact"><i class="fas fa-paper-plane me-2"></i>Contact</a>
+                    <button type="button" class="theme-btn" id="themeBtn" aria-label="Switch to the light theme" title="Switch theme"><span class="theme-knob"><i class="fas fa-moon theme-i-moon" aria-hidden="true"></i><i class="fas fa-sun theme-i-sun" aria-hidden="true"></i></span></button><a class="nav-cta" href="#contact"><i class="fas fa-paper-plane me-2" aria-hidden="true"></i>Contact</a>
                 </li>
             </ul>
         </div>
@@ -2559,13 +2744,13 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
                         A hands-on <strong>Head of Cyber Security</strong> with <strong>15 years in IT</strong> and the last nine in security. Specialized in <strong>Penetration Testing</strong>, <strong>CHFI Forensics</strong>, <strong>Mobile/Windows Forensics</strong>, and <strong>ISO 27001</strong> compliance. Recognized by <strong>HackerOne</strong>, <strong>OPPO</strong>, <strong>AT&T</strong> & <strong>Mastercard</strong>.
                     </p>
                     <div class="hero-cert-badges">
-                        <span class="hcb"><i class="fas fa-user-shield me-1"></i>CISA</span>
-                        <span class="hcb"><i class="fas fa-terminal me-1"></i>PNPT</span>
-                        <span class="hcb"><i class="fas fa-skull-crossbones me-1"></i>CEH</span>
-                        <span class="hcb"><i class="fas fa-fingerprint me-1"></i>CHFI</span>
-                        <span class="hcb"><i class="fas fa-certificate me-1"></i>ISO 27001</span>
-                        <span class="hcb"><i class="fas fa-user-secret me-1"></i>CSA</span>
-                        <span class="hcb"><i class="fas fa-mobile-screen me-1"></i>Mobile Forensics</span>
+                        <span class="hcb"><i class="fas fa-user-shield me-1" aria-hidden="true"></i>CISA</span>
+                        <span class="hcb"><i class="fas fa-terminal me-1" aria-hidden="true"></i>PNPT</span>
+                        <span class="hcb"><i class="fas fa-bullseye me-1" aria-hidden="true"></i>CEH</span>
+                        <span class="hcb"><i class="fas fa-fingerprint me-1" aria-hidden="true"></i>CHFI</span>
+                        <span class="hcb"><i class="fas fa-certificate me-1" aria-hidden="true"></i>ISO 27001</span>
+                        <span class="hcb"><i class="fas fa-binoculars me-1" aria-hidden="true"></i>CSA</span>
+                        <span class="hcb"><i class="fas fa-mobile-screen me-1" aria-hidden="true"></i>Mobile Forensics</span>
                     </div>
                     <div class="hero-stats">
                         <div class="stat-box"><span class="stat-num" data-target="15">15</span><span class="stat-plus">+</span><span class="stat-label">Years<br>Experience</span></div>
@@ -2577,13 +2762,13 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
                         <div class="stat-box"><span class="stat-num" data-target="11">11</span><span class="stat-label">Bug Bounty<br>Awards</span></div>
                     </div>
                     <div class="hero-buttons">
-                        <a href="#contact" class="btn-cyber-primary"><span class="btn-content"><i class="fas fa-envelope me-2"></i>Hire Me</span><span class="btn-glow"></span></a>
-                        <a href="#experience" class="btn-cyber-outline"><i class="fas fa-briefcase me-2"></i>View Experience</a>
+                        <a href="#contact" class="btn-cyber-primary"><span class="btn-content"><i class="fas fa-envelope me-2" aria-hidden="true"></i>Hire Me</span><span class="btn-glow"></span></a>
+                        <a href="#experience" class="btn-cyber-outline"><i class="fas fa-briefcase me-2" aria-hidden="true"></i>View Experience</a>
                     </div>
                     <div class="hero-socials">
-                        <a href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer" aria-label="Syed Farhan Ahmed on LinkedIn, opens in a new tab"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="mailto:syedfarhan6669@gmail.com" aria-label="Email Syed Farhan Ahmed"><i class="fas fa-envelope"></i></a>
-                        <a href="tel:+923111256221" aria-label="Call Syed Farhan Ahmed"><i class="fas fa-phone"></i></a>
+                        <a href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer" aria-label="Syed Farhan Ahmed on LinkedIn, opens in a new tab"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="mailto:syedfarhan6669@gmail.com" aria-label="Email Syed Farhan Ahmed"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                        <a href="tel:+923111256221" aria-label="Call Syed Farhan Ahmed"><i class="fas fa-phone" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -2599,15 +2784,15 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
                         </div>
                         <div class="hero-image-border"></div>
                         <div class="float-badge fb-1">
-                            <div class="fb-icon" style="background:rgba(6,182,212,0.15);color:#06b6d4;"><i class="fas fa-shield-halved"></i></div>
+                            <div class="fb-icon"><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
                             <div class="fb-text"><span class="fb-label">Certified</span><span class="fb-value">SOC Analyst</span></div>
                         </div>
                         <div class="float-badge fb-2">
-                            <div class="fb-icon" style="background:rgba(245,158,11,0.15);color:#f59e0b;"><i class="fas fa-trophy"></i></div>
+                            <div class="fb-icon fb-icon-rank"><i class="fas fa-trophy" aria-hidden="true"></i></div>
                             <div class="fb-text"><span class="fb-label">HackerOne</span><span class="fb-value">Rank #7 PK</span></div>
                         </div>
                         <div class="float-badge fb-3">
-                            <div class="fb-icon" style="background:rgba(139,92,246,0.15);color:#8b5cf6;"><i class="fas fa-certificate"></i></div>
+                            <div class="fb-icon"><i class="fas fa-certificate" aria-hidden="true"></i></div>
                             <div class="fb-text"><span class="fb-label">ISO 27001</span><span class="fb-value">Certified</span></div>
                         </div>
                     </div>
@@ -2625,40 +2810,40 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
 <div class="tech-marquee">
     <div class="marquee-track">
         <div class="marquee-content">
-            <span class="marquee-item"><i class="fas fa-crosshairs"></i> Penetration Testing</span>
-            <span class="marquee-item mi-highlight"><i class="fas fa-fingerprint"></i> CHFI Forensics</span>
-            <span class="marquee-item mi-highlight"><i class="fas fa-certificate"></i> ISO 27001</span>
-            <span class="marquee-item mi-highlight"><i class="fas fa-skull-crossbones"></i> CEH Certified</span>
-            <span class="marquee-item"><i class="fas fa-mobile-screen"></i> Mobile Forensics</span>
+            <span class="marquee-item"><i class="fas fa-crosshairs" aria-hidden="true"></i> Penetration Testing</span>
+            <span class="marquee-item mi-highlight"><i class="fas fa-fingerprint" aria-hidden="true"></i> CHFI Forensics</span>
+            <span class="marquee-item mi-highlight"><i class="fas fa-certificate" aria-hidden="true"></i> ISO 27001</span>
+            <span class="marquee-item mi-highlight"><i class="fas fa-bullseye" aria-hidden="true"></i> CEH Certified</span>
+            <span class="marquee-item"><i class="fas fa-mobile-screen" aria-hidden="true"></i> Mobile Forensics</span>
             <span class="marquee-item"><span class="mq-mark mq-fortinet" role="img" aria-label="Fortinet logo"></span> Fortigate</span>
             <span class="marquee-item"><span class="mq-mark mq-sophos" role="img" aria-label="Sophos logo"></span> Sophos XG</span>
             <span class="marquee-item"><span class="mq-mark mq-wazuh" role="img" aria-label="Wazuh logo"></span> Wazuh SIEM</span>
             <span class="marquee-item"><span class="mq-mark mq-ibm" role="img" aria-label="IBM logo"></span> IBM QRadar</span>
             <span class="marquee-item"><span class="mq-mark mq-elastic" role="img" aria-label="Elastic logo"></span> Elastic SIEM</span>
             <span class="marquee-item"><span class="mq-mark mq-zabbix" role="img" aria-label="Zabbix logo"></span> Zabbix</span>
-            <span class="marquee-item"><i class="fas fa-bug"></i> Vulnerability Assessment</span>
-            <span class="marquee-item"><i class="fas fa-virus-slash"></i> Incident Response</span>
-            <span class="marquee-item"><i class="fas fa-lock"></i> EDR Solutions</span>
-            <span class="marquee-item"><i class="fas fa-user-secret"></i> Threat Hunting</span>
+            <span class="marquee-item"><i class="fas fa-bug" aria-hidden="true"></i> Vulnerability Assessment</span>
+            <span class="marquee-item"><i class="fas fa-virus-slash" aria-hidden="true"></i> Incident Response</span>
+            <span class="marquee-item"><i class="fas fa-lock" aria-hidden="true"></i> EDR Solutions</span>
+            <span class="marquee-item"><i class="fas fa-binoculars" aria-hidden="true"></i> Threat Hunting</span>
             <span class="marquee-item"><span class="mq-mark mq-microsoft" role="img" aria-label="Microsoft logo"></span> Windows Server</span>
             <span class="marquee-item"><span class="mq-mark mq-microsoft" role="img" aria-label="Microsoft logo"></span> Azure</span>
         </div>
         <div class="marquee-content" aria-hidden="true">
-            <span class="marquee-item"><i class="fas fa-crosshairs"></i> Penetration Testing</span>
-            <span class="marquee-item mi-highlight"><i class="fas fa-fingerprint"></i> CHFI Forensics</span>
-            <span class="marquee-item mi-highlight"><i class="fas fa-certificate"></i> ISO 27001</span>
-            <span class="marquee-item mi-highlight"><i class="fas fa-skull-crossbones"></i> CEH Certified</span>
-            <span class="marquee-item"><i class="fas fa-mobile-screen"></i> Mobile Forensics</span>
+            <span class="marquee-item"><i class="fas fa-crosshairs" aria-hidden="true"></i> Penetration Testing</span>
+            <span class="marquee-item mi-highlight"><i class="fas fa-fingerprint" aria-hidden="true"></i> CHFI Forensics</span>
+            <span class="marquee-item mi-highlight"><i class="fas fa-certificate" aria-hidden="true"></i> ISO 27001</span>
+            <span class="marquee-item mi-highlight"><i class="fas fa-bullseye" aria-hidden="true"></i> CEH Certified</span>
+            <span class="marquee-item"><i class="fas fa-mobile-screen" aria-hidden="true"></i> Mobile Forensics</span>
             <span class="marquee-item"><span class="mq-mark mq-fortinet" role="img" aria-label="Fortinet logo"></span> Fortigate</span>
             <span class="marquee-item"><span class="mq-mark mq-sophos" role="img" aria-label="Sophos logo"></span> Sophos XG</span>
             <span class="marquee-item"><span class="mq-mark mq-wazuh" role="img" aria-label="Wazuh logo"></span> Wazuh SIEM</span>
             <span class="marquee-item"><span class="mq-mark mq-ibm" role="img" aria-label="IBM logo"></span> IBM QRadar</span>
             <span class="marquee-item"><span class="mq-mark mq-elastic" role="img" aria-label="Elastic logo"></span> Elastic SIEM</span>
             <span class="marquee-item"><span class="mq-mark mq-zabbix" role="img" aria-label="Zabbix logo"></span> Zabbix</span>
-            <span class="marquee-item"><i class="fas fa-bug"></i> Vulnerability Assessment</span>
-            <span class="marquee-item"><i class="fas fa-virus-slash"></i> Incident Response</span>
-            <span class="marquee-item"><i class="fas fa-lock"></i> EDR Solutions</span>
-            <span class="marquee-item"><i class="fas fa-user-secret"></i> Threat Hunting</span>
+            <span class="marquee-item"><i class="fas fa-bug" aria-hidden="true"></i> Vulnerability Assessment</span>
+            <span class="marquee-item"><i class="fas fa-virus-slash" aria-hidden="true"></i> Incident Response</span>
+            <span class="marquee-item"><i class="fas fa-lock" aria-hidden="true"></i> EDR Solutions</span>
+            <span class="marquee-item"><i class="fas fa-binoculars" aria-hidden="true"></i> Threat Hunting</span>
             <span class="marquee-item"><span class="mq-mark mq-microsoft" role="img" aria-label="Microsoft logo"></span> Windows Server</span>
             <span class="marquee-item"><span class="mq-mark mq-microsoft" role="img" aria-label="Microsoft logo"></span> Azure</span>
         </div>
@@ -2669,7 +2854,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
 <section id="about" class="section">
     <div class="container">
         <div class="section-header text-center" data-aos="fade-up">
-            <span class="section-badge"><i class="fas fa-user-shield"></i> About Me</span>
+            <span class="section-badge"><i class="fas fa-user-shield" aria-hidden="true"></i> About Me</span>
             <h2 class="section-title">Know Who <span class="text-gradient">I Am</span></h2>
             <div class="section-line"></div>
         </div>
@@ -2696,18 +2881,18 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
                     <p class="about-text">Currently at <span class="hl-cyan">Madani Channel</span>, I secure <span class="hl-cyan">1,750+ endpoints</span>, deploy SIEM solutions, manage enterprise firewalls, and lead penetration testing to neutralize threats.</p>
                     <p class="about-text">A recognized <span class="hl-cyan">Bug Bounty Hunter</span>, acknowledged by <strong>HackerOne (#7 Pakistan)</strong>, <strong>OPPO (#1)</strong>, AT&T, Mastercard, Rockstar Games, Logitech, Dell, Adobe, Sophos & Xiaomi.</p>
                     <div class="about-info-grid">
-                        <div class="info-item"><div class="info-icon"><i class="fas fa-user"></i></div><div><span class="info-key">Name</span><span class="info-val">Syed Farhan Ahmed</span></div></div>
-                        <div class="info-item"><div class="info-icon"><i class="fas fa-map-marker-alt"></i></div><div><span class="info-key">Location</span><span class="info-val">Karachi, Pakistan</span></div></div>
-                        <div class="info-item"><div class="info-icon"><i class="fas fa-envelope"></i></div><div><span class="info-key">Email</span><span class="info-val">syedfarhan6669@gmail.com</span></div></div>
-                        <div class="info-item"><div class="info-icon"><i class="fas fa-phone"></i></div><div><span class="info-key">Phone</span><span class="info-val">+92-311-1256221</span></div></div>
-                        <div class="info-item"><div class="info-icon"><i class="fas fa-briefcase"></i></div><div><span class="info-key">Experience</span><span class="info-val">15+ Years</span></div></div>
-                        <div class="info-item"><div class="info-icon"><i class="fas fa-graduation-cap"></i></div><div><span class="info-key">Education</span><span class="info-val">B.Tech Telecom</span></div></div>
-                        <div class="info-item"><div class="info-icon"><i class="fas fa-language"></i></div><div><span class="info-key">Languages</span><span class="info-val">English, Urdu</span></div></div>
-                        <div class="info-item"><div class="info-icon"><i class="fas fa-circle-check"></i></div><div><span class="info-key">Status</span><span class="info-val hl-cyan">Available</span></div></div>
+                        <div class="info-item"><div class="info-icon"><i class="fas fa-user" aria-hidden="true"></i></div><div><span class="info-key">Name</span><span class="info-val">Syed Farhan Ahmed</span></div></div>
+                        <div class="info-item"><div class="info-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div><div><span class="info-key">Location</span><span class="info-val">Karachi, Pakistan</span></div></div>
+                        <div class="info-item"><div class="info-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div><div><span class="info-key">Email</span><span class="info-val">syedfarhan6669@gmail.com</span></div></div>
+                        <div class="info-item"><div class="info-icon"><i class="fas fa-phone" aria-hidden="true"></i></div><div><span class="info-key">Phone</span><span class="info-val">+92-311-1256221</span></div></div>
+                        <div class="info-item"><div class="info-icon"><i class="fas fa-briefcase" aria-hidden="true"></i></div><div><span class="info-key">Experience</span><span class="info-val">15+ Years</span></div></div>
+                        <div class="info-item"><div class="info-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><div><span class="info-key">Education</span><span class="info-val">B.Tech Telecom</span></div></div>
+                        <div class="info-item"><div class="info-icon"><i class="fas fa-language" aria-hidden="true"></i></div><div><span class="info-key">Languages</span><span class="info-val">English, Urdu</span></div></div>
+                        <div class="info-item"><div class="info-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></div><div><span class="info-key">Status</span><span class="info-val hl-cyan">Available</span></div></div>
                     </div>
                     <div class="about-buttons">
-                        <a href="#contact" class="btn-cyber-primary"><span class="btn-content"><i class="fas fa-paper-plane me-2"></i>Get in Touch</span><span class="btn-glow"></span></a>
-                        <a href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer" class="btn-cyber-outline" aria-label="Syed Farhan Ahmed on LinkedIn, opens in a new tab"><i class="fab fa-linkedin-in me-2"></i>LinkedIn</a>
+                        <a href="#contact" class="btn-cyber-primary"><span class="btn-content"><i class="fas fa-paper-plane me-2" aria-hidden="true"></i>Get in Touch</span><span class="btn-glow"></span></a>
+                        <a href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer" class="btn-cyber-outline" aria-label="Syed Farhan Ahmed on LinkedIn, opens in a new tab"><i class="fab fa-linkedin-in me-2" aria-hidden="true"></i>LinkedIn</a>
                     </div>
                 </div>
             </div>
@@ -2719,7 +2904,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
 <section id="services" class="section section-alt">
     <div class="container">
         <div class="section-header text-center" data-aos="fade-up">
-            <span class="section-badge"><i class="fas fa-crosshairs"></i> Core Services</span>
+            <span class="section-badge"><i class="fas fa-crosshairs" aria-hidden="true"></i> Core Services</span>
             <h2 class="section-title">What <span class="text-gradient">I Specialize In</span></h2>
             <p class="section-desc">Deep expertise in offensive security, forensics, and compliance frameworks</p>
             <div class="section-line"></div>
@@ -2728,7 +2913,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="service-card sc-featured">
                     <div class="sc-featured-badge">Primary Expertise</div>
-                    <div class="sc-icon sc-icon-cyan"><i class="fas fa-crosshairs"></i></div>
+                    <div class="sc-icon sc-icon-cyan"><i class="fas fa-crosshairs" aria-hidden="true"></i></div>
                     <h3 class="sc-title">Penetration Testing & Ethical Hacking</h3>
                     <p class="sc-desc">Advanced vulnerability assessment, red team operations, web/mobile/network pentesting. <strong>CEH certified</strong>, acknowledged by HackerOne, OPPO, AT&T, Mastercard & 7 more global companies.</p>
                     <div class="sc-tags"><span class="sc-tag sc-tag-primary">CEH</span><span class="sc-tag sc-tag-primary">VAPT</span><span class="sc-tag sc-tag-primary">Red Team</span><span class="sc-tag sc-tag-primary">Bug Bounty</span></div>
@@ -2737,7 +2922,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <div class="service-card sc-featured">
                     <div class="sc-featured-badge">Primary Expertise</div>
-                    <div class="sc-icon sc-icon-purple"><i class="fas fa-fingerprint"></i></div>
+                    <div class="sc-icon sc-icon-purple"><i class="fas fa-fingerprint" aria-hidden="true"></i></div>
                     <h3 class="sc-title">Digital Forensics & Incident Response</h3>
                     <p class="sc-desc">Computer Hacking Forensic Investigation (<strong>CHFI</strong>), mobile and Windows forensics with Magnet AXIOM and Oxygen Forensic Detective. Led ransomware response and PKR 8M corruption case detection.</p>
                     <div class="sc-tags"><span class="sc-tag sc-tag-primary">CHFI</span><span class="sc-tag sc-tag-primary">DFIR</span><span class="sc-tag sc-tag-primary">Mobile Forensics</span><span class="sc-tag sc-tag-primary">APT Hunting</span></div>
@@ -2746,7 +2931,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                 <div class="service-card sc-featured">
                     <div class="sc-featured-badge">Primary Expertise</div>
-                    <div class="sc-icon sc-icon-amber"><i class="fas fa-certificate"></i></div>
+                    <div class="sc-icon sc-icon-amber"><i class="fas fa-certificate" aria-hidden="true"></i></div>
                     <h3 class="sc-title">ISO 27001 & Security Compliance</h3>
                     <p class="sc-desc"><strong>ISO/IEC 27001 Information Security Associate</strong>, implementing ISMS frameworks, security policy development, risk assessment, and organizational compliance auditing.</p>
                     <div class="sc-tags"><span class="sc-tag sc-tag-primary">ISO 27001</span><span class="sc-tag sc-tag-primary">ISMS</span><span class="sc-tag sc-tag-primary">Risk Mgmt</span><span class="sc-tag sc-tag-primary">Compliance</span></div>
@@ -2754,7 +2939,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             </div>
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                 <div class="service-card">
-                    <div class="sc-icon sc-icon-green"><i class="fas fa-shield-halved"></i></div>
+                    <div class="sc-icon sc-icon-green"><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
                     <h3 class="sc-title">Security Operations Center (SOC)</h3>
                     <p class="sc-desc">Enterprise SIEM deployment, Wazuh, QRadar, Elastic, Zabbix. Real-time threat monitoring across 1750+ endpoints with EDR management.</p>
                     <div class="sc-tags"><span class="sc-tag">SIEM</span><span class="sc-tag">SOC</span><span class="sc-tag">EDR</span></div>
@@ -2762,7 +2947,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             </div>
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                 <div class="service-card">
-                    <div class="sc-icon sc-icon-blue"><i class="fas fa-network-wired"></i></div>
+                    <div class="sc-icon sc-icon-blue"><i class="fas fa-network-wired" aria-hidden="true"></i></div>
                     <h3 class="sc-title">Network & Firewall Security</h3>
                     <p class="sc-desc">Fortigate & Sophos firewall management, network architecture, VPN/VLAN configuration, and wireless security implementation.</p>
                     <div class="sc-tags"><span class="sc-tag">Firewall</span><span class="sc-tag">CCNA</span><span class="sc-tag">VPN</span></div>
@@ -2770,7 +2955,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             </div>
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                 <div class="service-card">
-                    <div class="sc-icon sc-icon-rose"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <div class="sc-icon sc-icon-rose"><i class="fas fa-chalkboard-user" aria-hidden="true"></i></div>
                     <h3 class="sc-title">Security Training & Awareness</h3>
                     <p class="sc-desc">Cybersecurity awareness programs, staff training on threat detection, phishing simulation, and security best practices.</p>
                     <div class="sc-tags"><span class="sc-tag">Training</span><span class="sc-tag">Awareness</span><span class="sc-tag">Policy</span></div>
@@ -2784,7 +2969,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
 <section id="skills" class="section">
     <div class="container">
         <div class="section-header text-center" data-aos="fade-up">
-            <span class="section-badge"><i class="fas fa-code"></i> Technical Arsenal</span>
+            <span class="section-badge"><i class="fas fa-code" aria-hidden="true"></i> Technical Arsenal</span>
             <h2 class="section-title">My <span class="text-gradient">Expertise</span></h2>
             <p class="section-desc">Core cybersecurity competencies built over 15+ years of operations</p>
             <div class="section-line"></div>
@@ -2795,7 +2980,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
                 <div class="skill-card skill-card-cyan sc-skill-featured">
                     <div class="skill-featured-tag">Core Expertise</div>
                     <div class="skc-header">
-                        <div class="skc-icon"><i class="fas fa-crosshairs"></i></div>
+                        <div class="skc-icon"><i class="fas fa-crosshairs" aria-hidden="true"></i></div>
                         <h3 class="skc-title">Offensive Security</h3>
                     </div>
                     <div class="skill-bar-group">
@@ -2813,7 +2998,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
                 <div class="skill-card skill-card-purple sc-skill-featured">
                     <div class="skill-featured-tag">Core Expertise</div>
                     <div class="skc-header">
-                        <div class="skc-icon"><i class="fas fa-fingerprint"></i></div>
+                        <div class="skc-icon"><i class="fas fa-fingerprint" aria-hidden="true"></i></div>
                         <h3 class="skc-title">Digital Forensics & DFIR</h3>
                     </div>
                     <div class="skill-bar-group">
@@ -2838,7 +3023,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
                 <div class="skill-card skill-card-cyan">
                     <div class="skc-header">
-                        <div class="skc-icon"><i class="fas fa-eye"></i></div>
+                        <div class="skc-icon"><i class="fas fa-eye" aria-hidden="true"></i></div>
                         <h3 class="skc-title">SIEM, SOC & Compliance</h3>
                     </div>
                     <div class="skill-bar-group">
@@ -2855,7 +3040,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
                 <div class="skill-card skill-card-amber">
                     <div class="skc-header">
-                        <div class="skc-icon"><i class="fas fa-network-wired"></i></div>
+                        <div class="skc-icon"><i class="fas fa-network-wired" aria-hidden="true"></i></div>
                         <h3 class="skc-title">Networking & Cloud</h3>
                     </div>
                     <div class="skill-bar-group">
@@ -2872,7 +3057,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
                 <div class="skill-card skill-card-green">
                     <div class="skc-header">
-                        <div class="skc-icon"><i class="fas fa-server"></i></div>
+                        <div class="skc-icon"><i class="fas fa-server" aria-hidden="true"></i></div>
                         <h3 class="skc-title">Systems & Administration</h3>
                     </div>
                     <div class="skill-bar-group">
@@ -2886,7 +3071,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             <!-- Forensic Achievement Highlight -->
             <div class="col-12" data-aos="fade-up" data-aos-delay="450">
                 <div class="achievement-box">
-                    <div class="ach-icon"><i class="fas fa-award"></i></div>
+                    <div class="ach-icon"><i class="fas fa-award" aria-hidden="true"></i></div>
                     <div class="ach-text">
                         <strong>Key Forensic Achievement:</strong> Conducted advanced forensic investigations, collected digital evidence, and led incident response for ransomware attacks. Successfully <strong>detected and reported a PKR 8 million corruption case</strong> using Magnet AXIOM and Oxygen Forensic Detective, resulting in formal legal action.
                     </div>
@@ -2900,7 +3085,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
 <section id="experience" class="section section-alt">
     <div class="container">
         <div class="section-header text-center" data-aos="fade-up">
-            <span class="section-badge"><i class="fas fa-briefcase"></i> Career</span>
+            <span class="section-badge"><i class="fas fa-briefcase" aria-hidden="true"></i> Career</span>
             <h2 class="section-title">Professional <span class="text-gradient">Journey</span></h2>
             <div class="section-line"></div>
         </div>
@@ -2908,14 +3093,14 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             <div class="col-lg-10">
                 <div class="timeline">
                     <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                        <div class="tl-dot"><i class="fas fa-shield-halved"></i></div>
+                        <div class="tl-dot"><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
                         <div class="tl-card">
                             <div class="tl-header">
-                                <span class="tl-date"><i class="far fa-calendar-alt me-1"></i> Feb 2023 &ndash; Present</span>
+                                <span class="tl-date"><i class="far fa-calendar-day me-1" aria-hidden="true"></i> Feb 2023 &ndash; Present</span>
                                 <span class="tl-current">Current</span>
                             </div>
                             <h3 class="tl-title">Head of Cyber Security</h3>
-                            <div class="tl-company"><i class="fas fa-building me-2"></i>F Tech Solutions (Dawat-e-Islami)</div>
+                            <div class="tl-company"><i class="fas fa-building me-2" aria-hidden="true"></i>F Tech Solutions (Dawat-e-Islami)</div>
                             <ul class="tl-list">
                                 <li class="highlight-li">Led the response to a compromise affecting <strong>11 production hosting servers</strong>, where attackers entered through compromised SSH keys and used backdoor accounts, tampered with authorised key files and modified cron jobs for persistence. Contained it, remediated every host, and ran the root cause investigation</li>
                                 <li class="highlight-li">Built the detection engineering capability from zero to <strong>124 custom Wazuh rules</strong> covering <strong>43 MITRE ATT&amp;CK techniques</strong>, with gap analysis across initial access, execution, persistence and privilege escalation</li>
@@ -2930,13 +3115,13 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
                         </div>
                     </div>
                     <div class="timeline-item" data-aos="fade-up" data-aos-delay="150">
-                        <div class="tl-dot"><i class="fas fa-user-shield"></i></div>
+                        <div class="tl-dot"><i class="fas fa-user-shield" aria-hidden="true"></i></div>
                         <div class="tl-card">
                             <div class="tl-header">
-                                <span class="tl-date"><i class="far fa-calendar-alt me-1"></i> Oct 2017 &ndash; Feb 2023</span>
+                                <span class="tl-date"><i class="far fa-calendar-day me-1" aria-hidden="true"></i> Oct 2017 &ndash; Feb 2023</span>
                             </div>
                             <h3 class="tl-title">IT Security Analyst</h3>
-                            <div class="tl-company"><i class="fas fa-building me-2"></i>Dawat-e-Islami</div>
+                            <div class="tl-company"><i class="fas fa-building me-2" aria-hidden="true"></i>Dawat-e-Islami</div>
                             <ul class="tl-list">
                                 <li>Built the organisation&rsquo;s security monitoring capability across its operating divisions and established the forensic practice: evidence handling procedures, tooling and reporting standards</li>
                                 <li>Deployed endpoint protection, encryption and firewall controls across the estate</li>
@@ -2945,24 +3130,24 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
                         </div>
                     </div>
                     <div class="timeline-item" data-aos="fade-up" data-aos-delay="180">
-                        <div class="tl-dot"><i class="fas fa-headset"></i></div>
+                        <div class="tl-dot"><i class="fas fa-headset" aria-hidden="true"></i></div>
                         <div class="tl-card">
                             <div class="tl-header">
-                                <span class="tl-date"><i class="far fa-calendar-alt me-1"></i> Oct 2016 &ndash; Oct 2017</span>
+                                <span class="tl-date"><i class="far fa-calendar-day me-1" aria-hidden="true"></i> Oct 2016 &ndash; Oct 2017</span>
                             </div>
                             <h3 class="tl-title">Helpdesk Manager</h3>
-                            <div class="tl-company"><i class="fas fa-building me-2"></i>Dawat-e-Islami</div>
+                            <div class="tl-company"><i class="fas fa-building me-2" aria-hidden="true"></i>Dawat-e-Islami</div>
                             <ul class="tl-list">
                                 <li>Managed the IT help desk function and day-to-day service delivery</li>
                             </ul>
                         </div>
                     </div>
                     <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="tl-dot"><i class="fas fa-headset"></i></div>
+                        <div class="tl-dot"><i class="fas fa-headset" aria-hidden="true"></i></div>
                         <div class="tl-card">
-                            <div class="tl-header"><span class="tl-date"><i class="far fa-calendar-alt me-1"></i> Feb 2015 &ndash; Oct 2016</span></div>
+                            <div class="tl-header"><span class="tl-date"><i class="far fa-calendar-day me-1" aria-hidden="true"></i> Feb 2015 &ndash; Oct 2016</span></div>
                             <h3 class="tl-title">IT Support Officer, Help Desk</h3>
-                            <div class="tl-company"><i class="fas fa-building me-2"></i>Madani Channel</div>
+                            <div class="tl-company"><i class="fas fa-building me-2" aria-hidden="true"></i>Madani Channel</div>
                             <ul class="tl-list">
                                 <li>International video/audio conference management</li>
                                 <li>Network installation &amp; troubleshooting</li>
@@ -2972,11 +3157,11 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
                         </div>
                     </div>
                     <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-                        <div class="tl-dot"><i class="fas fa-sitemap"></i></div>
+                        <div class="tl-dot"><i class="fas fa-sitemap" aria-hidden="true"></i></div>
                         <div class="tl-card">
-                            <div class="tl-header"><span class="tl-date"><i class="far fa-calendar-alt me-1"></i> Nov 2011 &ndash; Apr 2013</span></div>
+                            <div class="tl-header"><span class="tl-date"><i class="far fa-calendar-day me-1" aria-hidden="true"></i> Nov 2011 &ndash; Apr 2013</span></div>
                             <h3 class="tl-title">IT Support and Network Solutions</h3>
-                            <div class="tl-company"><i class="fas fa-building me-2"></i>SINA Sadiq Intl News (Pvt.) Ltd.</div>
+                            <div class="tl-company"><i class="fas fa-building me-2" aria-hidden="true"></i>SINA Sadiq Intl News (Pvt.) Ltd.</div>
                             <ul class="tl-list">
                                 <li>System log analysis &amp; issue identification</li>
                                 <li>Hardware/software installation &amp; anti-hacking security</li>
@@ -2985,11 +3170,11 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
                         </div>
                     </div>
                     <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
-                        <div class="tl-dot"><i class="fas fa-lock"></i></div>
+                        <div class="tl-dot"><i class="fas fa-lock" aria-hidden="true"></i></div>
                         <div class="tl-card">
-                            <div class="tl-header"><span class="tl-date"><i class="far fa-calendar-alt me-1"></i> Sep 2011 &ndash; Mar 2012</span></div>
+                            <div class="tl-header"><span class="tl-date"><i class="far fa-calendar-day me-1" aria-hidden="true"></i> Sep 2011 &ndash; Mar 2012</span></div>
                             <h3 class="tl-title">System Security and Network Support</h3>
-                            <div class="tl-company"><i class="fas fa-building me-2"></i>Sunny Co International (Pvt.) Ltd.</div>
+                            <div class="tl-company"><i class="fas fa-building me-2" aria-hidden="true"></i>Sunny Co International (Pvt.) Ltd.</div>
                             <ul class="tl-list">
                                 <li>Network installation &amp; troubleshooting</li>
                                 <li>Anti-hacking, logging &amp; system support</li>
@@ -2997,11 +3182,11 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
                         </div>
                     </div>
                     <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
-                        <div class="tl-dot"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <div class="tl-dot"><i class="fas fa-chalkboard-user" aria-hidden="true"></i></div>
                         <div class="tl-card">
-                            <div class="tl-header"><span class="tl-date"><i class="far fa-calendar-alt me-1"></i> Aug 2011 &ndash; Nov 2014</span></div>
+                            <div class="tl-header"><span class="tl-date"><i class="far fa-calendar-day me-1" aria-hidden="true"></i> Aug 2011 &ndash; Nov 2014</span></div>
                             <h3 class="tl-title">IT Instructor</h3>
-                            <div class="tl-company"><i class="fas fa-building me-2"></i>Finest Computer Institute (Pvt.) Ltd.</div>
+                            <div class="tl-company"><i class="fas fa-building me-2" aria-hidden="true"></i>Finest Computer Institute (Pvt.) Ltd.</div>
                             <ul class="tl-list">
                                 <li>CompTIA A+ &amp; Network+ teaching</li>
                                 <li>Mentoring next-gen IT professionals</li>
@@ -3018,7 +3203,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
 <section id="certifications" class="section">
     <div class="container">
         <div class="section-header text-center" data-aos="fade-up">
-            <span class="section-badge"><i class="fas fa-award"></i> Credentials</span>
+            <span class="section-badge"><i class="fas fa-award" aria-hidden="true"></i> Credentials</span>
             <h2 class="section-title">Professional <span class="text-gradient">Certifications</span></h2>
             <p class="section-desc">21 certifications from 11 issuing bodies, across offensive security, forensics, SOC and compliance</p>
             <div class="section-line"></div>
@@ -3128,7 +3313,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
 <section id="training" class="section">
     <div class="container">
         <div class="section-header text-center" data-aos="fade-up">
-            <span class="section-badge"><i class="fas fa-graduation-cap"></i> Foundations</span>
+            <span class="section-badge"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Foundations</span>
             <h2 class="section-title">Training &amp; <span class="text-gradient">Course Completions</span></h2>
             <p class="section-desc">Nine classroom, academy and online courses completed across my career. These are completion certificates from the training provider, not credentials issued by the certifying body, so they are listed separately from the certifications above.</p>
             <div class="section-line"></div>
@@ -3151,7 +3336,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
 <section id="halloffame" class="section section-alt">
     <div class="container">
         <div class="section-header text-center" data-aos="fade-up">
-            <span class="section-badge"><i class="fas fa-trophy"></i> Recognition</span>
+            <span class="section-badge"><i class="fas fa-trophy" aria-hidden="true"></i> Recognition</span>
             <h2 class="section-title">Hall of <span class="text-gradient">Fame</span></h2>
             <p class="section-desc">Acknowledged by world-renowned technology companies for responsible security research</p>
             <div class="section-line"></div>
@@ -3159,31 +3344,31 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
         <div class="row g-4">
             <div class="col-lg-3 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="50">
                 <div class="hof-card hof-gold">
-                    <div class="hof-icon-wrap hof-icon-gold"><i class="fas fa-trophy"></i></div>
+                    <div class="hof-icon-wrap hof-icon-gold"><i class="fas fa-trophy" aria-hidden="true"></i></div>
                     <h3 class="hof-company">HackerOne</h3>
-                    <span class="hof-badge hof-badge-gold"><i class="fas fa-star me-1"></i>Ranked #7 Pakistan</span>
+                    <span class="hof-badge hof-badge-gold"><i class="fas fa-star me-1" aria-hidden="true"></i>Ranked #7 Pakistan</span>
                     <span class="hof-date">July 2019</span>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="100">
                 <div class="hof-card hof-gold">
-                    <div class="hof-icon-wrap hof-icon-gold"><i class="fas fa-crown"></i></div>
+                    <div class="hof-icon-wrap hof-icon-gold"><i class="fas fa-crown" aria-hidden="true"></i></div>
                     <h3 class="hof-company">OPPO</h3>
-                    <span class="hof-badge hof-badge-gold"><i class="fas fa-crown me-1"></i>Ranked #1</span>
+                    <span class="hof-badge hof-badge-gold"><i class="fas fa-crown me-1" aria-hidden="true"></i>Ranked #1</span>
                     <span class="hof-date">May 2021</span>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="150">
                 <div class="hof-card hof-gold">
-                    <div class="hof-icon-wrap hof-icon-gold"><i class="fas fa-medal"></i></div>
+                    <div class="hof-icon-wrap hof-icon-gold"><i class="fas fa-medal" aria-hidden="true"></i></div>
                     <h3 class="hof-company">OPPO</h3>
-                    <span class="hof-badge hof-badge-gold"><i class="fas fa-star me-1"></i>Ranked #4 Snails</span>
+                    <span class="hof-badge hof-badge-gold"><i class="fas fa-star me-1" aria-hidden="true"></i>Ranked #4 Snails</span>
                     <span class="hof-date">2020 Reward</span>
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="200">
                 <div class="hof-card">
-                    <div class="hof-icon-wrap hof-icon-cyan"><i class="fas fa-satellite-dish"></i></div>
+                    <div class="hof-icon-wrap hof-icon-cyan"><i class="fas fa-award" aria-hidden="true"></i></div>
                     <h3 class="hof-company">AT&T</h3>
                     <span class="hof-badge hof-badge-cyan">Acknowledged</span>
                     <span class="hof-date">Bug Bounty</span>
@@ -3191,7 +3376,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             </div>
             <div class="col-lg-3 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="250">
                 <div class="hof-card">
-                    <div class="hof-icon-wrap hof-icon-cyan"><i class="fas fa-credit-card"></i></div>
+                    <div class="hof-icon-wrap hof-icon-cyan"><i class="fas fa-award" aria-hidden="true"></i></div>
                     <h3 class="hof-company">Mastercard</h3>
                     <span class="hof-badge hof-badge-cyan">Acknowledged</span>
                     <span class="hof-date">Security Research</span>
@@ -3199,7 +3384,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             </div>
             <div class="col-lg-3 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="300">
                 <div class="hof-card">
-                    <div class="hof-icon-wrap hof-icon-cyan"><i class="fas fa-gamepad"></i></div>
+                    <div class="hof-icon-wrap hof-icon-cyan"><i class="fas fa-award" aria-hidden="true"></i></div>
                     <h3 class="hof-company">Rockstar Games</h3>
                     <span class="hof-badge hof-badge-cyan">Acknowledged</span>
                     <span class="hof-date">Vulnerability</span>
@@ -3207,7 +3392,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             </div>
             <div class="col-lg-3 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="350">
                 <div class="hof-card">
-                    <div class="hof-icon-wrap hof-icon-cyan"><i class="fas fa-computer-mouse"></i></div>
+                    <div class="hof-icon-wrap hof-icon-cyan"><i class="fas fa-award" aria-hidden="true"></i></div>
                     <h3 class="hof-company">Logitech</h3>
                     <span class="hof-badge hof-badge-cyan">Acknowledged</span>
                     <span class="hof-date">Bug Report</span>
@@ -3215,7 +3400,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             </div>
             <div class="col-lg-3 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="400">
                 <div class="hof-card">
-                    <div class="hof-icon-wrap hof-icon-cyan"><i class="fas fa-mobile-screen"></i></div>
+                    <div class="hof-icon-wrap hof-icon-cyan"><i class="fas fa-award" aria-hidden="true"></i></div>
                     <h3 class="hof-company">Xiaomi</h3>
                     <span class="hof-badge hof-badge-cyan">Acknowledged</span>
                     <span class="hof-date">Security Research</span>
@@ -3223,7 +3408,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             </div>
             <div class="col-lg-3 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="450">
                 <div class="hof-card">
-                    <div class="hof-icon-wrap hof-icon-cyan"><i class="fas fa-shield-halved"></i></div>
+                    <div class="hof-icon-wrap hof-icon-cyan"><i class="fas fa-award" aria-hidden="true"></i></div>
                     <h3 class="hof-company">Sophos</h3>
                     <span class="hof-badge hof-badge-cyan">Acknowledged</span>
                     <span class="hof-date">Vulnerability</span>
@@ -3231,7 +3416,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             </div>
             <div class="col-lg-3 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="500">
                 <div class="hof-card">
-                    <div class="hof-icon-wrap hof-icon-cyan"><i class="fas fa-laptop"></i></div>
+                    <div class="hof-icon-wrap hof-icon-cyan"><i class="fas fa-award" aria-hidden="true"></i></div>
                     <h3 class="hof-company">DELL</h3>
                     <span class="hof-badge hof-badge-cyan">Acknowledged</span>
                     <span class="hof-date">Security Research</span>
@@ -3239,7 +3424,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
             </div>
             <div class="col-lg-3 col-md-4 col-6" data-aos="zoom-in" data-aos-delay="550">
                 <div class="hof-card">
-                    <div class="hof-icon-wrap hof-icon-cyan"><i class="fas fa-palette"></i></div>
+                    <div class="hof-icon-wrap hof-icon-cyan"><i class="fas fa-award" aria-hidden="true"></i></div>
                     <h3 class="hof-company">Adobe</h3>
                     <span class="hof-badge hof-badge-cyan">Acknowledged</span>
                     <span class="hof-date">Bug Report</span>
@@ -3253,19 +3438,19 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
 <section id="education" class="section">
     <div class="container">
         <div class="section-header text-center" data-aos="fade-up">
-            <span class="section-badge"><i class="fas fa-graduation-cap"></i> Education</span>
+            <span class="section-badge"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Education</span>
             <h2 class="section-title">Academic <span class="text-gradient">Background</span></h2>
             <div class="section-line"></div>
         </div>
         <div class="row g-4 justify-content-center">
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="edu-card"><div class="edu-icon"><i class="fas fa-graduation-cap"></i></div><h3 class="edu-degree">B.Tech, Telecommunication</h3><span class="edu-school">Newports Institute</span><p class="edu-detail">Bachelor of Technology Degree</p></div>
+                <div class="edu-card"><div class="edu-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><h3 class="edu-degree">B.Tech, Telecommunication</h3><span class="edu-school">Newports Institute</span><p class="edu-detail">Bachelor of Technology Degree</p></div>
             </div>
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="edu-card"><div class="edu-icon"><i class="fas fa-laptop-code"></i></div><h3 class="edu-degree">D.A.E, Computer IT</h3><span class="edu-school">Sindh Board of Technical, Karachi</span><p class="edu-detail">3 Years Diploma in CIT</p></div>
+                <div class="edu-card"><div class="edu-icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div><h3 class="edu-degree">D.A.E, Computer IT</h3><span class="edu-school">Sindh Board of Technical, Karachi</span><p class="edu-detail">3 Years Diploma in CIT</p></div>
             </div>
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="edu-card"><div class="edu-icon"><i class="fas fa-book-quran"></i></div><h3 class="edu-degree">Hafiz-e-Quran</h3><span class="edu-school">Islamic Studies</span><p class="edu-detail">Complete Quran Memorization</p></div>
+                <div class="edu-card"><div class="edu-icon"><i class="fas fa-book-quran" aria-hidden="true"></i></div><h3 class="edu-degree">Hafiz-e-Quran</h3><span class="edu-school">Islamic Studies</span><p class="edu-detail">Complete Quran Memorization</p></div>
             </div>
         </div>
     </div>
@@ -3275,26 +3460,26 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
 <section id="contact" class="section section-alt">
     <div class="container">
         <div class="section-header text-center" data-aos="fade-up">
-            <span class="section-badge"><i class="fas fa-envelope"></i> Contact</span>
+            <span class="section-badge"><i class="fas fa-envelope" aria-hidden="true"></i> Contact</span>
             <h2 class="section-title">Let's <span class="text-gradient">Connect</span></h2>
             <p class="section-desc">Ready to secure your organization? Let's talk.</p>
             <div class="section-line"></div>
         </div>
         <div class="row g-4 mb-5">
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="contact-card"><div class="ccard-icon"><i class="fas fa-envelope"></i></div><span class="ccard-label">Email</span><a href="mailto:syedfarhan6669@gmail.com" class="ccard-value">syedfarhan6669@gmail.com</a></div>
+                <div class="contact-card"><div class="ccard-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div><span class="ccard-label">Email</span><a href="mailto:syedfarhan6669@gmail.com" class="ccard-value">syedfarhan6669@gmail.com</a></div>
             </div>
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="contact-card"><div class="ccard-icon"><i class="fas fa-phone"></i></div><span class="ccard-label">Phone</span><a href="tel:+923111256221" class="ccard-value">+92-311-1256221</a></div>
+                <div class="contact-card"><div class="ccard-icon"><i class="fas fa-phone" aria-hidden="true"></i></div><span class="ccard-label">Phone</span><a href="tel:+923111256221" class="ccard-value">+92-311-1256221</a></div>
             </div>
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="contact-card"><div class="ccard-icon"><i class="fab fa-linkedin-in"></i></div><span class="ccard-label">LinkedIn</span><a href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer" class="ccard-value">linkedin.com/in/sfa6667</a></div>
+                <div class="contact-card"><div class="ccard-icon"><i class="fab fa-linkedin-in" aria-hidden="true"></i></div><span class="ccard-label">LinkedIn</span><a href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer" class="ccard-value">linkedin.com/in/sfa6667</a></div>
             </div>
         </div>
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="400">
             <div class="col-lg-8">
                 <div class="contact-form-wrapper">
-                    <h3 class="form-title"><i class="fas fa-terminal me-2"></i>Send a Message</h3>
+                    <h3 class="form-title"><i class="fas fa-terminal me-2" aria-hidden="true"></i>Send a Message</h3>
                     <form id="contactForm">
                         <div class="row g-3">
                             <div class="col-md-6"><label class="form-label-custom" for="cf-name">Your Name *</label><input type="text" class="form-input" name="name" id="cf-name" placeholder="John Doe" required></div>
@@ -3302,7 +3487,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
                             <div class="col-12"><label class="form-label-custom" for="cf-subject">Subject</label><input type="text" class="form-input" name="subject" id="cf-subject" placeholder="How can I help you?"></div>
                             <div class="col-12"><label class="form-label-custom" for="cf-message">Message *</label><textarea class="form-input form-textarea" name="message" id="cf-message" placeholder="Your message..." required></textarea></div>
                             <div class="col-12 text-center mt-3">
-                                <button type="submit" class="btn-cyber-primary"><span class="btn-content"><i class="fas fa-paper-plane me-2"></i>Send Message</span><span class="btn-glow"></span></button>
+                                <button type="submit" class="btn-cyber-primary"><span class="btn-content"><i class="fas fa-paper-plane me-2" aria-hidden="true"></i>Send Message</span><span class="btn-glow"></span></button>
                             </div>
                         </div>
                     </form>
@@ -3319,14 +3504,14 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
-                <div class="footer-brand"><span class="brand-shield"><i class="fas fa-shield-halved"></i></span><span>Farhan Ahmed</span></div>
+                <div class="footer-brand"><span class="brand-shield"><i class="fas fa-shield-halved" aria-hidden="true"></i></span><span>Farhan Ahmed</span></div>
                 <p class="footer-tagline">Head of Cyber Security · CHFI · CISA · CEH · eJPT · PNPT</p>
             </div>
             <div class="col-lg-4 text-center mb-4 mb-lg-0">
                 <div class="footer-socials">
-                    <a href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer" aria-label="Syed Farhan Ahmed on LinkedIn, opens in a new tab"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="mailto:syedfarhan6669@gmail.com" aria-label="Email Syed Farhan Ahmed"><i class="fas fa-envelope"></i></a>
-                    <a href="tel:+923111256221" aria-label="Call Syed Farhan Ahmed"><i class="fas fa-phone"></i></a>
+                    <a href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer" aria-label="Syed Farhan Ahmed on LinkedIn, opens in a new tab"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="mailto:syedfarhan6669@gmail.com" aria-label="Email Syed Farhan Ahmed"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+                    <a href="tel:+923111256221" aria-label="Call Syed Farhan Ahmed"><i class="fas fa-phone" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
@@ -3336,7 +3521,7 @@ html[data-theme="light"] .skip-link{background:#0e7490;color:#fff;}
     </div>
 </footer>
 
-<button class="scroll-top" id="scrollTopBtn" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+<button class="scroll-top" id="scrollTopBtn" aria-label="Back to top"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" integrity="sha384-wziAfh6b/qT+3LrqebF9WeK4+J5sehS6FA10J1t3a866kJ/fvU5UwofWnQyzLtwu" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -3472,7 +3657,7 @@ document.addEventListener('DOMContentLoaded', function () {
                  + '?subject=' + encodeURIComponent(subj || ('Portfolio enquiry from ' + who))
                  + '&body=' + encodeURIComponent(body);
         var btn = cf.querySelector('button[type="submit"]'), orig = btn.innerHTML;
-        btn.innerHTML = '<span class="btn-content"><i class="fas fa-envelope-open-text me-2">'
+        btn.innerHTML = '<span class="btn-content"><i class="fas fa-envelope-open-text me-2" aria-hidden="true">'
                       + '</i>Opening your mail app</span>';
         window.location.href = href;
         setTimeout(function () { btn.innerHTML = orig; }, 4000);
