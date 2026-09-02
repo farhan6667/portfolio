@@ -2993,6 +2993,26 @@ html[data-theme="light"] .theme-tip::before{
   .theme-btn:active::after{animation:none;}
 }
 
+
+/* ============================================================================
+   CONTACT CARDS
+   The CV card had been dropped inside the Email column, so that column ran to
+   twice the height of the other two, stretched them into dead space, and
+   overflowed into the form below it. Each card now owns a column.
+   The side padding comes in so the address still sits on one line once the
+   row is four across.
+   ========================================================================= */
+.contact-card{padding:30px 20px;
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;}
+/* the CV card carries a second line, so the row stretches to match it.
+   The content stays top aligned, which keeps all four icons on one line
+   across the row; centring it would drop the CV icon out of that line. */
+.ccard-value{word-break:normal;overflow-wrap:anywhere;}
+.ccard-label{overflow-wrap:anywhere;}
+@media(max-width:575px){
+  .contact-card{padding:26px 20px;}
+}
+
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person",
@@ -3848,16 +3868,11 @@ html[data-theme="light"] .theme-tip::before{
             <div class="section-line"></div>
         </div>
         <div class="row g-4 mb-5">
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="contact-card"><div class="ccard-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div><span class="ccard-label">Email</span><a href="mailto:syedfarhan6669@gmail.com" class="ccard-value">syedfarhan6669@gmail.com</a></div><div class="contact-card contact-card-cv"><div class="ccard-icon"><i class="fas fa-file-arrow-down" aria-hidden="true"></i></div><span class="ccard-label">Curriculum Vitae</span><a href="Syed_Farhan_Ahmed_CV.pdf" download="Syed-Farhan-Ahmed-CV.pdf" type="application/pdf" class="ccard-value ccard-cv" aria-label="Download the CV of Syed Farhan Ahmed as a PDF, 2 pages, 2.4 megabytes">Download PDF<span class="ccard-cv-meta" aria-hidden="true">2 pages &middot; 2.4 MB</span></a></div>
-            </div>
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="contact-card"><div class="ccard-icon"><i class="fas fa-phone" aria-hidden="true"></i></div><span class="ccard-label">Phone</span><a href="tel:+923111256221" class="ccard-value">+92 311 1256221</a></div>
-            </div>
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="contact-card"><div class="ccard-icon"><i class="fab fa-linkedin-in" aria-hidden="true"></i></div><span class="ccard-label">LinkedIn</span><a href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer" class="ccard-value">linkedin.com/in/sfa6667</a></div>
-            </div>
-        </div>
+<div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100"><div class="contact-card"><div class="ccard-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div><span class="ccard-label">Email</span><a href="mailto:syedfarhan6669@gmail.com" class="ccard-value">syedfarhan6669@gmail.com</a></div></div>
+<div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="160"><div class="contact-card"><div class="ccard-icon"><i class="fas fa-phone" aria-hidden="true"></i></div><span class="ccard-label">Phone</span><a href="tel:+923111256221" class="ccard-value">+92 311 1256221</a></div></div>
+<div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="220"><div class="contact-card"><div class="ccard-icon"><i class="fab fa-linkedin-in" aria-hidden="true"></i></div><span class="ccard-label">LinkedIn</span><a href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer" class="ccard-value">linkedin.com/in/sfa6667</a></div></div>
+<div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="280"><div class="contact-card contact-card-cv"><div class="ccard-icon"><i class="fas fa-file-arrow-down" aria-hidden="true"></i></div><span class="ccard-label">Curriculum Vitae</span><a href="Syed_Farhan_Ahmed_CV.pdf" download="Syed-Farhan-Ahmed-CV.pdf" type="application/pdf" class="ccard-value ccard-cv" aria-label="Download the CV of Syed Farhan Ahmed as a PDF, 2 pages, 2.4 megabytes">Download PDF<span class="ccard-cv-meta" aria-hidden="true">2 pages &middot; 2.4 MB</span></a></div></div>
+</div>
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="400">
             <div class="col-lg-8">
                 <div class="contact-form-wrapper">
