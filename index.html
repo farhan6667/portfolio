@@ -2723,6 +2723,97 @@ html[data-theme="light"] .btn-cv-meta{color:var(--text-dim);}
   .btn-cv:hover .btn-cv-scan,.contact-card-cv:hover::after{animation:none;}
 }
 
+
+/* the About portrait is now a dark operations photograph rather than a bright
+   outdoor one, so the tone-down that stopped the old picture out-shouting the
+   text would only muddy this one. It keeps a light touch and a focal point
+   that holds the subject at every container ratio the card takes. */
+.about-image img,.about-img img{
+  filter:saturate(1.02) contrast(1.03) brightness(1.02);
+  object-position:50% 12%;}
+html[data-theme="light"] .about-image img,
+html[data-theme="light"] .about-img img{
+  filter:saturate(1.0) contrast(1.02) brightness(1.0);}
+
+
+/* the About picture is a wide operations frame, so the card takes the
+   picture's own shape rather than cropping it to a portrait. Nothing is cut
+   off at any width, and the frame keeps its border, overlay and scan line. */
+.about-image img{
+  height:auto!important;
+  aspect-ratio:1600 / 881;
+  object-fit:cover;
+  object-position:center;}
+.about-image-wrapper{padding:14px;}
+@media(max-width:991px){
+  .about-image-wrapper{padding:10px;}
+}
+
+/* on a light page a dark room photograph reads as a black block, and the face
+   goes with it, so the light theme lifts the picture rather than leaving it
+   to sink */
+.about-image img{filter:saturate(1.04) contrast(1.02) brightness(1.03);}
+html[data-theme="light"] .about-image img{
+  filter:saturate(1.06) contrast(0.94) brightness(1.28);}
+
+
+/* ============================================================================
+   ABOUT PHOTOGRAPH, ONE PER THEME
+   The two pictures are made for different grounds: a dark operations room and
+   a daylit office. Showing the dark one on a white page turned it into a black
+   block, and the bright one would glare on the dark page, so each theme gets
+   the picture that belongs to it. Only the one on show is in the accessibility
+   tree, so the description is announced once.
+
+   The frame is 3:2, which leaves the daylight picture essentially uncropped
+   and trims only the outer bezel and chair edge from the wider one.
+   ========================================================================= */
+.about-image .about-photo{
+  display:block;width:100%;
+  height:auto!important;
+  aspect-ratio:3 / 2!important;
+  object-fit:cover;object-position:center;
+  filter:none;}
+/* the toggles have to outrank the base rule above, or both show at once */
+.about-image .about-photo-light{display:none;}
+html[data-theme="light"] .about-image .about-photo-dark{display:none;}
+html[data-theme="light"] .about-image .about-photo-light{display:block;}
+
+/* each picture already suits its ground, so this is a touch, not a correction */
+.about-photo-dark{filter:saturate(1.04) contrast(1.02);}
+html[data-theme="light"] .about-photo-light{filter:saturate(1.02) contrast(1.01);}
+
+/* a wide picture next to a tall column hangs from the top and leaves a hole
+   underneath; centring the row settles it */
+#about .row{align-items:center;}
+
+
+/* on a phone the badge was covering a third of the picture, so it steps back
+   and lets the photograph be the thing */
+@media(max-width:575px){
+  .about-exp-badge{padding:10px 13px;bottom:14px;right:10px;border-radius:12px;}
+  .aeb-num{font-size:1.35rem;}
+  .aeb-txt{font-size:0.58rem;line-height:1.25;}
+}
+
+
+/* the picture is wide and the narrative column is tall, which left a hole
+   above and below the frame. The facts that describe the person now sit
+   under their photograph, where they belong, and the two columns come out
+   within about two hundred pixels of each other instead of four hundred. */
+#about .row{align-items:flex-start;}
+#about .about-info-grid{margin-top:22px;}
+
+/* stacked on a phone the facts would come between the picture and the
+   positioning line, so the column dissolves and the order is stated */
+@media(max-width:991px){
+  #about .row > [class*="col-lg-"]:first-child{
+    display:contents;}
+  #about .about-image-wrapper{order:1;flex:0 0 100%;width:100%;}
+  #about .row > [class*="col-lg-"]:last-child{order:2;}
+  #about .about-info-grid{order:3;flex:0 0 100%;width:100%;margin-top:26px;}
+}
+
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person",
@@ -2965,28 +3056,22 @@ html[data-theme="light"] .btn-cv-meta{color:var(--text-dim);}
             <div class="section-line"></div>
         </div>
         <div class="row g-4 g-lg-5">
-            <div class="col-lg-5" data-aos="fade-right" data-aos-delay="200">
+            <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
                 <div class="about-image-wrapper">
                     <div class="about-image">
-                        <img src="about.jpg" alt="Syed Farhan Ahmed">
+                        <img class="about-photo about-photo-dark" src="about-dark.jpg" width="1600" height="881" loading="lazy" decoding="async" alt="Syed Farhan Ahmed at work, reviewing security dashboards at his workstation"><img class="about-photo about-photo-light" src="about-light.jpg" width="1537" height="1023" loading="lazy" decoding="async" alt="Syed Farhan Ahmed at work, reviewing security dashboards at his workstation">
                         <div class="about-image-overlay"></div>
                         <div class="about-scan-line"></div>
                     </div>
+
+
                     <div class="about-image-accent"></div>
                     <div class="about-exp-badge">
                         <span class="aeb-num">15+</span>
                         <span class="aeb-txt">Years of<br>Experience</span>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-7" data-aos="fade-left" data-aos-delay="300">
-                <div class="about-content">
-                    <h3 class="about-subtitle">Head of Cyber Security &amp;<br><span class="text-gradient">Digital Forensics Examiner</span></h3>
-                    <p class="about-text">I'm <strong>Syed Farhan Ahmed</strong>, a dedicated <span class="hl-cyan">Head of Cyber Security</span> with <span class="hl-cyan">15+ years</span> of hands-on experience. Specialized in <span class="hl-cyan">Penetration Testing (CEH)</span>, <span class="hl-cyan">Computer Forensics (CHFI)</span>, <span class="hl-cyan">Mobile & Windows Forensics</span>, and <span class="hl-cyan">ISO/IEC 27001</span> information security compliance.</p>
-                    <p class="about-text">Expert in digital forensic tools including <span class="hl-cyan">Oxygen Forensics 18.2</span>, <span class="hl-cyan">Magnet AXIOM 10.1</span>, and <span class="hl-cyan">Mobiledit Ultra Pro 9.8</span>, with real-world case success detecting a PKR 8 million corruption case.</p>
-                    <p class="about-text">Currently at <span class="hl-cyan">Madani Channel</span>, I secure <span class="hl-cyan">1,750+ endpoints</span>, deploy SIEM solutions, manage enterprise firewalls, and lead penetration testing to neutralize threats.</p>
-                    <p class="about-text">A recognized <span class="hl-cyan">Bug Bounty Hunter</span>, acknowledged by <strong>HackerOne (#7 Pakistan)</strong>, <strong>OPPO (#1)</strong>, AT&T, Mastercard, Rockstar Games, Logitech, Dell, Adobe, Sophos & Xiaomi.</p>
-                    <div class="about-info-grid">
+<div class="about-info-grid">
                         <div class="info-item"><div class="info-icon"><i class="fas fa-user" aria-hidden="true"></i></div><div><span class="info-key">Name</span><span class="info-val">Syed Farhan Ahmed</span></div></div>
                         <div class="info-item"><div class="info-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div><div><span class="info-key">Location</span><span class="info-val">Karachi, Pakistan</span></div></div>
                         <div class="info-item"><div class="info-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div><div><span class="info-key">Email</span><span class="info-val">syedfarhan6669@gmail.com</span></div></div>
@@ -2996,6 +3081,15 @@ html[data-theme="light"] .btn-cv-meta{color:var(--text-dim);}
                         <div class="info-item"><div class="info-icon"><i class="fas fa-language" aria-hidden="true"></i></div><div><span class="info-key">Languages</span><span class="info-val">English, Urdu</span></div></div>
                         <div class="info-item"><div class="info-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></div><div><span class="info-key">Status</span><span class="info-val hl-cyan">Available</span></div></div>
                     </div>
+
+            </div>
+            <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
+                <div class="about-content">
+                    <h3 class="about-subtitle">Head of Cyber Security &amp;<br><span class="text-gradient">Digital Forensics Examiner</span></h3>
+                    <p class="about-text">I'm <strong>Syed Farhan Ahmed</strong>, a dedicated <span class="hl-cyan">Head of Cyber Security</span> with <span class="hl-cyan">15+ years</span> of hands-on experience. Specialized in <span class="hl-cyan">Penetration Testing (CEH)</span>, <span class="hl-cyan">Computer Forensics (CHFI)</span>, <span class="hl-cyan">Mobile & Windows Forensics</span>, and <span class="hl-cyan">ISO/IEC 27001</span> information security compliance.</p>
+                    <p class="about-text">Expert in digital forensic tools including <span class="hl-cyan">Oxygen Forensics 18.2</span>, <span class="hl-cyan">Magnet AXIOM 10.1</span>, and <span class="hl-cyan">Mobiledit Ultra Pro 9.8</span>, with real-world case success detecting a PKR 8 million corruption case.</p>
+                    <p class="about-text">Currently at <span class="hl-cyan">Madani Channel</span>, I secure <span class="hl-cyan">1,750+ endpoints</span>, deploy SIEM solutions, manage enterprise firewalls, and lead penetration testing to neutralize threats.</p>
+                    <p class="about-text">A recognized <span class="hl-cyan">Bug Bounty Hunter</span>, acknowledged by <strong>HackerOne (#7 Pakistan)</strong>, <strong>OPPO (#1)</strong>, AT&T, Mastercard, Rockstar Games, Logitech, Dell, Adobe, Sophos & Xiaomi.</p>
                     <div class="about-buttons">
                         <a href="#contact" class="btn-cyber-primary"><span class="btn-content"><i class="fas fa-paper-plane me-2" aria-hidden="true"></i>Get in Touch</span><span class="btn-glow"></span></a>
                         <a href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer" class="btn-cyber-outline" aria-label="Syed Farhan Ahmed on LinkedIn, opens in a new tab"><i class="fab fa-linkedin-in me-2" aria-hidden="true"></i>LinkedIn</a>
