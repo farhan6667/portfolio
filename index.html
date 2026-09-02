@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://fonts.googleapis.com; script-src 'self' https://cdn.jsdelivr.net https://unpkg.com 'sha256-t+QZdxwxUzBgQXLFYkgW/9yU/3JnDNBZVJV1vRQisEo=' 'sha256-1VG4h1SxNocN5XL8+Y/PQwjj4HZ/EkVLQOiQWX7PWHA=' 'sha256-ZzlZ8KjglC1tQHIx0O3sv183H6YxlbkPPuDUBEVU2Rg=' 'sha256-U0cHG1lNYXdIvO9DlwC/TCrCP3wdvWOV34Z+4pCqHzI=' 'sha256-hwSBpZTLFFrTKQH3HJ5LLRn92bpsubOAKqi+BEpI/Qc=' 'sha256-NV3PXlYsg6g7U8IWFuW7gdHRwmjwnLoPGuV15jhiBFY=' 'sha256-nB0awktbl6IWe9ugFssylgGkBXjeaO5eAVAmFAAYVqA=' 'sha256-bQr7rP83F/7k0d30PAKIE7Co+rI/8IoiUROBCcNMXxo='; connect-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://fonts.googleapis.com; script-src 'self' https://cdn.jsdelivr.net https://unpkg.com 'sha256-sKrzQKi77omX+eLi8GVfnuNQ6dLD2wtXtsKFiL9cVGs=' 'sha256-1VG4h1SxNocN5XL8+Y/PQwjj4HZ/EkVLQOiQWX7PWHA=' 'sha256-ZzlZ8KjglC1tQHIx0O3sv183H6YxlbkPPuDUBEVU2Rg=' 'sha256-U0cHG1lNYXdIvO9DlwC/TCrCP3wdvWOV34Z+4pCqHzI=' 'sha256-hwSBpZTLFFrTKQH3HJ5LLRn92bpsubOAKqi+BEpI/Qc=' 'sha256-NV3PXlYsg6g7U8IWFuW7gdHRwmjwnLoPGuV15jhiBFY=' 'sha256-nB0awktbl6IWe9ugFssylgGkBXjeaO5eAVAmFAAYVqA=' 'sha256-bQr7rP83F/7k0d30PAKIE7Co+rI/8IoiUROBCcNMXxo='; connect-src 'self'">
     <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Syed Farhan Ahmed, Head of Cyber Security. CISM, CISA, CHFI, CEH, PNPT and eJPT certified. 15 years in IT, the last nine in security.">
@@ -2814,6 +2814,185 @@ html[data-theme="light"] .about-photo-light{filter:saturate(1.02) contrast(1.01)
   #about .about-info-grid{order:3;flex:0 0 100%;width:100%;margin-top:26px;}
 }
 
+
+/* ============================================================================
+   ABOUT, THE FACTS BLOCK
+   Eight rows of small grey text read as metadata rather than as the person's
+   details. The value is now the thing you see and the label steps back, the
+   tracking comes off the labels, and the rows breathe. The chip beside each
+   row is the same one the rest of the page uses; its hover was still tinted
+   cyan from before the icon system landed, which is corrected here.
+   ========================================================================= */
+.about-info-grid{
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:20px 28px;
+  align-items:start;}
+
+.info-item{
+  align-items:flex-start;
+  gap:13px;
+  padding:9px 11px;margin:0 -11px;
+  border-radius:11px;}
+.info-item .info-icon{margin-top:2px;}
+
+.info-key{
+  font-size:0.68rem;
+  font-weight:500;
+  letter-spacing:.04em;      /* was 1px, which pulled the word apart */
+  line-height:1.35;
+  margin-bottom:4px;
+  color:var(--text-dim);}
+
+.info-val{
+  font-size:0.98rem;
+  font-weight:600;
+  line-height:1.45;
+  color:var(--text-white);
+  overflow-wrap:anywhere;}   /* the address must never widen the column */
+
+/* the row and its chip lift together, in the icon family's own colour */
+.info-item:hover{background:rgba(139,92,246,.08);}
+.info-item:hover .info-icon{
+  transform:none;
+  color:var(--sfa-ink-hi);
+  border-color:rgba(139,92,246,.5);
+  box-shadow:0 4px 14px -8px rgba(139,92,246,.8);
+  background-color:transparent;
+  background-image:
+    radial-gradient(circle at calc(100% - 7px) 7px, var(--sfa-tick) 0 1.6px, transparent 1.7px),
+    radial-gradient(circle at 7px calc(100% - 7px), var(--sfa-tick-soft) 0 1.6px, transparent 1.7px),
+    var(--sfa-face);}
+
+html[data-theme="light"] .info-key{color:var(--text-dim);}
+html[data-theme="light"] .info-val{color:var(--text-white);}
+html[data-theme="light"] .info-item:hover{background:rgba(91,33,182,.07);}
+html[data-theme="light"] .info-item:hover .info-icon{
+  border-color:rgba(91,33,182,.4);
+  box-shadow:0 4px 14px -8px rgba(91,33,182,.45);}
+
+@media(max-width:575px){
+  .about-info-grid{gap:16px 20px;}
+  .info-val{font-size:0.94rem;}
+  .info-item{padding:8px 9px;margin:0 -9px;gap:11px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .info-item:hover .info-icon{transform:none;}
+}
+
+
+/* the facts belong to the whole section, not to the picture column. Sitting
+   under both columns they stop the right side ending two hundred pixels early,
+   and they get the room to line up four across. */
+#about .about-info-grid{
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:22px 26px;
+  margin:34px 0 0;
+  padding-top:28px;
+  border-top:1px solid var(--border);}
+@media(max-width:1199px){
+  #about .about-info-grid{grid-template-columns:repeat(3, minmax(0,1fr));}
+}
+@media(max-width:991px){
+  #about .about-info-grid{grid-template-columns:repeat(2, minmax(0,1fr));
+    margin-top:30px;padding-top:24px;}
+  /* the column no longer has to dissolve, the facts are outside it now */
+  #about .row > [class*="col-lg-"]:first-child{display:block;}
+  #about .about-image-wrapper{order:0;flex:initial;width:auto;}
+  #about .row > [class*="col-lg-"]:last-child{order:0;}
+}
+@media(max-width:575px){
+  #about .about-info-grid{grid-template-columns:1fr;gap:14px;}
+}
+
+
+/* ============================================================================
+   THEME SWITCH
+   It was a circle with a moon in it, which asks the reader to guess, and it
+   lived inside the collapsed menu, so on a phone it could not be found at all.
+   It now names what it will switch to, answers a press, and sits beside the
+   hamburger. Its hover was cyan while every other chip is indigo.
+   ========================================================================= */
+#themeBtn{position:relative;overflow:visible;}
+
+/* it belongs at the end of the bar on a wide screen and beside the hamburger
+   on a narrow one, so the bar orders its own children */
+.navbar > .container{align-items:center;}
+@media(min-width:992px){
+  .navbar > .container{flex-wrap:nowrap;}
+  .navbar > .container > .navbar-brand{order:1;flex:0 0 auto;}
+  /* without this the menu refuses to shrink and pushes the switch off the
+     right edge, which then widens the page and moves it further out again */
+  .navbar > .container > #navContent{order:2;flex:1 1 auto;min-width:0;}
+  .navbar > .container > #themeBtn{order:3;flex:0 0 auto;margin-left:14px;margin-right:0;}
+}
+@media(max-width:991px){
+  .navbar > .container > #themeBtn{order:2;margin-right:10px;}
+  .navbar > .container > .navbar-toggler{order:3;}
+  .navbar > .container > #navContent{order:4;}
+}
+
+/* the icon family is indigo, so the switch stops being the one cyan control */
+.theme-btn:hover{
+  color:var(--sfa-ink-hi);
+  border-color:rgba(139,92,246,.45);
+  background:rgba(139,92,246,.12);}
+html[data-theme="light"] .theme-btn:hover{
+  border-color:rgba(91,33,182,.35);
+  background:rgba(91,33,182,.09);}
+.theme-btn:focus-visible{outline-color:var(--sfa-ink);}
+
+/* a ring answers the press */
+.theme-btn::after{
+  content:'';position:absolute;inset:-1px;border-radius:50%;
+  border:2px solid var(--sfa-ink);
+  opacity:0;transform:scale(1);pointer-events:none;}
+.theme-btn:active::after{animation:themePress .55s var(--ease-out-quint) 1;}
+@keyframes themePress{
+  0%{opacity:.75;transform:scale(1);}
+  100%{opacity:0;transform:scale(2);}}
+
+/* the label: it names the theme the click will bring, not the one showing */
+.theme-tip{
+  position:absolute;top:calc(100% + 11px);left:50%;z-index:80;
+  transform:translateX(-50%) translateY(-7px) scale(.94);
+  opacity:0;pointer-events:none;white-space:nowrap;
+  padding:6px 12px;border-radius:9px;
+  font-family:var(--font-mono);font-size:0.63rem;font-weight:600;letter-spacing:.05em;
+  color:#ddd6fe;
+  background:linear-gradient(150deg,#241b46,#1b1836);
+  border:1px solid rgba(139,92,246,.42);
+  box-shadow:0 12px 28px -14px rgb(2 6 23/.9);
+  transition:opacity var(--dur-base) var(--ease-out-quint),
+             transform var(--dur-base) var(--ease-out-quint);}
+.theme-tip::before{
+  content:'';position:absolute;left:50%;top:-4px;width:8px;height:8px;
+  transform:translateX(-50%) rotate(45deg);
+  background:#241b46;
+  border-left:1px solid rgba(139,92,246,.42);
+  border-top:1px solid rgba(139,92,246,.42);}
+.theme-btn:hover .theme-tip,
+.theme-btn:focus-visible .theme-tip,
+.theme-btn:active .theme-tip{
+  opacity:1;transform:translateX(-50%) translateY(0) scale(1);}
+
+/* one line per direction, so the label always describes the next state */
+.theme-tip-toDark{display:none;}
+html[data-theme="light"] .theme-tip-toLight{display:none;}
+html[data-theme="light"] .theme-tip-toDark{display:inline;}
+
+html[data-theme="light"] .theme-tip{
+  color:#f5f3ff;
+  background:linear-gradient(150deg,#4c1d95,#3730a3);
+  border-color:rgba(91,33,182,.5);
+  box-shadow:0 12px 28px -14px rgb(15 23 42/.4);}
+html[data-theme="light"] .theme-tip::before{
+  background:#4c1d95;border-color:rgba(91,33,182,.5);}
+
+@media(prefers-reduced-motion:reduce){
+  .theme-tip{transition:none;}
+  .theme-btn:active::after{animation:none;}
+}
+
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person",
@@ -2821,7 +3000,7 @@ html[data-theme="light"] .about-photo-light{filter:saturate(1.02) contrast(1.01)
 "jobTitle":"Head of Cyber Security",
 "url":"https://farhan6667.github.io/portfolio/",
 "email":"mailto:syedfarhan6669@gmail.com",
-"telephone":"+92-311-1256221",
+"telephone":"+92 311 1256221",
 "address":{"@type":"PostalAddress","addressLocality":"Karachi","addressCountry":"PK"},
 "sameAs":["https://www.linkedin.com/in/syedfarhanahmed1/","https://github.com/farhan6667",
 "https://www.credly.com/users/syed-farhan-ahmed.f0edf63a/badges/credly",
@@ -2891,7 +3070,8 @@ html[data-theme="light"] .about-photo-light{filter:saturate(1.02) contrast(1.01)
             <span class="brand-shield"><i class="fas fa-shield-halved" aria-hidden="true"></i></span>
             <span class="brand-name">SFA</span>
         </a>
-        <button class="navbar-toggler" type="button" aria-label="Open the navigation menu" data-bs-toggle="collapse" data-bs-target="#navContent">
+        <button type="button" class="theme-btn" id="themeBtn" aria-label="Switch to the light theme"><span class="theme-knob"><i class="fas fa-moon theme-i-moon" aria-hidden="true"></i><i class="fas fa-sun theme-i-sun" aria-hidden="true"></i></span><span class="theme-tip" aria-hidden="true"><span class="theme-tip-toLight">Light mode</span><span class="theme-tip-toDark">Dark mode</span></span></button>
+<button class="navbar-toggler" type="button" aria-label="Open the navigation menu" data-bs-toggle="collapse" data-bs-target="#navContent">
             <div class="hamburger"><span></span><span></span><span></span></div>
         </button>
         <div class="collapse navbar-collapse" id="navContent">
@@ -2905,7 +3085,7 @@ html[data-theme="light"] .about-photo-light{filter:saturate(1.02) contrast(1.01)
                 <li class="nav-item"><a class="nav-link" href="#halloffame">Hall of Fame</a></li>
                 <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
                 <li class="nav-item ms-lg-3">
-                    <button type="button" class="theme-btn" id="themeBtn" aria-label="Switch to the light theme" title="Switch theme"><span class="theme-knob"><i class="fas fa-moon theme-i-moon" aria-hidden="true"></i><i class="fas fa-sun theme-i-sun" aria-hidden="true"></i></span></button><a class="nav-cta" href="#contact"><i class="fas fa-paper-plane me-2" aria-hidden="true"></i>Contact</a>
+                    <a class="nav-cta" href="#contact"><i class="fas fa-paper-plane me-2" aria-hidden="true"></i>Contact</a>
                 </li>
             </ul>
         </div>
@@ -3071,21 +3251,12 @@ html[data-theme="light"] .about-photo-light{filter:saturate(1.02) contrast(1.01)
                         <span class="aeb-txt">Years of<br>Experience</span>
                     </div>
                 </div>
-<div class="about-info-grid">
-                        <div class="info-item"><div class="info-icon"><i class="fas fa-user" aria-hidden="true"></i></div><div><span class="info-key">Name</span><span class="info-val">Syed Farhan Ahmed</span></div></div>
-                        <div class="info-item"><div class="info-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div><div><span class="info-key">Location</span><span class="info-val">Karachi, Pakistan</span></div></div>
-                        <div class="info-item"><div class="info-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div><div><span class="info-key">Email</span><span class="info-val">syedfarhan6669@gmail.com</span></div></div>
-                        <div class="info-item"><div class="info-icon"><i class="fas fa-phone" aria-hidden="true"></i></div><div><span class="info-key">Phone</span><span class="info-val">+92-311-1256221</span></div></div>
-                        <div class="info-item"><div class="info-icon"><i class="fas fa-briefcase" aria-hidden="true"></i></div><div><span class="info-key">Experience</span><span class="info-val">15+ Years</span></div></div>
-                        <div class="info-item"><div class="info-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><div><span class="info-key">Education</span><span class="info-val">B.Tech Telecom</span></div></div>
-                        <div class="info-item"><div class="info-icon"><i class="fas fa-language" aria-hidden="true"></i></div><div><span class="info-key">Languages</span><span class="info-val">English, Urdu</span></div></div>
-                        <div class="info-item"><div class="info-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></div><div><span class="info-key">Status</span><span class="info-val hl-cyan">Available</span></div></div>
-                    </div>
+
 
             </div>
             <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
                 <div class="about-content">
-                    <h3 class="about-subtitle">Head of Cyber Security &amp;<br><span class="text-gradient">Digital Forensics Examiner</span></h3>
+                    <h3 class="about-subtitle">Head of Cyber Security &amp;<br><span class="text-gradient">DFIR, SIEM and Detection Engineering</span></h3>
                     <p class="about-text">I'm <strong>Syed Farhan Ahmed</strong>, a dedicated <span class="hl-cyan">Head of Cyber Security</span> with <span class="hl-cyan">15+ years</span> of hands-on experience. Specialized in <span class="hl-cyan">Penetration Testing (CEH)</span>, <span class="hl-cyan">Computer Forensics (CHFI)</span>, <span class="hl-cyan">Mobile & Windows Forensics</span>, and <span class="hl-cyan">ISO/IEC 27001</span> information security compliance.</p>
                     <p class="about-text">Expert in digital forensic tools including <span class="hl-cyan">Oxygen Forensics 18.2</span>, <span class="hl-cyan">Magnet AXIOM 10.1</span>, and <span class="hl-cyan">Mobiledit Ultra Pro 9.8</span>, with real-world case success detecting a PKR 8 million corruption case.</p>
                     <p class="about-text">Currently at <span class="hl-cyan">Madani Channel</span>, I secure <span class="hl-cyan">1,750+ endpoints</span>, deploy SIEM solutions, manage enterprise firewalls, and lead penetration testing to neutralize threats.</p>
@@ -3097,6 +3268,17 @@ html[data-theme="light"] .about-photo-light{filter:saturate(1.02) contrast(1.01)
                 </div>
             </div>
         </div>
+<div class="about-info-grid">
+                        <div class="info-item"><div class="info-icon"><i class="fas fa-user" aria-hidden="true"></i></div><div><span class="info-key">Name</span><span class="info-val">Syed Farhan Ahmed</span></div></div>
+                        <div class="info-item"><div class="info-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div><div><span class="info-key">Location</span><span class="info-val">Karachi, Pakistan</span></div></div>
+                        <div class="info-item"><div class="info-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div><div><span class="info-key">Email</span><span class="info-val">syedfarhan6669@gmail.com</span></div></div>
+                        <div class="info-item"><div class="info-icon"><i class="fas fa-phone" aria-hidden="true"></i></div><div><span class="info-key">Phone</span><span class="info-val">+92 311 1256221</span></div></div>
+                        <div class="info-item"><div class="info-icon"><i class="fas fa-briefcase" aria-hidden="true"></i></div><div><span class="info-key">Experience</span><span class="info-val">15+ Years in IT, 9+ in Security</span></div></div>
+                        <div class="info-item"><div class="info-icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div><div><span class="info-key">Education</span><span class="info-val">Bachelor of Technology (Hons), Telecommunication</span></div></div>
+                        <div class="info-item"><div class="info-icon"><i class="fas fa-language" aria-hidden="true"></i></div><div><span class="info-key">Languages</span><span class="info-val">English, Urdu</span></div></div>
+                        <div class="info-item"><div class="info-icon"><i class="fas fa-circle-check" aria-hidden="true"></i></div><div><span class="info-key">Status</span><span class="info-val hl-cyan">Available</span></div></div>
+                    </div>
+
     </div>
 </section>
 
@@ -3670,7 +3852,7 @@ html[data-theme="light"] .about-photo-light{filter:saturate(1.02) contrast(1.01)
                 <div class="contact-card"><div class="ccard-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div><span class="ccard-label">Email</span><a href="mailto:syedfarhan6669@gmail.com" class="ccard-value">syedfarhan6669@gmail.com</a></div><div class="contact-card contact-card-cv"><div class="ccard-icon"><i class="fas fa-file-arrow-down" aria-hidden="true"></i></div><span class="ccard-label">Curriculum Vitae</span><a href="Syed_Farhan_Ahmed_CV.pdf" download="Syed-Farhan-Ahmed-CV.pdf" type="application/pdf" class="ccard-value ccard-cv" aria-label="Download the CV of Syed Farhan Ahmed as a PDF, 2 pages, 2.4 megabytes">Download PDF<span class="ccard-cv-meta" aria-hidden="true">2 pages &middot; 2.4 MB</span></a></div>
             </div>
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="contact-card"><div class="ccard-icon"><i class="fas fa-phone" aria-hidden="true"></i></div><span class="ccard-label">Phone</span><a href="tel:+923111256221" class="ccard-value">+92-311-1256221</a></div>
+                <div class="contact-card"><div class="ccard-icon"><i class="fas fa-phone" aria-hidden="true"></i></div><span class="ccard-label">Phone</span><a href="tel:+923111256221" class="ccard-value">+92 311 1256221</a></div>
             </div>
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
                 <div class="contact-card"><div class="ccard-icon"><i class="fab fa-linkedin-in" aria-hidden="true"></i></div><span class="ccard-label">LinkedIn</span><a href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer" class="ccard-value">linkedin.com/in/sfa6667</a></div>
