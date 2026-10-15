@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://farhan6667.github.io/portfolio/sitemap.xml

@@ -1,0 +1,30 @@
+# Syed Farhan Ahmed (SFA)
+
+> Head of Cyber Security at F Tech Solutions (Dawat-e-Islami) in Karachi, Pakistan. 15 years in IT, the last nine in security. Leads detection engineering, digital forensics and incident response, penetration testing and governance, and stays hands-on as a SOC engineer and penetration tester. Open to remote cyber security leadership roles.
+
+## Facts
+
+- Role: Head of Cyber Security since February 2023, after IT Security Analyst (2017), Helpdesk Manager (2016) and IT Support Officer (2015) at the same organisation.
+- Detection engineering: built 124 custom Wazuh rules covering 43 MITRE ATT&CK techniques, and eight AI agents for SIEM rule development, file integrity monitoring and continuous monitoring.
+- Incident response: led the response to a compromise of 11 production hosting servers, from containment to root cause.
+- Offensive security: personally tested a 400+ domain estate and directs a scheduled testing programme across 50+ core applications.
+- Certifications: 21 from 11 issuers, including CISA, CHFI, CEH, PNPT, eJPT, Certified SOC Analyst and ISO/IEC 27001 Information Security Associate.
+- Education: Bachelor of Technology (Hons), Telecommunication, Newports Institute of Communications and Economics, Karachi.
+- Languages: English, Urdu.
+
+## Open source tools
+
+- [Wazuh RuleGuard](https://github.com/farhan6667/wazuh-ruleguard): checks a Wazuh rule change against sample logs through the logtest API before it ships. Early prototype.
+- [Wazuh NoiseLens](https://github.com/farhan6667/wazuh-noiselens): shows which alerts a proposed Wazuh exception would hide. Early prototype.
+- [HexSwarm](https://github.com/farhan6667/hexswarm): runs a swarm of AI agents against authorised penetration testing and CTF targets, gated by a scope file. Alpha.
+- [no-api-media-mcp](https://github.com/farhan6667/no-api-media-mcp): makes images and video from Claude Code, Cursor or Codex with existing subscriptions, no API keys.
+- [SFA Monitor](https://github.com/farhan6667/sfa-monitor): a performance widget and task manager for the Linux desktop. Free, not open source.
+
+## Contact
+
+- Email: syedfarhan6669@gmail.com
+- Phone: +92 311 1256221
+- LinkedIn: https://www.linkedin.com/in/sfa6667
+- GitHub: https://github.com/farhan6667
+- Portfolio: https://farhan6667.github.io/portfolio/
+- CV (PDF): https://farhan6667.github.io/portfolio/Syed_Farhan_Ahmed_CV.pdf

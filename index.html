@@ -2,15 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://fonts.googleapis.com; script-src 'self' https://cdn.jsdelivr.net https://unpkg.com 'sha256-sKrzQKi77omX+eLi8GVfnuNQ6dLD2wtXtsKFiL9cVGs=' 'sha256-1VG4h1SxNocN5XL8+Y/PQwjj4HZ/EkVLQOiQWX7PWHA=' 'sha256-ZzlZ8KjglC1tQHIx0O3sv183H6YxlbkPPuDUBEVU2Rg=' 'sha256-U0cHG1lNYXdIvO9DlwC/TCrCP3wdvWOV34Z+4pCqHzI=' 'sha256-hwSBpZTLFFrTKQH3HJ5LLRn92bpsubOAKqi+BEpI/Qc=' 'sha256-NV3PXlYsg6g7U8IWFuW7gdHRwmjwnLoPGuV15jhiBFY=' 'sha256-nB0awktbl6IWe9ugFssylgGkBXjeaO5eAVAmFAAYVqA=' 'sha256-bQr7rP83F/7k0d30PAKIE7Co+rI/8IoiUROBCcNMXxo='; connect-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://fonts.googleapis.com; script-src 'self' https://cdn.jsdelivr.net https://unpkg.com 'sha256-1VG4h1SxNocN5XL8+Y/PQwjj4HZ/EkVLQOiQWX7PWHA=' 'sha256-9UsqWW9Ig3MP1i3MR1qKzQ1tE6XIRpjZ76TaBaE1j8s=' 'sha256-U0cHG1lNYXdIvO9DlwC/TCrCP3wdvWOV34Z+4pCqHzI=' 'sha256-hwSBpZTLFFrTKQH3HJ5LLRn92bpsubOAKqi+BEpI/Qc=' 'sha256-NV3PXlYsg6g7U8IWFuW7gdHRwmjwnLoPGuV15jhiBFY=' 'sha256-nB0awktbl6IWe9ugFssylgGkBXjeaO5eAVAmFAAYVqA=' 'sha256-bQr7rP83F/7k0d30PAKIE7Co+rI/8IoiUROBCcNMXxo=' 'sha256-ESTUyLlZetBBzA0LHC040LZE1td8dExKDuewLFKqAOE='; connect-src 'self' https://api.github.com">
     <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Syed Farhan Ahmed, Head of Cyber Security. CISM, CISA, CHFI, CEH, PNPT and eJPT certified. 15 years in IT, the last nine in security.">
+    <meta name="description" content="Syed Farhan Ahmed (SFA), Head of Cyber Security in Karachi, Pakistan. Detection engineering, DFIR, penetration testing and GRC. CISM, CISA, CHFI, CEH, PNPT and eJPT certified. 15 years in IT, the last nine in security.">
     <meta property="og:type" content="profile">
     <meta property="og:title" content="Syed Farhan Ahmed | Head of Cyber Security">
     <meta property="og:description" content="Head of Cyber Security. Incident response, detection engineering, digital forensics and SIEM operations.">
     <meta property="og:url" content="https://farhan6667.github.io/portfolio/">
-    <meta property="og:image" content="https://farhan6667.github.io/portfolio/profile.jpg">
+    <meta property="og:image" content="https://farhan6667.github.io/portfolio/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Syed Farhan Ahmed, Head of Cyber Security">
+<meta property="og:site_name" content="Syed Farhan Ahmed (SFA)">
+<meta name="twitter:title" content="Syed Farhan Ahmed | Head of Cyber Security">
+<meta name="twitter:description" content="Head of Cyber Security in Karachi, Pakistan. Detection engineering, DFIR, penetration testing and GRC.">
+<meta name="twitter:image" content="https://farhan6667.github.io/portfolio/og-image.jpg">
+<meta name="author" content="Syed Farhan Ahmed">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="me" href="https://www.linkedin.com/in/sfa6667">
+<link rel="me" href="https://github.com/farhan6667">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://farhan6667.github.io/portfolio/">
     <title>Syed Farhan Ahmed | Head of Cyber Security – DFIR, SIEM and Detection Engineering</title>
@@ -3013,29 +3024,540 @@ html[data-theme="light"] .theme-tip::before{
   .contact-card{padding:26px 20px;}
 }
 
+
+/* ============================================================================
+   V3 SECTIONS
+   Hero profile buttons, the four jobs, the GitHub tools, the FAQ and the
+   LinkedIn card. Everything is built from parts the page already has: the
+   section header, the SFA chip, the neon run border, the card sheen, the
+   motion tokens. Nothing here restyles an existing block.
+   ========================================================================= */
+
+/* ---- hero: LinkedIn and GitHub get their names, mail and phone stay rings */
+.hero-socials{flex-wrap:wrap;align-items:center;}
+.hero-socials a.hs-pill{width:auto;height:44px;padding:0 18px 0 6px;gap:10px;
+  border-radius:var(--radius-full);font-family:var(--font-sans);font-size:.86rem;font-weight:600;
+  color:var(--text-light);background:rgba(148,163,184,.04);border:1px solid rgba(148,163,184,.16);}
+.hs-pill .hs-ico{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;
+  font-size:.95rem;color:#fff;flex-shrink:0;
+  transition:transform var(--dur-base) var(--ease-out-quint);}
+.hs-li .hs-ico{background:#0a66c2;}
+.hs-gh .hs-ico{background:#24292f;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);}
+.hero-socials a.hs-li:hover{border-color:rgba(10,102,194,.75);color:var(--text-white);
+  background:rgba(10,102,194,.12);box-shadow:0 10px 28px -12px rgba(10,102,194,.85);}
+.hero-socials a.hs-gh:hover{border-color:rgba(148,163,184,.6);color:var(--text-white);
+  background:rgba(148,163,184,.08);box-shadow:0 10px 28px -14px rgba(148,163,184,.7);}
+.hero-socials a.hs-pill:hover .hs-ico{transform:rotate(-8deg) scale(1.07);}
+html[data-theme="light"] .hero-socials a.hs-pill{background:#fff;border-color:rgba(15,23,42,.14);color:var(--text-light);}
+html[data-theme="light"] .hero-socials a.hs-li:hover{background:#eef5fc;color:#0b1220;}
+html[data-theme="light"] .hero-socials a.hs-gh:hover{background:#f3f4f6;color:#0b1220;border-color:rgba(36,41,47,.45);}
+
+/* ---- shared: the neon run border and the sheen, for the new cards ------- */
+.jb-card,.pj-card,.lnk-card,.fq-item{--neon:var(--cyan);}
+@media (hover:hover) and (pointer:fine){
+  .jb-card::after,.pj-card::after,.lnk-card::after{
+    content:'';position:absolute;inset:0;z-index:3;pointer-events:none;
+    border-radius:inherit;padding:1.5px;opacity:0;
+    background:conic-gradient(from var(--neon-angle),
+      transparent 0deg,var(--neon) 40deg,
+      color-mix(in oklab, var(--neon) 55%, #ffffff) 70deg,
+      var(--neon) 100deg,transparent 150deg,transparent 360deg);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    mask-composite:exclude;
+    transition:opacity var(--dur-base) var(--ease-out-quint);}
+  .jb-card:hover::after,.pj-card:hover::after,.lnk-card:hover::after{opacity:1;animation:neonRun 2.4s linear infinite;}
+  .jb-card .jb-sheen,.pj-card .pj-sheen{position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;
+    background:linear-gradient(104deg,transparent 38%,rgba(255,255,255,.05) 50%,transparent 62%);
+    transform:translateX(-120%);opacity:0;}
+}
+@supports not (color:color-mix(in oklab, red, red)){
+  .jb-card::after,.pj-card::after,.lnk-card::after{display:none;}
+}
+
+/* ---- the four jobs -------------------------------------------------------- */
+.jb-build{--jb:#06b6d4;}.jb-break{--jb:#a78bfa;}.jb-defend{--jb:#10b981;}.jb-govern{--jb:#f59e0b;}
+html[data-theme="light"] .jb-build{--jb:#0e7490;}html[data-theme="light"] .jb-break{--jb:#6d28d9;}
+html[data-theme="light"] .jb-defend{--jb:#047857;}html[data-theme="light"] .jb-govern{--jb:#b45309;}
+.jb-card{--neon:var(--jb);position:relative;isolation:isolate;height:100%;
+  display:flex;flex-direction:column;gap:18px;padding:30px 30px 26px;
+  border-radius:var(--radius-xl);overflow:hidden;
+  background:linear-gradient(160deg,var(--bg-card),var(--bg-elevated));
+  border:1px solid var(--border);
+  transition:transform var(--dur-base) var(--ease-out-quint),
+             border-color var(--dur-base) var(--ease-out-quint),
+             box-shadow var(--dur-base) var(--ease-out-quint);}
+.jb-card::before{content:'';position:absolute;z-index:-1;pointer-events:none;
+  top:-120px;right:-90px;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,var(--jb) 0,transparent 66%);opacity:.10;
+  transition:opacity var(--dur-base) var(--ease-out-quint);}
+.jb-head{display:flex;align-items:center;gap:18px;}
+.jb-num{font-family:var(--font-display);font-size:3.3rem;font-weight:800;line-height:.85;
+  color:transparent;-webkit-text-stroke:1.4px var(--jb);opacity:.85;letter-spacing:-1px;}
+.jb-name{flex:1;min-width:0;}
+.jb-name h3{font-family:var(--font-display);font-size:1.75rem;font-weight:800;color:var(--text-white);margin:0;line-height:1.1;}
+.jb-name span{display:block;margin-top:6px;font-family:var(--font-mono);font-size:.68rem;font-weight:600;
+  letter-spacing:1.6px;text-transform:uppercase;color:var(--jb);}
+.jb-icon{width:var(--sfa-chip-lg);height:var(--sfa-chip-lg);flex-shrink:0;display:grid;place-items:center;
+  border-radius:calc(var(--sfa-chip-lg) * var(--sfa-chip-radius));font-size:calc(var(--sfa-chip-lg) * .42);
+  color:var(--sfa-ink);background-color:transparent;
+  background-image:
+    radial-gradient(circle at calc(100% - 7px) 7px, var(--sfa-tick) 0 1.6px, transparent 1.7px),
+    radial-gradient(circle at 7px calc(100% - 7px), var(--sfa-tick-soft) 0 1.6px, transparent 1.7px),
+    var(--sfa-face);
+  border:1px solid var(--sfa-edge);box-shadow:inset 0 1px 0 rgb(255 255 255/.06);
+  transition:transform var(--dur-base) var(--ease-out-quint),color var(--dur-base) var(--ease-out-quint);}
+.jb-lede{margin:0;color:var(--text-muted);font-size:.95rem;line-height:1.6;}
+.jb-tools{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0;}
+.jb-tools li{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:10px;
+  font-size:.78rem;font-weight:600;color:var(--text-light);
+  background:rgba(148,163,184,.05);border:1px solid rgba(148,163,184,.13);
+  transition:border-color var(--dur-fast) var(--ease-out-quint),transform var(--dur-fast) var(--ease-out-quint),
+             background-color var(--dur-fast) var(--ease-out-quint);}
+.jb-tools li i{font-size:.74rem;color:var(--jb);width:14px;text-align:center;}
+.jb-proof{margin-top:auto;padding-top:18px;border-top:1px dashed rgba(148,163,184,.18);}
+.jb-proof-k{display:inline-flex;align-items:center;gap:7px;margin-bottom:8px;
+  font-family:var(--font-mono);font-size:.66rem;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--green);}
+.jb-proof p{margin:0;font-size:.9rem;line-height:1.65;color:var(--text-muted);}
+.jb-proof strong{color:var(--text-white);font-weight:700;}
+@media (hover:hover) and (pointer:fine){
+  .jb-card:hover{transform:translateY(-4px);border-color:transparent;
+    box-shadow:0 24px 52px -26px var(--jb);}
+  .jb-card:hover::before{opacity:.2;}
+  .jb-card:hover .jb-icon{transform:translateY(-2px) rotate(-4deg);color:var(--sfa-ink-hi);}
+  .jb-tools li:hover{border-color:var(--jb);transform:translateY(-1px);background:rgba(148,163,184,.08);}
+}
+html[data-theme="light"] .jb-card{background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.05);}
+html[data-theme="light"] .jb-card::before{opacity:.07;}
+html[data-theme="light"] .jb-tools li{background:#f6f8fb;border-color:rgba(15,23,42,.10);color:#1e293b;}
+html[data-theme="light"] .jb-proof{border-top-color:rgba(15,23,42,.14);}
+
+/* ---- tools on GitHub -------------------------------------------------- */
+.pj-profile{position:relative;display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+  margin:0 auto 34px;padding:22px 26px;border-radius:var(--radius-xl);
+  background:linear-gradient(120deg,rgba(124,58,237,.10),rgba(6,182,212,.06) 60%,transparent),var(--bg-card);
+  border:1px solid var(--sfa-edge);box-shadow:var(--shadow-md);}
+.pj-prof-mark{width:58px;height:58px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;
+  font-size:1.7rem;color:#fff;background:#24292f;box-shadow:inset 0 0 0 1px rgba(255,255,255,.18),0 10px 24px -12px #000;}
+.pj-prof-txt{flex:1 1 260px;min-width:0;display:flex;flex-direction:column;gap:3px;}
+.pj-prof-kicker{font-family:var(--font-mono);font-size:.7rem;font-weight:600;letter-spacing:.06em;color:var(--cyan);}
+.pj-prof-txt strong{font-size:1.1rem;font-weight:700;color:var(--text-white);}
+.pj-prof-txt>span:last-child{font-size:.86rem;color:var(--text-muted);}
+.pj-prof-stats{display:flex;gap:26px;list-style:none;margin:0;padding:0 8px;}
+.pj-prof-stats li{display:flex;flex-direction:column;align-items:flex-start;}
+.pj-prof-stats b{font-family:var(--font-display);font-size:1.7rem;line-height:1;
+  background:var(--gradient-main);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.pj-prof-stats span{margin-top:5px;font-family:var(--font-mono);font-size:.62rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);}
+
+.pj-card{position:relative;isolation:isolate;height:100%;display:flex;flex-direction:column;
+  border-radius:var(--radius-xl);overflow:hidden;background:var(--bg-card);border:1px solid var(--border);
+  transition:transform var(--dur-base) var(--ease-out-quint),border-color var(--dur-base) var(--ease-out-quint),
+             box-shadow var(--dur-base) var(--ease-out-quint);}
+.pj-bar{display:flex;align-items:center;gap:12px;height:36px;padding:0 16px;
+  background:rgba(148,163,184,.045);border-bottom:1px solid var(--border);}
+.pj-dots{display:inline-flex;gap:6px;flex-shrink:0;}
+.pj-dots i{width:9px;height:9px;border-radius:50%;background:#ff5f57;opacity:.85;}
+.pj-dots i:nth-child(2){background:#febc2e;}.pj-dots i:nth-child(3){background:#28c840;}
+.pj-path{font-family:var(--font-mono);font-size:.68rem;color:var(--text-dim);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.pj-body{flex:1;display:flex;flex-direction:column;gap:14px;padding:22px 24px 18px;}
+.pj-head{display:flex;align-items:center;gap:14px;}
+.pj-icon{width:50px;height:50px;flex-shrink:0;display:grid;place-items:center;border-radius:15px;font-size:1.15rem;
+  color:var(--sfa-ink);background-color:transparent;
+  background-image:
+    radial-gradient(circle at calc(100% - 7px) 7px, var(--sfa-tick) 0 1.6px, transparent 1.7px),
+    radial-gradient(circle at 7px calc(100% - 7px), var(--sfa-tick-soft) 0 1.6px, transparent 1.7px),
+    var(--sfa-face);
+  border:1px solid var(--sfa-edge);box-shadow:inset 0 1px 0 rgb(255 255 255/.06);
+  transition:transform var(--dur-base) var(--ease-out-quint),color var(--dur-base) var(--ease-out-quint);}
+.pj-cat{display:block;font-family:var(--font-mono);font-size:.64rem;font-weight:600;letter-spacing:1.5px;
+  text-transform:uppercase;color:var(--cyan);}
+.pj-title{margin:3px 0 0;font-size:1.16rem;font-weight:700;color:var(--text-white);line-height:1.25;}
+.pj-desc{margin:0;font-size:.9rem;line-height:1.62;color:var(--text-muted);}
+.pj-meta{display:flex;flex-wrap:wrap;gap:8px 16px;list-style:none;margin:0;padding:0;
+  font-family:var(--font-mono);font-size:.68rem;color:var(--text-dim);}
+.pj-meta li{display:inline-flex;align-items:center;}
+.pj-meta li[hidden]{display:none;}
+.pj-meta i{margin-right:6px;font-size:.68rem;}
+.pj-meta .fa-star{color:var(--amber);}
+.pj-meta [data-f=starword]{margin-left:.35em;}
+.pj-lang{width:10px;height:10px;border-radius:50%;margin-right:7px;background:#94a3b8;}
+.pj-lang-py{background:#3572A5;}.pj-lang-ts{background:#3178c6;}
+.pj-rel{align-self:flex-start;display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:9px;
+  font-family:var(--font-mono);font-size:.68rem;color:var(--text-light);
+  background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.22);}
+.pj-rel i{color:var(--sfa-ink);}
+.pj-rel b{color:var(--sfa-ink-hi);font-weight:700;}
+.pj-rel-date{color:var(--text-dim);}
+.pj-rel-date::before{content:'\00b7';margin:0 6px 0 2px;}
+.pj-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:14px 24px 18px;border-top:1px solid var(--border);}
+.pj-status{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.66rem;font-weight:600;
+  letter-spacing:.03em;color:var(--text-light);}
+.pj-status::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--st,#94a3b8);
+  box-shadow:0 0 0 3px color-mix(in oklab, var(--st,#94a3b8) 22%, transparent);}
+.pj-st-proto{--st:#f59e0b;}.pj-st-alpha{--st:#a78bfa;}.pj-st-oss{--st:#10b981;}.pj-st-free{--st:#94a3b8;}
+.pj-link{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;font-size:.84rem;font-weight:700;
+  color:var(--cyan-light);text-decoration:none;}
+.pj-link i{font-size:.7rem;transition:transform var(--dur-base) var(--ease-out-quint);}
+.pj-link:hover{color:var(--text-white);}
+.pj-link:hover i{transform:translate(2px,-2px);}
+.pj-end{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:38px;text-align:center;}
+.pj-note{margin:0;font-size:.78rem;color:var(--text-dim);}
+@media (hover:hover) and (pointer:fine){
+  .pj-card:hover{transform:translateY(-5px);border-color:transparent;
+    box-shadow:0 26px 54px -28px rgba(6,182,212,.55),0 2px 6px rgb(2 6 23/.3);}
+  .pj-card:hover .pj-icon{transform:translateY(-2px) rotate(-4deg);color:var(--sfa-ink-hi);}
+  .pj-card:hover .pj-sheen{animation:cardSheen .9s var(--ease-out-quint) .04s 1;}
+}
+html[data-theme="light"] .pj-profile{background:linear-gradient(120deg,rgba(109,40,217,.07),rgba(14,116,144,.05) 60%,#fff),#fff;}
+html[data-theme="light"] .pj-card{background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.05);}
+html[data-theme="light"] .pj-bar{background:#f6f8fb;}
+html[data-theme="light"] .pj-link{color:var(--cyan);}
+html[data-theme="light"] .pj-link:hover{color:#0b1220;}
+html[data-theme="light"] .pj-meta .fa-star{color:#b45309;}
+html[data-theme="light"] .pj-st-proto{--st:#b45309;}html[data-theme="light"] .pj-st-alpha{--st:#6d28d9;}
+html[data-theme="light"] .pj-st-oss{--st:#047857;}html[data-theme="light"] .pj-st-free{--st:#64748b;}
+html[data-theme="light"] .pj-card:hover{box-shadow:0 24px 50px -28px rgba(14,116,144,.45);}
+
+/* ---- FAQ ----------------------------------------------------------------- */
+.fq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;}
+.fq-col{display:flex;flex-direction:column;gap:16px;}
+.fq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;
+  transition:border-color var(--dur-base) var(--ease-out-quint),box-shadow var(--dur-base) var(--ease-out-quint);}
+.fq-item summary{list-style:none;display:flex;align-items:center;gap:14px;padding:18px 20px;cursor:pointer;
+  font-size:.98rem;font-weight:600;color:var(--text-white);line-height:1.4;
+  transition:background-color var(--dur-fast) var(--ease-out-quint);}
+.fq-item summary::-webkit-details-marker{display:none;}
+.fq-item summary:focus-visible{outline:2px solid var(--cyan-light);outline-offset:-2px;border-radius:var(--radius-lg);}
+.fq-ico{width:38px;height:38px;flex-shrink:0;display:grid;place-items:center;border-radius:11px;font-size:.88rem;
+  color:var(--sfa-ink);background-color:transparent;
+  background-image:
+    radial-gradient(circle at calc(100% - 6px) 6px, var(--sfa-tick) 0 1.4px, transparent 1.5px),
+    radial-gradient(circle at 6px calc(100% - 6px), var(--sfa-tick-soft) 0 1.4px, transparent 1.5px),
+    var(--sfa-face);
+  border:1px solid var(--sfa-edge);}
+.fq-q{flex:1;min-width:0;}
+.fq-chev{width:30px;height:30px;flex-shrink:0;display:grid;place-items:center;border-radius:50%;
+  border:1px solid rgba(148,163,184,.18);color:var(--text-dim);font-size:.7rem;
+  transition:transform var(--dur-base) var(--ease-out-quint),color var(--dur-base) var(--ease-out-quint),
+             border-color var(--dur-base) var(--ease-out-quint),background-color var(--dur-base) var(--ease-out-quint);}
+.fq-item[open]{border-color:rgba(6,182,212,.32);box-shadow:0 18px 40px -26px rgba(6,182,212,.5);}
+.fq-item[open] .fq-chev{transform:rotate(180deg);color:var(--cyan-light);border-color:rgba(6,182,212,.45);
+  background:rgba(6,182,212,.08);}
+.fq-a{padding:0 22px 20px 72px;}
+.fq-a p{margin:0;font-size:.92rem;line-height:1.72;color:var(--text-muted);}
+.fq-a a{color:var(--cyan-light);text-decoration:none;border-bottom:1px solid rgba(34,211,238,.35);}
+.fq-a a:hover{color:var(--text-white);}
+.fq-item[open] .fq-a{animation:fqIn .4s var(--ease-out-quint) 1;}
+@keyframes fqIn{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none;}}
+@media (hover:hover) and (pointer:fine){
+  .fq-item summary:hover{background:rgba(6,182,212,.04);}
+  .fq-item summary:hover .fq-chev{color:var(--cyan-light);border-color:rgba(6,182,212,.4);}
+}
+.fq-more{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:40px;}
+.fq-more>span{font-size:.95rem;color:var(--text-muted);}
+html[data-theme="light"] .fq-item{background:#fff;}
+html[data-theme="light"] .fq-item[open]{border-color:rgba(14,116,144,.35);box-shadow:0 16px 36px -24px rgba(14,116,144,.4);}
+html[data-theme="light"] .fq-a a{color:var(--cyan);border-bottom-color:rgba(14,116,144,.35);}
+html[data-theme="light"] .fq-item[open] .fq-chev{color:var(--cyan);border-color:rgba(14,116,144,.4);background:rgba(14,116,144,.07);}
+html[data-theme="light"] .fq-item summary:hover{background:#f6f8fb;}
+
+/* ---- LinkedIn -------------------------------------------------------------- */
+.lnk-card{--neon:#3b8fe8;position:relative;isolation:isolate;height:100%;overflow:hidden;
+  border-radius:var(--radius-xl);background:var(--bg-card);border:1px solid var(--border);box-shadow:var(--shadow-lg);
+  transition:transform var(--dur-base) var(--ease-out-quint),box-shadow var(--dur-base) var(--ease-out-quint);}
+.lnk-cover{position:relative;aspect-ratio:4/1;overflow:hidden;
+  background:
+    radial-gradient(120% 150% at 88% -10%, rgba(10,102,194,.75), transparent 55%),
+    radial-gradient(90% 130% at 0% 110%, rgba(139,92,246,.55), transparent 60%),
+    linear-gradient(135deg,#0b1328,#101a3a 55%,#0a2540);}
+.lnk-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.lnk-cover-grid{position:absolute;inset:0;
+  background-image:linear-gradient(rgba(148,163,184,.10) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(148,163,184,.10) 1px,transparent 1px);
+  background-size:26px 26px;
+  -webkit-mask:radial-gradient(120% 100% at 70% 30%,#000 30%,transparent 80%);
+  mask:radial-gradient(120% 100% at 70% 30%,#000 30%,transparent 80%);}
+.lnk-cover-scan{position:absolute;left:0;right:0;top:-40%;height:40%;
+  background:linear-gradient(180deg,transparent,rgba(56,189,248,.10),transparent);
+  animation:lnkScan 5.5s linear infinite;}
+@keyframes lnkScan{to{top:110%;}}
+.lnk-cover-tag{position:absolute;left:22px;top:18px;font-family:var(--font-mono);font-size:.7rem;
+  color:rgba(226,232,240,.75);letter-spacing:.02em;}
+.lnk-cover-mark{position:absolute;right:20px;bottom:-22px;font-size:7.5rem;color:rgba(255,255,255,.08);}
+.lnk-body{position:relative;padding:0 30px 28px;}
+.lnk-top{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:space-between;margin-top:-62px;}
+.lnk-avatar{width:116px;height:116px;border-radius:50%;padding:4px;flex-shrink:0;
+  background:var(--bg-card);
+  box-shadow:0 14px 34px -14px rgba(0,0,0,.7);}
+.lnk-avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block;}
+.lnk-in{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;margin-bottom:8px;
+  font-size:1.15rem;color:#fff;background:#0a66c2;text-decoration:none;
+  box-shadow:0 10px 24px -10px rgba(10,102,194,.9);
+  transition:transform var(--dur-base) var(--ease-out-quint);}
+.lnk-in:hover{color:#fff;transform:translateY(-2px) rotate(-6deg);}
+.lnk-name{margin:16px 0 6px;font-family:var(--font-display);font-size:1.9rem;font-weight:800;color:var(--text-white);line-height:1.15;}
+.lnk-name span{font-family:var(--font-sans);font-size:.95rem;font-weight:500;color:var(--text-dim);}
+.lnk-headline{margin:0 0 8px;font-size:.95rem;line-height:1.55;color:var(--text-light);}
+.lnk-loc{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:0 0 14px;font-size:.83rem;color:var(--text-dim);}
+.lnk-loc i{color:var(--text-dim);}
+.lnk-loc a{color:#4da3ff;text-decoration:none;font-weight:600;}
+.lnk-loc a:hover{text-decoration:underline;}
+.lnk-sep{width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.6;}
+.lnk-open{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:var(--radius-full);
+  font-size:.8rem;font-weight:600;color:#34d399;background:rgba(16,185,129,.10);border:1px solid rgba(16,185,129,.3);}
+.lnk-facts{list-style:none;margin:20px 0 0;padding:0;}
+.lnk-facts li{display:flex;align-items:center;gap:14px;padding:13px 0;border-top:1px solid var(--border);}
+.lnk-fi,.lnk-wi{width:40px;height:40px;flex-shrink:0;display:grid;place-items:center;border-radius:12px;font-size:.92rem;
+  color:var(--sfa-ink);background-color:transparent;
+  background-image:
+    radial-gradient(circle at calc(100% - 6px) 6px, var(--sfa-tick) 0 1.4px, transparent 1.5px),
+    radial-gradient(circle at 6px calc(100% - 6px), var(--sfa-tick-soft) 0 1.4px, transparent 1.5px),
+    var(--sfa-face);
+  border:1px solid var(--sfa-edge);}
+.lnk-facts div>b,.lnk-why div>b{display:block;font-size:.92rem;font-weight:700;color:var(--text-white);}
+.lnk-facts div>span,.lnk-why div>span{display:block;margin-top:2px;font-size:.82rem;line-height:1.5;color:var(--text-dim);}
+.lnk-chips{display:flex;flex-wrap:wrap;gap:7px;list-style:none;margin:6px 0 0;padding:14px 0 0;border-top:1px solid var(--border);}
+.lnk-chips li{font-family:var(--font-mono);font-size:.66rem;font-weight:700;letter-spacing:.04em;padding:5px 11px;
+  border-radius:var(--radius-full);color:#9cc9ff;background:rgba(10,102,194,.14);border:1px solid rgba(59,143,232,.35);}
+.lnk-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:22px;}
+.lnk-btn{position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;gap:10px;
+  padding:13px 24px;border-radius:var(--radius-full);font-size:.9rem;font-weight:700;color:#fff;text-decoration:none;
+  background:linear-gradient(135deg,#0a66c2,#004182);box-shadow:0 12px 30px -12px rgba(10,102,194,.9);
+  transition:transform var(--dur-base) var(--ease-out-quint),box-shadow var(--dur-base) var(--ease-out-quint);}
+.lnk-btn::after{content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(104deg,transparent 35%,rgba(255,255,255,.28) 50%,transparent 65%);
+  transform:translateX(-120%);}
+.lnk-btn-ext{font-size:.72rem;opacity:.85;}
+.lnk-btn:hover{color:#fff;transform:translateY(-2px);box-shadow:0 18px 36px -12px rgba(10,102,194,1);}
+.lnk-btn:hover::after{animation:cardSheen .9s var(--ease-out-quint) 1;}
+.lnk-btn:focus-visible{outline:2px solid #4da3ff;outline-offset:3px;}
+
+.lnk-side{position:relative;height:100%;display:flex;flex-direction:column;gap:18px;padding:30px;
+  border-radius:var(--radius-xl);border:1px solid var(--border);
+  background:linear-gradient(160deg,rgba(10,102,194,.12),rgba(139,92,246,.06) 55%,transparent),var(--bg-card);}
+.lnk-side-k{font-family:var(--font-mono);font-size:.66rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#4da3ff;}
+.lnk-side h3{margin:-8px 0 0;font-family:var(--font-display);font-size:1.55rem;font-weight:800;color:var(--text-white);}
+.lnk-why{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px;}
+.lnk-why li{display:flex;gap:14px;align-items:flex-start;}
+.lnk-wi{width:42px;height:42px;}
+.lnk-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:auto;padding-top:18px;border-top:1px solid var(--border);}
+.lnk-stats b{display:block;font-family:var(--font-display);font-size:1.75rem;line-height:1;
+  background:var(--gradient-main);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.lnk-stats span{display:block;margin-top:6px;font-family:var(--font-mono);font-size:.6rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);}
+@media (hover:hover) and (pointer:fine){
+  .lnk-card:hover{transform:translateY(-4px);box-shadow:0 30px 64px -30px rgba(10,102,194,.7);}
+}
+html[data-theme="light"] .lnk-card{background:#fff;box-shadow:0 18px 44px -26px rgba(15,23,42,.35);}
+html[data-theme="light"] .lnk-avatar{background:#fff;}
+html[data-theme="light"] .lnk-loc a{color:#0a5bb0;}
+html[data-theme="light"] .lnk-open{color:#047857;background:rgba(4,120,87,.08);border-color:rgba(4,120,87,.28);}
+html[data-theme="light"] .lnk-chips li{color:#0a4f8f;background:rgba(10,102,194,.07);border-color:rgba(10,102,194,.28);}
+html[data-theme="light"] .lnk-side{background:linear-gradient(160deg,rgba(10,102,194,.07),rgba(109,40,217,.04) 55%,#fff),#fff;}
+html[data-theme="light"] .lnk-side-k{color:#0a5bb0;}
+
+.lnk-direct{display:flex;flex-direction:column;gap:10px;padding:18px;border-radius:var(--radius-lg);
+  background:rgba(148,163,184,.04);border:1px solid var(--border);}
+.lnk-direct-k{font-family:var(--font-mono);font-size:.64rem;font-weight:700;letter-spacing:1.6px;
+  text-transform:uppercase;color:var(--text-dim);}
+.lnk-direct a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;text-decoration:none;
+  font-size:.9rem;font-weight:600;color:var(--text-light);border:1px solid transparent;
+  transition:border-color var(--dur-fast) var(--ease-out-quint),background-color var(--dur-fast) var(--ease-out-quint),
+             transform var(--dur-fast) var(--ease-out-quint);}
+.lnk-direct a i:first-child{width:34px;height:34px;flex-shrink:0;display:grid;place-items:center;border-radius:10px;
+  font-size:.85rem;color:var(--cyan-light);background:rgba(6,182,212,.10);border:1px solid rgba(6,182,212,.22);}
+.lnk-direct a .lnk-go{margin-left:auto;font-size:.7rem;color:var(--text-dim);
+  transition:transform var(--dur-fast) var(--ease-out-quint);}
+.lnk-direct a:hover{color:var(--text-white);background:rgba(6,182,212,.06);border-color:rgba(6,182,212,.25);}
+.lnk-direct a:hover .lnk-go{transform:translateX(3px);color:var(--cyan-light);}
+html[data-theme="light"] .lnk-direct{background:#f6f8fb;}
+html[data-theme="light"] .lnk-direct a i:first-child{color:var(--cyan);background:rgba(14,116,144,.08);border-color:rgba(14,116,144,.22);}
+html[data-theme="light"] .lnk-direct a:hover{background:#fff;color:#0b1220;}
+
+/* the new portrait earns a little more room on a wide screen */
+@media(min-width:1200px){
+  .hero-image-container{width:380px;height:470px;}
+}
+
+/* ten links now: on a small laptop the Contact pill ran into the theme switch */
+@media(min-width:992px) and (max-width:1199px){
+  #navContent .nav-link{padding:8px 7px!important;font-size:.76rem;}
+  #navContent .nav-cta{padding:9px 16px!important;}
+  #navContent .nav-item.ms-lg-3{margin-left:.5rem!important;}
+}
+
+/* ---- narrow screens -------------------------------------------------------- */
+@media(max-width:991px){
+  .fq-grid{grid-template-columns:1fr;}
+  .pj-prof-stats{padding:0;}
+}
+@media(max-width:575px){
+  .jb-card{padding:24px 20px 22px;}
+  .jb-num{font-size:2.6rem;}
+  .jb-name h3{font-size:1.45rem;}
+  .jb-icon{display:none;}
+  .pj-profile{padding:20px;gap:16px;}
+  .pj-prof-stats{gap:20px;width:100%;}
+  .pj-follow{width:100%;justify-content:center;}
+  .pj-body{padding:20px 20px 16px;}
+  .pj-foot{padding:14px 20px 16px;}
+  .fq-item summary{padding:16px;gap:12px;font-size:.94rem;}
+  .fq-a{padding:0 18px 18px;}
+  .lnk-body{padding:0 20px 22px;}
+  .lnk-avatar{width:98px;height:98px;}
+  .lnk-top{margin-top:-46px;}
+  .lnk-name{font-size:1.6rem;}
+  .lnk-side{padding:24px 20px;}
+  .lnk-btn{width:100%;justify-content:center;}
+  .lnk-actions .btn-cyber-outline{width:100%;justify-content:center;}
+  .hero-socials a.hs-pill{padding:0 14px 0 5px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .lnk-cover-scan{animation:none;opacity:0;}
+  .jb-card:hover,.pj-card:hover,.lnk-card:hover,.lnk-btn:hover,.jb-tools li:hover,
+  .jb-card:hover .jb-icon,.pj-card:hover .pj-icon,.hero-socials a.hs-pill:hover .hs-ico{transform:none;}
+  .jb-card:hover::after,.pj-card:hover::after,.lnk-card:hover::after{animation:none;}
+  .pj-card:hover .pj-sheen,.lnk-btn:hover::after{animation:none;}
+  .fq-item[open] .fq-a{animation:none;}
+}
+
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person",
-"name":"Syed Farhan Ahmed",
-"jobTitle":"Head of Cyber Security",
-"url":"https://farhan6667.github.io/portfolio/",
-"email":"mailto:syedfarhan6669@gmail.com",
-"telephone":"+92 311 1256221",
-"address":{"@type":"PostalAddress","addressLocality":"Karachi","addressCountry":"PK"},
-"sameAs":["https://www.linkedin.com/in/syedfarhanahmed1/","https://github.com/farhan6667",
+{
+"@context": "https://schema.org",
+"@type": "Person",
+"name": "Syed Farhan Ahmed",
+"jobTitle": "Head of Cyber Security",
+"url": "https://farhan6667.github.io/portfolio/",
+"email": "mailto:syedfarhan6669@gmail.com",
+"telephone": "+92 311 1256221",
+"address": {
+"@type": "PostalAddress",
+"addressLocality": "Karachi",
+"addressCountry": "PK"
+},
+"sameAs": [
+"https://www.linkedin.com/in/sfa6667",
+"https://github.com/farhan6667",
 "https://www.credly.com/users/syed-farhan-ahmed.f0edf63a/badges/credly",
-"https://certs.ine.com/profile/farhanahmed923579/wallet"],
-"knowsAbout":["Penetration Testing","Digital Forensics","Incident Response",
-"Security Operations","SIEM","Threat Hunting","ISO/IEC 27001","Detection Engineering"],
-"hasCredential":[
-{"@type":"EducationalOccupationalCredential","name":"Certified Information Security Manager (CISM)","credentialCategory":"certification","recognizedBy":{"@type":"Organization","name":"ISACA"}},
-{"@type":"EducationalOccupationalCredential","name":"Certified Information Systems Auditor (CISA)","credentialCategory":"certification","identifier":"16133028","recognizedBy":{"@type":"Organization","name":"ISACA"}},
-{"@type":"EducationalOccupationalCredential","name":"Computer Hacking Forensic Investigator (CHFI)","credentialCategory":"certification","identifier":"ECC9386405217","recognizedBy":{"@type":"Organization","name":"EC-Council"}},
-{"@type":"EducationalOccupationalCredential","name":"Certified Ethical Hacker (CEH)","credentialCategory":"certification","identifier":"ECC9851206734","recognizedBy":{"@type":"Organization","name":"EC-Council"}},
-{"@type":"EducationalOccupationalCredential","name":"Certified SOC Analyst (CSA)","credentialCategory":"certification","identifier":"ECC0475381296","recognizedBy":{"@type":"Organization","name":"EC-Council"}},
-{"@type":"EducationalOccupationalCredential","name":"Practical Network Penetration Tester (PNPT)","credentialCategory":"certification","identifier":"113940089","recognizedBy":{"@type":"Organization","name":"TCM Security"}},
-{"@type":"EducationalOccupationalCredential","name":"eJPT v2, Junior Penetration Tester","credentialCategory":"certification","identifier":"173841033","recognizedBy":{"@type":"Organization","name":"INE Security"}},
-{"@type":"EducationalOccupationalCredential","name":"ISO/IEC 27001 Information Security Associate","credentialCategory":"certification","recognizedBy":{"@type":"Organization","name":"SkillFront"}}]}
+"https://certs.ine.com/profile/farhanahmed923579/wallet"
+],
+"knowsAbout": [
+"Penetration Testing",
+"Digital Forensics",
+"Incident Response",
+"Security Operations",
+"SIEM",
+"Threat Hunting",
+"ISO/IEC 27001",
+"Detection Engineering",
+"Digital Forensics and Incident Response",
+"Malware Analysis",
+"Wazuh",
+"MITRE ATT&CK",
+"Governance, Risk and Compliance",
+"Security automation with AI agents"
+],
+"hasCredential": [
+{
+"@type": "EducationalOccupationalCredential",
+"name": "Certified Information Security Manager (CISM)",
+"credentialCategory": "certification",
+"recognizedBy": {
+"@type": "Organization",
+"name": "ISACA"
+}
+},
+{
+"@type": "EducationalOccupationalCredential",
+"name": "Certified Information Systems Auditor (CISA)",
+"credentialCategory": "certification",
+"identifier": "16133028",
+"recognizedBy": {
+"@type": "Organization",
+"name": "ISACA"
+}
+},
+{
+"@type": "EducationalOccupationalCredential",
+"name": "Computer Hacking Forensic Investigator (CHFI)",
+"credentialCategory": "certification",
+"identifier": "ECC9386405217",
+"recognizedBy": {
+"@type": "Organization",
+"name": "EC-Council"
+}
+},
+{
+"@type": "EducationalOccupationalCredential",
+"name": "Certified Ethical Hacker (CEH)",
+"credentialCategory": "certification",
+"identifier": "ECC9851206734",
+"recognizedBy": {
+"@type": "Organization",
+"name": "EC-Council"
+}
+},
+{
+"@type": "EducationalOccupationalCredential",
+"name": "Certified SOC Analyst (CSA)",
+"credentialCategory": "certification",
+"identifier": "ECC0475381296",
+"recognizedBy": {
+"@type": "Organization",
+"name": "EC-Council"
+}
+},
+{
+"@type": "EducationalOccupationalCredential",
+"name": "Practical Network Penetration Tester (PNPT)",
+"credentialCategory": "certification",
+"identifier": "113940089",
+"recognizedBy": {
+"@type": "Organization",
+"name": "TCM Security"
+}
+},
+{
+"@type": "EducationalOccupationalCredential",
+"name": "eJPT v2, Junior Penetration Tester",
+"credentialCategory": "certification",
+"identifier": "173841033",
+"recognizedBy": {
+"@type": "Organization",
+"name": "INE Security"
+}
+},
+{
+"@type": "EducationalOccupationalCredential",
+"name": "ISO/IEC 27001 Information Security Associate",
+"credentialCategory": "certification",
+"recognizedBy": {
+"@type": "Organization",
+"name": "SkillFront"
+}
+}
+],
+"@id": "https://farhan6667.github.io/portfolio/#person",
+"alternateName": "SFA",
+"image": "https://farhan6667.github.io/portfolio/portrait.jpg",
+"description": "Head of Cyber Security in Karachi, Pakistan, leading detection engineering, digital forensics and incident response, penetration testing and governance. 15 years in IT, the last nine in security.",
+"worksFor": {
+"@type": "Organization",
+"name": "F Tech Solutions (Dawat-e-Islami)"
+},
+"knowsLanguage": [
+"English",
+"Urdu"
+]
+}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@graph": [{"@type": "ProfilePage", "@id": "https://farhan6667.github.io/portfolio/#page", "url": "https://farhan6667.github.io/portfolio/", "name": "Syed Farhan Ahmed (SFA), Head of Cyber Security", "mainEntity": {"@id": "https://farhan6667.github.io/portfolio/#person"}, "dateModified": "2026-10-15"}, {"@type": "FAQPage", "@id": "https://farhan6667.github.io/portfolio/#faq", "mainEntity": [{"@type": "Question", "name": "Who is Syed Farhan Ahmed (SFA)?", "acceptedAnswer": {"@type": "Answer", "text": "Syed Farhan Ahmed, known as SFA, is the Head of Cyber Security at F Tech Solutions (Dawat-e-Islami) in Karachi, Pakistan. He has 15 years in IT and the last nine in security, and he built the cybersecurity department he now leads."}}, {"@type": "Question", "name": "What does he specialise in?", "acceptedAnswer": {"@type": "Answer", "text": "Detection engineering with Wazuh mapped to MITRE ATT&CK, digital forensics and incident response, penetration testing, and governance with ISO/IEC 27001. He stays hands-on: he still tests systems himself and works as a SOC engineer when the team needs another pair of hands."}}, {"@type": "Question", "name": "Is he open to remote work?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. He is open to remote cyber security leadership roles. Email or LinkedIn is the quickest way to start that conversation."}}, {"@type": "Question", "name": "Which certifications does he hold?", "acceptedAnswer": {"@type": "Answer", "text": "21 certifications from 11 issuing bodies. The main ones are CISA from ISACA, CHFI, CEH and Certified SOC Analyst from EC-Council, PNPT from TCM Security, eJPT from INE Security, and the ISO/IEC 27001 Information Security Associate. The Certifications section lists each one with a verification link where the issuer provides one."}}, {"@type": "Question", "name": "What tools has he built?", "acceptedAnswer": {"@type": "Answer", "text": "He publishes five tools on GitHub: Wazuh RuleGuard, Wazuh NoiseLens, HexSwarm, no-api-media-mcp and SFA Monitor. At work he built 124 custom Wazuh rules covering 43 MITRE ATT&CK techniques and eight AI agents that support SIEM rule development, file integrity monitoring and continuous monitoring."}}, {"@type": "Question", "name": "What incident response and forensics work has he led?", "acceptedAnswer": {"@type": "Answer", "text": "He led the response to a compromise of 11 production hosting servers, from containment to root cause. He is also his organisation's forensic examiner, working mainly on mobile devices with Oxygen Forensic Detective and Magnet AXIOM, and his forensic work established the evidence in an internal corruption case."}}, {"@type": "Question", "name": "Where is he based?", "acceptedAnswer": {"@type": "Answer", "text": "Karachi, Pakistan, on Pakistan Standard Time (UTC+5). He works in English and Urdu."}}, {"@type": "Question", "name": "How can I contact him?", "acceptedAnswer": {"@type": "Answer", "text": "Email syedfarhan6669@gmail.com or call +92 311 1256221. You can also message him on LinkedIn at linkedin.com/in/sfa6667, and the CV is a two page PDF you can download from this page."}}]}, {"@type": "ItemList", "@id": "https://farhan6667.github.io/portfolio/#projects", "name": "Tools published by Syed Farhan Ahmed on GitHub", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "SoftwareSourceCode", "name": "Wazuh RuleGuard", "description": "Checks a Wazuh rule change against sample logs through the logtest API before it ships.", "codeRepository": "https://github.com/farhan6667/wazuh-ruleguard", "programmingLanguage": "Python", "author": {"@id": "https://farhan6667.github.io/portfolio/#person"}}}, {"@type": "ListItem", "position": 2, "item": {"@type": "SoftwareSourceCode", "name": "Wazuh NoiseLens", "description": "Shows which alerts a proposed Wazuh exception would hide, so you can judge it before you add it.", "codeRepository": "https://github.com/farhan6667/wazuh-noiselens", "programmingLanguage": "Python", "author": {"@id": "https://farhan6667.github.io/portfolio/#person"}}}, {"@type": "ListItem", "position": 3, "item": {"@type": "SoftwareSourceCode", "name": "HexSwarm", "description": "A Python framework that runs a swarm of AI agents against authorised penetration testing and CTF targets, gated by an explicit scope file.", "codeRepository": "https://github.com/farhan6667/hexswarm", "programmingLanguage": "Python", "author": {"@id": "https://farhan6667.github.io/portfolio/#person"}}}, {"@type": "ListItem", "position": 4, "item": {"@type": "SoftwareSourceCode", "name": "no-api-media-mcp", "description": "Makes images and video from Claude Code, Cursor or Codex with the subscriptions you already pay for. No API keys.", "codeRepository": "https://github.com/farhan6667/no-api-media-mcp", "programmingLanguage": "TypeScript", "author": {"@id": "https://farhan6667.github.io/portfolio/#person"}}}, {"@type": "ListItem", "position": 5, "item": {"@type": "SoftwareSourceCode", "name": "SFA Monitor", "description": "A performance widget and task manager for the Linux desktop.", "codeRepository": "https://github.com/farhan6667/sfa-monitor", "author": {"@id": "https://farhan6667.github.io/portfolio/#person"}}}]}]}
 </script>
 <script>
 /* pick the theme before the first paint so the page never flashes */
@@ -3099,6 +3621,7 @@ html[data-theme="light"] .theme-tip::before{
                 <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                 <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                 <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                 <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
@@ -3163,10 +3686,11 @@ html[data-theme="light"] .theme-tip::before{
                         <a href="#experience" class="btn-cyber-outline"><i class="fas fa-briefcase me-2" aria-hidden="true"></i>View Experience</a><a href="Syed_Farhan_Ahmed_CV.pdf" download="Syed-Farhan-Ahmed-CV.pdf" type="application/pdf" class="btn-cv" aria-label="Download the CV of Syed Farhan Ahmed as a PDF, 2 pages, 2.4 megabytes"><span class="btn-cv-scan" aria-hidden="true"></span><span class="btn-cv-ico"><i class="fas fa-file-arrow-down" aria-hidden="true"></i></span><span class="btn-cv-text"><span class="btn-cv-title">Download CV</span><span class="btn-cv-meta" aria-hidden="true">PDF &middot; 2 pages &middot; 2.4 MB</span></span></a>
                     </div>
                     <div class="hero-socials">
-                        <a href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer" aria-label="Syed Farhan Ahmed on LinkedIn, opens in a new tab"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                        <a href="mailto:syedfarhan6669@gmail.com" aria-label="Email Syed Farhan Ahmed"><i class="fas fa-envelope" aria-hidden="true"></i></a>
-                        <a href="tel:+923111256221" aria-label="Call Syed Farhan Ahmed"><i class="fas fa-phone" aria-hidden="true"></i></a>
-                    </div>
+<a class="hs-pill hs-li" href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer me" aria-label="Syed Farhan Ahmed on LinkedIn, opens in a new tab"><span class="hs-ico"><i class="fab fa-linkedin-in" aria-hidden="true"></i></span><span>LinkedIn</span></a>
+<a class="hs-pill hs-gh" href="https://github.com/farhan6667" target="_blank" rel="noopener noreferrer me" aria-label="Syed Farhan Ahmed on GitHub, opens in a new tab"><span class="hs-ico"><i class="fab fa-github" aria-hidden="true"></i></span><span>GitHub</span></a>
+<a href="mailto:syedfarhan6669@gmail.com" aria-label="Email Syed Farhan Ahmed"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+<a href="tel:+923111256221" aria-label="Call Syed Farhan Ahmed"><i class="fas fa-phone" aria-hidden="true"></i></a>
+</div>
                 </div>
             </div>
             <div class="col-lg-5 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="300">
@@ -3175,14 +3699,14 @@ html[data-theme="light"] .theme-tip::before{
                         <div class="img-orbit img-orbit-1"><div class="orbit-dot"></div></div>
                         <div class="img-orbit img-orbit-2"><div class="orbit-dot"></div></div>
                         <div class="hero-image-frame">
-                            <img src="profile.jpg" alt="Syed Farhan Ahmed - Cybersecurity Expert">
+                            <picture><source srcset="portrait.webp" type="image/webp"><img src="portrait.jpg" width="680" height="840" fetchpriority="high" alt="Syed Farhan Ahmed, Head of Cyber Security, in a navy blazer"></picture>
                             <div class="image-overlay"></div>
                             <div class="image-scan-effect"></div>
                         </div>
                         <div class="hero-image-border"></div>
                         <div class="float-badge fb-1">
                             <div class="fb-icon"><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
-                            <div class="fb-text"><span class="fb-label">Certified</span><span class="fb-value">SOC Analyst</span></div>
+                            <div class="fb-text"><span class="fb-label">Hands-on</span><span class="fb-value">SOC Engineer</span></div>
                         </div>
                         <div class="float-badge fb-2">
                             <div class="fb-icon fb-icon-rank"><i class="fas fa-trophy" aria-hidden="true"></i></div>
@@ -3365,6 +3889,131 @@ html[data-theme="light"] .theme-tip::before{
             </div>
         </div>
     </div>
+</section>
+
+<!-- THE FOUR JOBS -->
+<section id="toolkit" class="section">
+<div class="container">
+<div class="section-header text-center" data-aos="fade-up">
+<span class="section-badge"><i class="fas fa-layer-group" aria-hidden="true"></i> Toolkit</span>
+<h2 class="section-title">The Four Jobs <span class="text-gradient">I Do</span></h2>
+<p class="section-desc">What I work with, grouped by the four jobs a security function has to do, each with one example from my own record</p>
+<div class="section-line"></div>
+</div>
+<div class="row g-4">
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+<article class="jb-card jb-build">
+<header class="jb-head"><span class="jb-num" aria-hidden="true">01</span><div class="jb-name"><h3>Build</h3><span>Engineering and automation</span></div><div class="jb-icon"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i></div></header>
+<p class="jb-lede">Secure design, and the detection that catches what slips through it.</p>
+<ul class="jb-tools" aria-label="Build: tools and methods"><li><i class="fas fa-diagram-project" aria-hidden="true"></i>Wazuh detection engineering</li><li><i class="fas fa-sitemap" aria-hidden="true"></i>MITRE ATT&amp;CK mapping</li><li><i class="fas fa-terminal" aria-hidden="true"></i>auditd and whodata</li><li><i class="fas fa-file-shield" aria-hidden="true"></i>File integrity monitoring</li><li><i class="fas fa-robot" aria-hidden="true"></i>AI agents for SOC work</li><li><i class="fas fa-server" aria-hidden="true"></i>Linux and Windows hardening</li><li><i class="fas fa-list-check" aria-hidden="true"></i>CIS benchmarking</li><li><i class="fas fa-network-wired" aria-hidden="true"></i>FortiGate and Sophos</li><li><i class="fas fa-cloud" aria-hidden="true"></i>AWS workload security</li></ul>
+<div class="jb-proof"><span class="jb-proof-k"><i class="fas fa-circle-check" aria-hidden="true"></i>Proof</span><p>Built detection engineering from zero to <strong>124 custom Wazuh rules covering 43 MITRE ATT&amp;CK techniques</strong>, and designed <strong>eight AI agents</strong> for SIEM rule development, file integrity monitoring and continuous monitoring.</p></div>
+</article>
+</div>
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+<article class="jb-card jb-break">
+<header class="jb-head"><span class="jb-num" aria-hidden="true">02</span><div class="jb-name"><h3>Break</h3><span>Offensive security</span></div><div class="jb-icon"><i class="fas fa-crosshairs" aria-hidden="true"></i></div></header>
+<p class="jb-lede">Finding the way in before someone else does.</p>
+<ul class="jb-tools" aria-label="Break: tools and methods"><li><i class="fas fa-globe" aria-hidden="true"></i>Web and API penetration testing</li><li><i class="fas fa-bug" aria-hidden="true"></i>OWASP Top 10</li><li><i class="fas fa-user-lock" aria-hidden="true"></i>Access control and business logic</li><li><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Vulnerability assessment</li><li><i class="fas fa-virus-slash" aria-hidden="true"></i>Malware and webshell analysis</li><li><i class="fas fa-code" aria-hidden="true"></i>Reverse engineering of third-party binaries</li><li><i class="fas fa-user-group" aria-hidden="true"></i>Social engineering testing</li><li><i class="fas fa-trophy" aria-hidden="true"></i>Bug bounty</li></ul>
+<div class="jb-proof"><span class="jb-proof-k"><i class="fas fa-circle-check" aria-hidden="true"></i>Proof</span><p>Tested the organisation's <strong>400+ domain estate</strong> personally, and now direct a scheduled programme across <strong>50+ core applications</strong>, with retesting to confirm each fix holds.</p></div>
+</article>
+</div>
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+<article class="jb-card jb-defend">
+<header class="jb-head"><span class="jb-num" aria-hidden="true">03</span><div class="jb-name"><h3>Defend</h3><span>SOC, response and forensics</span></div><div class="jb-icon"><i class="fas fa-shield-halved" aria-hidden="true"></i></div></header>
+<p class="jb-lede">Watching, hunting, responding, and proving what happened.</p>
+<ul class="jb-tools" aria-label="Defend: tools and methods"><li><i class="fas fa-tower-broadcast" aria-hidden="true"></i>SOC operations</li><li><i class="fas fa-chart-line" aria-hidden="true"></i>Wazuh, QRadar and Elastic SIEM</li><li><i class="fas fa-desktop" aria-hidden="true"></i>Zabbix monitoring</li><li><i class="fas fa-binoculars" aria-hidden="true"></i>Threat hunting</li><li><i class="fas fa-shield-virus" aria-hidden="true"></i>Incident and ransomware response</li><li><i class="fas fa-mobile-screen" aria-hidden="true"></i>Oxygen Forensic Detective</li><li><i class="fas fa-microscope" aria-hidden="true"></i>Magnet AXIOM</li><li><i class="fas fa-mobile-screen-button" aria-hidden="true"></i>Mobiledit Ultra Pro</li><li><i class="fas fa-hard-drive" aria-hidden="true"></i>Imaging and chain of custody</li></ul>
+<div class="jb-proof"><span class="jb-proof-k"><i class="fas fa-circle-check" aria-hidden="true"></i>Proof</span><p>Led the response to a compromise of <strong>11 production hosting servers</strong> entered through compromised SSH keys: contained it, remediated every host and ran the root cause investigation.</p></div>
+</article>
+</div>
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+<article class="jb-card jb-govern">
+<header class="jb-head"><span class="jb-num" aria-hidden="true">04</span><div class="jb-name"><h3>Govern</h3><span>Risk and compliance</span></div><div class="jb-icon"><i class="fas fa-scale-balanced" aria-hidden="true"></i></div></header>
+<p class="jb-lede">Policy, risk and audit, and the team that carries them.</p>
+<ul class="jb-tools" aria-label="Govern: tools and methods"><li><i class="fas fa-certificate" aria-hidden="true"></i>ISO/IEC 27001 and ISMS</li><li><i class="fas fa-file-contract" aria-hidden="true"></i>Security policy</li><li><i class="fas fa-triangle-exclamation" aria-hidden="true"></i>Risk assessment</li><li><i class="fas fa-clipboard-check" aria-hidden="true"></i>IS audit (CISA)</li><li><i class="fas fa-key" aria-hidden="true"></i>Access governance</li><li><i class="fas fa-list-check" aria-hidden="true"></i>Compliance</li><li><i class="fas fa-chalkboard-user" aria-hidden="true"></i>Security awareness training</li><li><i class="fas fa-fish" aria-hidden="true"></i>Phishing simulation</li><li><i class="fas fa-people-group" aria-hidden="true"></i>Team leadership</li></ul>
+<div class="jb-proof"><span class="jb-proof-k"><i class="fas fa-circle-check" aria-hidden="true"></i>Proof</span><p>Built the cybersecurity department from the ground up, set its scope across offensive, defensive and governance work, and now <strong>lead the team across penetration testing, DevSecOps and SOC</strong>.</p></div>
+</article>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section section-alt">
+<div class="container">
+<div class="section-header text-center" data-aos="fade-up">
+<span class="section-badge"><i class="fab fa-github" aria-hidden="true"></i> Open Source</span>
+<h2 class="section-title">Tools I Build, <span class="text-gradient">Live from GitHub</span></h2>
+<p class="section-desc">Five public repositories. Stars, licence and last update come from the GitHub API and refresh when the page loads. Each card says plainly how far along the tool is</p>
+<div class="section-line"></div>
+</div>
+<div class="pj-profile" data-aos="fade-up">
+<div class="pj-prof-mark"><i class="fab fa-github" aria-hidden="true"></i></div>
+<div class="pj-prof-txt"><span class="pj-prof-kicker">github.com/farhan6667</span><strong>Syed Farhan Ahmed (SFA)</strong><span>Security tooling, detection engineering and AI automation, published in the open.</span></div>
+<ul class="pj-prof-stats"><li><b>5</b><span>Public tools</span></li><li><b>4</b><span>Open source</span></li><li><b>2</b><span>Languages</span></li></ul>
+<a class="btn-cyber-outline pj-follow" href="https://github.com/farhan6667" target="_blank" rel="noopener noreferrer me" aria-label="Follow Syed Farhan Ahmed on GitHub, opens in a new tab"><i class="fab fa-github me-2" aria-hidden="true"></i>Follow on GitHub</a>
+</div>
+<div class="row g-4 justify-content-center">
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+<article class="pj-card" data-repo="wazuh-ruleguard" data-pushed="2026-10-09T18:34:00Z"><span class="pj-sheen" aria-hidden="true"></span>
+<div class="pj-bar" aria-hidden="true"><span class="pj-dots"><i></i><i></i><i></i></span><span class="pj-path">farhan6667/wazuh-ruleguard</span></div>
+<div class="pj-body">
+<div class="pj-head"><div class="pj-icon"><i class="fas fa-clipboard-check" aria-hidden="true"></i></div><div><span class="pj-cat">Detection engineering</span><h3 class="pj-title">Wazuh RuleGuard</h3></div></div>
+<p class="pj-desc">Checks a Wazuh rule change against sample logs through the logtest API before it ships.</p>
+<ul class="pj-meta"><li><span class="pj-lang pj-lang-py" aria-hidden="true"></span>Python</li><li><i class="fas fa-scale-balanced" aria-hidden="true"></i>Apache-2.0</li><li data-f="starsli"><i class="fas fa-star" aria-hidden="true"></i><span data-f="stars">1</span><span data-f="starword"> star</span></li><li><i class="fas fa-clock" aria-hidden="true"></i>Updated&nbsp;<span data-f="updated">6 days ago</span></li></ul>
+</div>
+<div class="pj-foot"><span class="pj-status pj-st-proto">Early prototype</span><a class="pj-link" href="https://github.com/farhan6667/wazuh-ruleguard" target="_blank" rel="noopener noreferrer" aria-label="Wazuh RuleGuard on GitHub, opens in a new tab">View on GitHub<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+</article>
+</div>
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+<article class="pj-card" data-repo="wazuh-noiselens" data-pushed="2026-10-09T18:34:03Z"><span class="pj-sheen" aria-hidden="true"></span>
+<div class="pj-bar" aria-hidden="true"><span class="pj-dots"><i></i><i></i><i></i></span><span class="pj-path">farhan6667/wazuh-noiselens</span></div>
+<div class="pj-body">
+<div class="pj-head"><div class="pj-icon"><i class="fas fa-filter" aria-hidden="true"></i></div><div><span class="pj-cat">Detection engineering</span><h3 class="pj-title">Wazuh NoiseLens</h3></div></div>
+<p class="pj-desc">Shows which alerts a proposed Wazuh exception would hide, so you can judge it before you add it.</p>
+<ul class="pj-meta"><li><span class="pj-lang pj-lang-py" aria-hidden="true"></span>Python</li><li><i class="fas fa-scale-balanced" aria-hidden="true"></i>Apache-2.0</li><li data-f="starsli"><i class="fas fa-star" aria-hidden="true"></i><span data-f="stars">1</span><span data-f="starword"> star</span></li><li><i class="fas fa-clock" aria-hidden="true"></i>Updated&nbsp;<span data-f="updated">6 days ago</span></li></ul>
+</div>
+<div class="pj-foot"><span class="pj-status pj-st-proto">Early prototype</span><a class="pj-link" href="https://github.com/farhan6667/wazuh-noiselens" target="_blank" rel="noopener noreferrer" aria-label="Wazuh NoiseLens on GitHub, opens in a new tab">View on GitHub<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+</article>
+</div>
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+<article class="pj-card" data-repo="hexswarm" data-pushed="2026-10-12T22:08:51Z" data-release><span class="pj-sheen" aria-hidden="true"></span>
+<div class="pj-bar" aria-hidden="true"><span class="pj-dots"><i></i><i></i><i></i></span><span class="pj-path">farhan6667/hexswarm</span></div>
+<div class="pj-body">
+<div class="pj-head"><div class="pj-icon"><i class="fas fa-robot" aria-hidden="true"></i></div><div><span class="pj-cat">AI agents for pen testing</span><h3 class="pj-title">HexSwarm</h3></div></div>
+<p class="pj-desc">A Python framework that runs a swarm of AI agents against authorised penetration testing and CTF targets, gated by an explicit scope file.</p>
+<ul class="pj-meta"><li><span class="pj-lang pj-lang-py" aria-hidden="true"></span>Python</li><li><i class="fas fa-scale-balanced" aria-hidden="true"></i>MIT</li><li data-f="starsli" hidden><i class="fas fa-star" aria-hidden="true"></i><span data-f="stars">0</span><span data-f="starword"> stars</span></li><li><i class="fas fa-clock" aria-hidden="true"></i>Updated&nbsp;<span data-f="updated">3 days ago</span></li></ul>
+<div class="pj-rel"><i class="fas fa-tag" aria-hidden="true"></i>Latest release <b data-f="rel">v1.0.1</b><span class="pj-rel-date" data-f="reldate">12 Oct 2026</span></div>
+</div>
+<div class="pj-foot"><span class="pj-status pj-st-alpha">Alpha, open source</span><a class="pj-link" href="https://github.com/farhan6667/hexswarm" target="_blank" rel="noopener noreferrer" aria-label="HexSwarm on GitHub, opens in a new tab">View on GitHub<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+</article>
+</div>
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+<article class="pj-card" data-repo="no-api-media-mcp" data-pushed="2026-10-14T22:52:35Z" data-release><span class="pj-sheen" aria-hidden="true"></span>
+<div class="pj-bar" aria-hidden="true"><span class="pj-dots"><i></i><i></i><i></i></span><span class="pj-path">farhan6667/no-api-media-mcp</span></div>
+<div class="pj-body">
+<div class="pj-head"><div class="pj-icon"><i class="fas fa-photo-film" aria-hidden="true"></i></div><div><span class="pj-cat">MCP server</span><h3 class="pj-title">no-api-media-mcp</h3></div></div>
+<p class="pj-desc">Makes images and video from Claude Code, Cursor or Codex with the subscriptions you already pay for. No API keys.</p>
+<ul class="pj-meta"><li><span class="pj-lang pj-lang-ts" aria-hidden="true"></span>TypeScript</li><li><i class="fas fa-scale-balanced" aria-hidden="true"></i>Apache-2.0</li><li data-f="starsli"><i class="fas fa-star" aria-hidden="true"></i><span data-f="stars">1</span><span data-f="starword"> star</span></li><li><i class="fas fa-clock" aria-hidden="true"></i>Updated&nbsp;<span data-f="updated">yesterday</span></li></ul>
+<div class="pj-rel"><i class="fas fa-tag" aria-hidden="true"></i>Latest release <b data-f="rel">v1.3.0</b><span class="pj-rel-date" data-f="reldate">11 Oct 2026</span></div>
+</div>
+<div class="pj-foot"><span class="pj-status pj-st-oss">Open source</span><a class="pj-link" href="https://github.com/farhan6667/no-api-media-mcp" target="_blank" rel="noopener noreferrer" aria-label="no-api-media-mcp on GitHub, opens in a new tab">View on GitHub<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+</article>
+</div>
+<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+<article class="pj-card" data-repo="sfa-monitor" data-pushed="2026-10-13T14:37:24Z" data-release><span class="pj-sheen" aria-hidden="true"></span>
+<div class="pj-bar" aria-hidden="true"><span class="pj-dots"><i></i><i></i><i></i></span><span class="pj-path">farhan6667/sfa-monitor</span></div>
+<div class="pj-body">
+<div class="pj-head"><div class="pj-icon"><i class="fas fa-gauge-high" aria-hidden="true"></i></div><div><span class="pj-cat">Linux desktop</span><h3 class="pj-title">SFA Monitor</h3></div></div>
+<p class="pj-desc">A performance widget and task manager for the Linux desktop.</p>
+<ul class="pj-meta"><li><i class="fas fa-scale-balanced" aria-hidden="true"></i>Free, not open source</li><li data-f="starsli" hidden><i class="fas fa-star" aria-hidden="true"></i><span data-f="stars">0</span><span data-f="starword"> stars</span></li><li><i class="fas fa-clock" aria-hidden="true"></i>Updated&nbsp;<span data-f="updated">2 days ago</span></li></ul>
+<div class="pj-rel"><i class="fas fa-tag" aria-hidden="true"></i>Latest release <b data-f="rel">v1.0.1</b><span class="pj-rel-date" data-f="reldate">13 Oct 2026</span></div>
+</div>
+<div class="pj-foot"><span class="pj-status pj-st-free">Free to use, not open source</span><a class="pj-link" href="https://github.com/farhan6667/sfa-monitor" target="_blank" rel="noopener noreferrer" aria-label="SFA Monitor on GitHub, opens in a new tab">View on GitHub<i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+</article>
+</div>
+</div>
+<div class="pj-end" data-aos="fade-up"><a class="btn-cyber-outline" href="https://github.com/farhan6667?tab=repositories" target="_blank" rel="noopener noreferrer"><i class="fab fa-github me-2" aria-hidden="true"></i>View all repositories</a><p class="pj-note">The Wazuh tools are independent projects and are not affiliated with or endorsed by Wazuh.</p></div>
+</div>
 </section>
 
 <!-- SKILLS -->
@@ -3858,6 +4507,71 @@ html[data-theme="light"] .theme-tip::before{
     </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq" class="section section-alt">
+<div class="container">
+<div class="section-header text-center" data-aos="fade-up">
+<span class="section-badge"><i class="fas fa-circle-question" aria-hidden="true"></i> FAQ</span>
+<h2 class="section-title">Frequently Asked <span class="text-gradient">Questions</span></h2>
+<p class="section-desc">Direct answers about my work, my certifications and how to reach me</p>
+<div class="section-line"></div>
+</div>
+<div class="fq-grid">
+<div class="fq-col" data-aos="fade-up" data-aos-delay="100">
+<details class="fq-item" open><summary><span class="fq-ico"><i class="fas fa-user-shield" aria-hidden="true"></i></span><span class="fq-q">Who is Syed Farhan Ahmed (SFA)?</span><span class="fq-chev" aria-hidden="true"><i class="fas fa-chevron-down"></i></span></summary><div class="fq-a"><p>Syed Farhan Ahmed, known as SFA, is the Head of Cyber Security at F Tech Solutions (Dawat-e-Islami) in Karachi, Pakistan. He has 15 years in IT and the last nine in security, and he built the cybersecurity department he now leads.</p></div></details>
+<details class="fq-item"><summary><span class="fq-ico"><i class="fas fa-bullseye" aria-hidden="true"></i></span><span class="fq-q">What does he specialise in?</span><span class="fq-chev" aria-hidden="true"><i class="fas fa-chevron-down"></i></span></summary><div class="fq-a"><p>Detection engineering with Wazuh mapped to MITRE ATT&amp;CK, digital forensics and incident response, penetration testing, and governance with ISO/IEC 27001. He stays hands-on: he still tests systems himself and works as a SOC engineer when the team needs another pair of hands.</p></div></details>
+<details class="fq-item"><summary><span class="fq-ico"><i class="fas fa-briefcase" aria-hidden="true"></i></span><span class="fq-q">Is he open to remote work?</span><span class="fq-chev" aria-hidden="true"><i class="fas fa-chevron-down"></i></span></summary><div class="fq-a"><p>Yes. He is open to remote cyber security leadership roles. Email or LinkedIn is the quickest way to start that conversation.</p></div></details>
+<details class="fq-item"><summary><span class="fq-ico"><i class="fas fa-award" aria-hidden="true"></i></span><span class="fq-q">Which certifications does he hold?</span><span class="fq-chev" aria-hidden="true"><i class="fas fa-chevron-down"></i></span></summary><div class="fq-a"><p>21 certifications from 11 issuing bodies. The main ones are CISA from ISACA, CHFI, CEH and Certified SOC Analyst from EC-Council, PNPT from TCM Security, eJPT from INE Security, and the ISO/IEC 27001 Information Security Associate. The Certifications section lists each one with a verification link where the issuer provides one.</p></div></details>
+</div>
+<div class="fq-col" data-aos="fade-up" data-aos-delay="200">
+<details class="fq-item"><summary><span class="fq-ico"><i class="fas fa-code" aria-hidden="true"></i></span><span class="fq-q">What tools has he built?</span><span class="fq-chev" aria-hidden="true"><i class="fas fa-chevron-down"></i></span></summary><div class="fq-a"><p>He publishes five tools on GitHub: Wazuh RuleGuard, Wazuh NoiseLens, HexSwarm, no-api-media-mcp and SFA Monitor. At work he built 124 custom Wazuh rules covering 43 MITRE ATT&amp;CK techniques and eight AI agents that support SIEM rule development, file integrity monitoring and continuous monitoring.</p></div></details>
+<details class="fq-item"><summary><span class="fq-ico"><i class="fas fa-magnifying-glass" aria-hidden="true"></i></span><span class="fq-q">What incident response and forensics work has he led?</span><span class="fq-chev" aria-hidden="true"><i class="fas fa-chevron-down"></i></span></summary><div class="fq-a"><p>He led the response to a compromise of 11 production hosting servers, from containment to root cause. He is also his organisation's forensic examiner, working mainly on mobile devices with Oxygen Forensic Detective and Magnet AXIOM, and his forensic work established the evidence in an internal corruption case.</p></div></details>
+<details class="fq-item"><summary><span class="fq-ico"><i class="fas fa-location-dot" aria-hidden="true"></i></span><span class="fq-q">Where is he based?</span><span class="fq-chev" aria-hidden="true"><i class="fas fa-chevron-down"></i></span></summary><div class="fq-a"><p>Karachi, Pakistan, on Pakistan Standard Time (UTC+5). He works in English and Urdu.</p></div></details>
+<details class="fq-item"><summary><span class="fq-ico"><i class="fas fa-envelope" aria-hidden="true"></i></span><span class="fq-q">How can I contact him?</span><span class="fq-chev" aria-hidden="true"><i class="fas fa-chevron-down"></i></span></summary><div class="fq-a"><p>Email <a href="mailto:syedfarhan6669@gmail.com">syedfarhan6669@gmail.com</a> or call <a href="tel:+923111256221">+92 311 1256221</a>. You can also message him on LinkedIn at <a href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer">linkedin.com/in/sfa6667</a>, and the CV is a two page PDF you can download from this page.</p></div></details>
+</div>
+</div>
+<div class="fq-more" data-aos="fade-up"><span>Still have a question?</span><a class="btn-cyber-primary" href="mailto:syedfarhan6669@gmail.com"><span class="btn-content"><i class="fas fa-envelope me-2" aria-hidden="true"></i>Ask me directly</span><span class="btn-glow"></span></a></div>
+</div>
+</section>
+
+<!-- LINKEDIN -->
+<section id="linkedin" class="section">
+<div class="container">
+<div class="section-header text-center" data-aos="fade-up">
+<span class="section-badge"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</span>
+<h2 class="section-title">Find Me <span class="text-gradient">on LinkedIn</span></h2>
+<p class="section-desc">The same career, in the format recruiters read</p>
+<div class="section-line"></div>
+</div>
+<div class="row g-4 justify-content-center align-items-stretch">
+<div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+<article class="lnk-card">
+<div class="lnk-cover"><img src="linkedin-cover.webp" width="1200" height="300" loading="lazy" alt="LinkedIn cover of Syed Farhan Ahmed: Detection Engineering, DFIR, Threat Hunting"><span class="lnk-cover-scan" aria-hidden="true"></span></div>
+<div class="lnk-body">
+<div class="lnk-top"><div class="lnk-avatar"><img src="linkedin-photo.webp" width="400" height="400" loading="lazy" alt="Syed Farhan Ahmed, LinkedIn profile photo with the Open to Work frame"></div><a class="lnk-in" href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile, opens in a new tab"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></div>
+<h3 class="lnk-name">Syed Farhan Ahmed <span>(SFA)</span></h3>
+<p class="lnk-headline">Head of Cyber Security | Digital Forensics and Incident Response | SIEM and Detection Engineering</p>
+<p class="lnk-loc"><i class="fas fa-location-dot" aria-hidden="true"></i>Karachi, Pakistan<span class="lnk-sep" aria-hidden="true"></span><a href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer">linkedin.com/in/sfa6667</a></p>
+<div class="lnk-open"><span class="status-dot"></span>Open to remote cyber security leadership roles</div>
+<ul class="lnk-facts"><li><span class="lnk-fi"><i class="fas fa-building-shield" aria-hidden="true"></i></span><div><b>Head of Cyber Security</b><span>F Tech Solutions (Dawat-e-Islami), since February 2023</span></div></li><li><span class="lnk-fi"><i class="fas fa-graduation-cap" aria-hidden="true"></i></span><div><b>Bachelor of Technology (Hons), Telecommunication</b><span>Newports Institute of Communications and Economics</span></div></li></ul>
+<ul class="lnk-chips" aria-label="Key certifications"><li>CISA</li><li>CHFI</li><li>CEH</li><li>PNPT</li><li>eJPT</li><li>CSA</li><li>ISO 27001</li></ul>
+<div class="lnk-actions"><a class="lnk-btn" href="https://www.linkedin.com/in/sfa6667" target="_blank" rel="noopener noreferrer me" aria-label="View the LinkedIn profile of Syed Farhan Ahmed, opens in a new tab"><i class="fab fa-linkedin-in" aria-hidden="true"></i>View my LinkedIn profile<i class="fas fa-arrow-up-right-from-square lnk-btn-ext" aria-hidden="true"></i></a><a class="btn-cyber-outline" href="Syed_Farhan_Ahmed_CV.pdf" download="Syed-Farhan-Ahmed-CV.pdf" type="application/pdf"><i class="fas fa-file-arrow-down me-2" aria-hidden="true"></i>Download CV</a></div>
+</div>
+</article>
+</div>
+<div class="col-lg-5" data-aos="fade-up" data-aos-delay="200">
+<aside class="lnk-side">
+<span class="lnk-side-k">Why connect there</span>
+<h3>One profile, the whole record</h3>
+<ul class="lnk-why"><li><span class="lnk-wi"><i class="fas fa-timeline" aria-hidden="true"></i></span><div><b>The full career, role by role</b><span>Four roles at one organisation since 2015, from IT support to Head of Cyber Security.</span></div></li><li><span class="lnk-wi"><i class="fas fa-award" aria-hidden="true"></i></span><div><b>Certifications with their issuers</b><span>CISA, CHFI, CEH, PNPT and eJPT, with the rest of the 21.</span></div></li><li><span class="lnk-wi"><i class="fas fa-comments" aria-hidden="true"></i></span><div><b>A direct line for hiring conversations</b><span>Message me there, or email if you prefer.</span></div></li></ul>
+<div class="lnk-direct"><span class="lnk-direct-k">Prefer a direct line?</span><a href="mailto:syedfarhan6669@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i>syedfarhan6669@gmail.com<i class="fas fa-arrow-right lnk-go" aria-hidden="true"></i></a><a href="tel:+923111256221"><i class="fas fa-phone" aria-hidden="true"></i>+92 311 1256221<i class="fas fa-arrow-right lnk-go" aria-hidden="true"></i></a></div>
+<div class="lnk-stats"><div><b>15+</b><span>Years in IT</span></div><div><b>9+</b><span>In security</span></div><div><b>21</b><span>Certifications</span></div></div>
+</aside>
+</div>
+</div>
+</div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact" class="section section-alt">
     <div class="container">
@@ -3966,7 +4680,7 @@ document.addEventListener('DOMContentLoaded', function () {
     } else { if (cursor) cursor.style.display = 'none'; if (cursorDot) cursorDot.style.display = 'none'; }
 
     // TYPING
-    var roles = ['Head of Cyber Security','Penetration Testing Specialist (CEH)','Computer Forensics Investigator (CHFI)','Mobile & Windows Forensics Expert','ISO 27001 Security Associate','SOC Analyst & SIEM Expert','Bug Bounty Hunter, HackerOne #7 PK','Incident Response & APT Hunter','Mobile and Windows Forensics','Cybersecurity Awareness Trainer'];
+    var roles = ['Head of Cyber Security','Cyber Security Team Lead','Penetration Testing Specialist (CEH)','Computer Forensics Investigator (CHFI)','Mobile & Windows Forensics Expert','ISO 27001 Security Associate','SOC Engineer & SIEM Expert','Bug Bounty Hunter, HackerOne #7 PK','Incident Response & APT Hunter','Mobile and Windows Forensics','Cybersecurity Awareness Trainer'];
     var typedOut = document.getElementById('typedOutput');
     /* the first role is already on the page, so the loop starts by holding
        it rather than typing it out again */
@@ -4682,6 +5396,76 @@ document.addEventListener('DOMContentLoaded', function () {
     if (document.readyState === 'complete') setTimeout(rescue, 500);
     else window.addEventListener('load', function () { setTimeout(rescue, 500); });
 })();
+</script>
+<script>
+/* The GitHub cards carry their numbers in the HTML, so nothing here is needed
+   to read them. This only keeps "updated" honest and, when the public API
+   answers, refreshes stars, last push and the latest release. A slow or
+   rate-limited API changes nothing and shows no error. */
+(function () {
+  'use strict';
+  var cards = document.querySelectorAll('.pj-card[data-repo]');
+  if (!cards.length) return;
+  var MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function ago(iso) {
+    var t = Date.parse(iso);
+    if (isNaN(t)) return '';
+    var d = Math.max(0, Math.floor((Date.now() - t) / 864e5));
+    if (d === 0) return 'today';
+    if (d === 1) return 'yesterday';
+    if (d < 60) return d + ' days ago';
+    var m = Math.floor(d / 30);
+    return m < 24 ? m + ' months ago' : Math.floor(m / 12) + ' years ago';
+  }
+  function fmt(iso) {
+    var d = new Date(iso);
+    return isNaN(d) ? '' : d.getUTCDate() + ' ' + MON[d.getUTCMonth()] + ' ' + d.getUTCFullYear();
+  }
+  function f(card, name) { return card.querySelector('[data-f="' + name + '"]'); }
+  Array.prototype.forEach.call(cards, function (c) {
+    var u = f(c, 'updated'), s = ago(c.getAttribute('data-pushed'));
+    if (u && s) u.textContent = s;
+  });
+  if (!window.fetch) return;
+  var API = 'https://api.github.com/repos/farhan6667/';
+  function getJSON(url) {
+    var key = 'sfa-gh:' + url;
+    try {
+      var hit = JSON.parse(sessionStorage.getItem(key) || 'null');
+      if (hit && Date.now() - hit.t < 600000) return Promise.resolve(hit.d);
+    } catch (e) {}
+    var ctl = window.AbortController ? new AbortController() : null;
+    var timer = ctl ? setTimeout(function () { ctl.abort(); }, 6000) : 0;
+    return fetch(url, { headers: { Accept: 'application/vnd.github+json' }, signal: ctl ? ctl.signal : undefined })
+      .then(function (r) { clearTimeout(timer); if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) { try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), d: d })); } catch (e) {} return d; });
+  }
+  Array.prototype.forEach.call(cards, function (card) {
+    var repo = card.getAttribute('data-repo');
+    getJSON(API + repo).then(function (d) {
+      if (typeof d.stargazers_count === 'number' && d.stargazers_count > 0) {
+        var n = f(card, 'stars'), w = f(card, 'starword'), li = f(card, 'starsli');
+        if (n) n.textContent = d.stargazers_count;
+        if (w) w.textContent = d.stargazers_count === 1 ? ' star' : ' stars';
+        if (li) li.hidden = false;
+      }
+      if (typeof d.pushed_at === 'string' && !isNaN(Date.parse(d.pushed_at))) {
+        card.setAttribute('data-pushed', d.pushed_at);
+        var u = f(card, 'updated');
+        if (u) u.textContent = ago(d.pushed_at);
+      }
+    }).catch(function () {});
+    if (card.hasAttribute('data-release')) {
+      getJSON(API + repo + '/releases/latest').then(function (r) {
+        if (!r || typeof r.tag_name !== 'string' || !r.tag_name) return;
+        var t = f(card, 'rel'), dt = f(card, 'reldate');
+        if (t) t.textContent = r.tag_name;
+        if (dt && fmt(r.published_at)) dt.textContent = fmt(r.published_at);
+      }).catch(function () {});
+    }
+  });
+})();
+
 </script>
 </body>
 </html>
