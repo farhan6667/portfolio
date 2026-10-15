@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://fonts.googleapis.com; script-src 'self' https://cdn.jsdelivr.net https://unpkg.com 'sha256-BG7zrvogdkPp0+Tnz/acJKARYK7eK3W9HK4hRWkJPQI=' 'sha256-1VG4h1SxNocN5XL8+Y/PQwjj4HZ/EkVLQOiQWX7PWHA=' 'sha256-0uD4JhpeimUplE5unTiDo7bpGLV03w1bSLR0mxQw++U=' 'sha256-U0cHG1lNYXdIvO9DlwC/TCrCP3wdvWOV34Z+4pCqHzI=' 'sha256-hwSBpZTLFFrTKQH3HJ5LLRn92bpsubOAKqi+BEpI/Qc=' 'sha256-Jq3C2OL/JiQPBJTmdrZG5c9aHxt3vVaQ8mQa5iXRClQ=' 'sha256-nB0awktbl6IWe9ugFssylgGkBXjeaO5eAVAmFAAYVqA=' 'sha256-bQr7rP83F/7k0d30PAKIE7Co+rI/8IoiUROBCcNMXxo=' 'sha256-ESTUyLlZetBBzA0LHC040LZE1td8dExKDuewLFKqAOE=' 'sha256-5mJthPlo0ex0b1t3Xdxbhxa3oGesO5Wyjpg/I5kVKKQ='; connect-src 'self' https://api.github.com">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://fonts.googleapis.com; script-src 'self' https://cdn.jsdelivr.net https://unpkg.com 'sha256-BG7zrvogdkPp0+Tnz/acJKARYK7eK3W9HK4hRWkJPQI=' 'sha256-1VG4h1SxNocN5XL8+Y/PQwjj4HZ/EkVLQOiQWX7PWHA=' 'sha256-0uD4JhpeimUplE5unTiDo7bpGLV03w1bSLR0mxQw++U=' 'sha256-U0cHG1lNYXdIvO9DlwC/TCrCP3wdvWOV34Z+4pCqHzI=' 'sha256-hwSBpZTLFFrTKQH3HJ5LLRn92bpsubOAKqi+BEpI/Qc=' 'sha256-Jq3C2OL/JiQPBJTmdrZG5c9aHxt3vVaQ8mQa5iXRClQ=' 'sha256-nB0awktbl6IWe9ugFssylgGkBXjeaO5eAVAmFAAYVqA=' 'sha256-bQr7rP83F/7k0d30PAKIE7Co+rI/8IoiUROBCcNMXxo=' 'sha256-ESTUyLlZetBBzA0LHC040LZE1td8dExKDuewLFKqAOE=' 'sha256-GhUTeYThMhhLkrgf0OmV4q4zsJpE2vQT/YoyCKIR4cM='; connect-src 'self' https://api.github.com">
     <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Syed Farhan Ahmed (SFA), Head of Cyber Security in Karachi, Pakistan. Detection engineering, DFIR, pen testing and ISO 27001. CISM, CISA, CHFI, CEH, PNPT certified.">
@@ -3828,6 +3828,61 @@ html[data-theme="light"] .pj-card,html[data-theme="light"] .fq-item{border-color
   .about-image-accent{display:none;}
   #contact{padding-bottom:110px!important;}
 }
+/* the forensic note closes the Expertise section */
+.jb-note{margin-top:28px;}
+.jb-note .achievement-box{margin:0;}
+
+/* ============================================================================
+   EXPERTISE, refined (lead designer review)
+   Chips sit in small labelled groups, Proof lands on one line across a row,
+   and the forensic note wears the same card language as the four jobs.
+   ========================================================================= */
+.jb-card{gap:16px;}
+.jb-head{padding-bottom:14px;border-bottom:1px solid rgba(148,163,184,.08);}
+.jb-num{opacity:.7;}
+.jb-groups{display:flex;flex-direction:column;gap:12px;}
+.jb-group-k{display:block;margin:0 0 7px;font-family:var(--font-mono);font-size:.6rem;font-weight:700;
+  letter-spacing:1.4px;text-transform:uppercase;color:var(--text-dim);}
+.jb-groups .jb-tools{gap:6px 8px;}
+.jb-groups .jb-tools li{padding:6px 11px;font-size:.76rem;border-radius:9px;}
+.jb-groups .jb-tools li i{opacity:.85;}
+.jb-proof{padding-top:20px;}
+.jb-proof strong{color:var(--jb);}
+@media(min-width:992px){ .jb-groups{min-height:300px;} }
+.jb-note{margin-top:24px;}
+.jb-note .achievement-box{border-radius:var(--radius-xl);padding:20px 26px;
+  border:1px solid rgba(16,185,129,.22);background:linear-gradient(160deg,var(--bg-card),var(--bg-elevated));
+  box-shadow:inset 3px 0 0 var(--green);}
+.jb-note .ach-icon{color:var(--sfa-ink);background-color:transparent;
+  background-image:radial-gradient(circle at calc(100% - 7px) 7px, var(--sfa-tick) 0 1.6px, transparent 1.7px),
+    radial-gradient(circle at 7px calc(100% - 7px), var(--sfa-tick-soft) 0 1.6px, transparent 1.7px),var(--sfa-face);
+  border:1px solid var(--sfa-edge);}
+html[data-theme="light"] .jb-note .achievement-box{background:#fff;border-color:rgba(15,23,42,.10);}
+html[data-theme="light"] .jb-num{-webkit-text-stroke-width:1.6px;}
+html[data-theme="light"] .jb-card::before{opacity:.05;}
+html[data-theme="light"] .jb-groups .jb-tools li i{opacity:.8;}
+/* phones: the two long cards fold behind a button */
+.jb-more{display:none;}
+@media(max-width:480px){
+  .jb-groups.is-folded{max-height:236px;overflow:hidden;
+    -webkit-mask:linear-gradient(#000 70%,transparent);mask:linear-gradient(#000 70%,transparent);}
+  .jb-more{display:inline-flex;align-items:center;gap:7px;align-self:flex-start;margin-top:-4px;padding:6px 0;
+    font-family:var(--font-mono);font-size:.66rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
+    color:var(--jb);background:none;border:0;cursor:pointer;}
+}
+
+/* ---- the private work, under Projects ----------------------------------- */
+.pj-private{margin-top:56px;}
+.pj-private-head{text-align:center;max-width:640px;margin:0 auto 26px;}
+.pj-private-k{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-size:.66rem;font-weight:700;
+  letter-spacing:1.8px;text-transform:uppercase;color:var(--purple);}
+.pj-private-head h3{margin:10px 0 8px;font-family:var(--font-display);font-size:1.7rem;font-weight:800;color:var(--text-white);}
+.pj-private-head p{margin:0;font-size:.92rem;color:var(--text-muted);}
+.pj-card-private{background:linear-gradient(160deg,rgba(139,92,246,.07),transparent 55%),var(--bg-card);
+  border:1px dashed rgba(139,92,246,.3);}
+.pj-private-tag{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:.66rem;font-weight:700;
+  letter-spacing:.06em;color:var(--purple);}
+html[data-theme="light"] .pj-card-private{background:linear-gradient(160deg,rgba(109,40,217,.05),#fff 55%),#fff;border-color:rgba(109,40,217,.28);}
 
 </style>
 <script type="application/ld+json">
@@ -4055,9 +4110,8 @@ html[data-theme="light"] .pj-card,html[data-theme="light"] .fq-item{border-color
                 <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
                 <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
-                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#toolkit">Expertise</a></li>
                 <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                 <li class="nav-item"><a class="nav-link" href="#halloffame">Hall of Fame</a></li>
                 <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
                 <li class="nav-item ms-lg-3">
@@ -4225,6 +4279,7 @@ html[data-theme="light"] .pj-card,html[data-theme="light"] .fq-item{border-color
                     <p class="about-text">I'm <strong>Syed Farhan Ahmed</strong>, <span class="hl-cyan">Head of Cyber Security</span>, with <span class="hl-cyan">15 years in IT</span> and the last nine in security. I specialise in <span class="hl-cyan">Penetration Testing (CEH)</span>, <span class="hl-cyan">Computer Forensics (CHFI)</span>, <span class="hl-cyan">Mobile & Windows Forensics</span>, and <span class="hl-cyan">ISO/IEC 27001</span> information security compliance.</p>
                     <p class="about-text">I work with <span class="hl-cyan">Oxygen Forensic Detective 18.2</span>, <span class="hl-cyan">Magnet AXIOM 10.1</span>, and <span class="hl-cyan">Mobiledit Ultra Pro 9.8</span>, and my forensic work established the evidence in a PKR 80 million corruption case.</p>
                     <p class="about-text">At F Tech Solutions (Dawat-e-Islami) I run security across a head office estate of <span class="hl-cyan">1,750+ endpoints</span>, Madani Channel included: SIEM, enterprise firewalls, and the penetration testing programme, which I still do hands-on.</p>
+                    <p class="about-text">A growing part of my work is <span class="hl-cyan">AI automation for security</span>: eight AI agents that support SIEM rule development, file integrity monitoring and continuous monitoring, an automated scanning platform I am building for the organisation's own estate, and the open tools on my GitHub.</p>
                     <p class="about-text">A recognised <span class="hl-cyan">Bug Bounty Hunter</span>, acknowledged by <strong>HackerOne (#7 Pakistan)</strong>, <strong>OPPO (#1)</strong>, AT&T, Mastercard, Rockstar Games, Logitech, Dell, Adobe, Sophos & Xiaomi.</p>
                     <div class="about-buttons">
                         <a href="#contact" class="btn-cyber-primary"><span class="btn-content"><i class="fas fa-paper-plane me-2" aria-hidden="true"></i>Get in Touch</span><span class="btn-glow"></span></a>
@@ -4475,78 +4530,15 @@ html[data-theme="light"] .pj-card,html[data-theme="light"] .fq-item{border-color
 </div></div>
 </section>
 
-<!-- SERVICES -->
-<section id="services" class="section section-alt">
-    <div class="container">
-        <div class="section-header text-center" data-aos="fade-up">
-            <span class="section-badge"><i class="fas fa-crosshairs" aria-hidden="true"></i> Core Services</span>
-            <h2 class="section-title">What <span class="text-gradient">I Specialize In</span></h2>
-            <p class="section-desc">Offensive security, forensics and compliance, done hands-on.</p>
-            <div class="section-line"></div>
-        </div>
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-card sc-featured">
-                    <div class="sc-featured-badge">Primary Expertise</div>
-                    <div class="sc-icon sc-icon-cyan"><i class="fas fa-crosshairs" aria-hidden="true"></i></div>
-                    <h3 class="sc-title">Penetration Testing & Ethical Hacking</h3>
-                    <p class="sc-desc">Advanced vulnerability assessment, red team operations, web/mobile/network pentesting. <strong>CEH certified</strong>, acknowledged by HackerOne, OPPO, AT&T, Mastercard and six more.</p>
-                    <div class="sc-tags"><span class="sc-tag sc-tag-primary">CEH</span><span class="sc-tag sc-tag-primary">VAPT</span><span class="sc-tag sc-tag-primary">Red Team</span><span class="sc-tag sc-tag-primary">Bug Bounty</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-card sc-featured">
-                    <div class="sc-featured-badge">Primary Expertise</div>
-                    <div class="sc-icon sc-icon-purple"><i class="fas fa-fingerprint" aria-hidden="true"></i></div>
-                    <h3 class="sc-title">Digital Forensics & Incident Response</h3>
-                    <p class="sc-desc">Computer Hacking Forensic Investigation (<strong>CHFI</strong>), mobile and Windows forensics with Magnet AXIOM and Oxygen Forensic Detective. Led ransomware response and the investigation behind a PKR 80 million corruption case.</p>
-                    <div class="sc-tags"><span class="sc-tag sc-tag-primary">CHFI</span><span class="sc-tag sc-tag-primary">DFIR</span><span class="sc-tag sc-tag-primary">Mobile Forensics</span><span class="sc-tag sc-tag-primary">APT Hunting</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-card sc-featured">
-                    <div class="sc-featured-badge">Primary Expertise</div>
-                    <div class="sc-icon sc-icon-amber"><i class="fas fa-certificate" aria-hidden="true"></i></div>
-                    <h3 class="sc-title">ISO 27001 & Security Compliance</h3>
-                    <p class="sc-desc"><strong>ISO/IEC 27001 Information Security Associate</strong>, implementing ISMS frameworks, security policy development, risk assessment, and organisational compliance auditing.</p>
-                    <div class="sc-tags"><span class="sc-tag sc-tag-primary">ISO 27001</span><span class="sc-tag sc-tag-primary">ISMS</span><span class="sc-tag sc-tag-primary">Risk Mgmt</span><span class="sc-tag sc-tag-primary">Compliance</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="service-card">
-                    <div class="sc-icon sc-icon-green"><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
-                    <h3 class="sc-title">Security Operations Center (SOC)</h3>
-                    <p class="sc-desc">Enterprise SIEM deployment, Wazuh, QRadar, Elastic, Zabbix. Real-time threat monitoring across 1750+ endpoints with EDR management.</p>
-                    <div class="sc-tags"><span class="sc-tag">SIEM</span><span class="sc-tag">SOC</span><span class="sc-tag">EDR</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                <div class="service-card">
-                    <div class="sc-icon sc-icon-blue"><i class="fas fa-network-wired" aria-hidden="true"></i></div>
-                    <h3 class="sc-title">Network & Firewall Security</h3>
-                    <p class="sc-desc">FortiGate & Sophos firewall management, network architecture, VPN/VLAN configuration, and wireless security implementation.</p>
-                    <div class="sc-tags"><span class="sc-tag">Firewall</span><span class="sc-tag">CCNA</span><span class="sc-tag">VPN</span></div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                <div class="service-card">
-                    <div class="sc-icon sc-icon-rose"><i class="fas fa-chalkboard-user" aria-hidden="true"></i></div>
-                    <h3 class="sc-title">Security Training & Awareness</h3>
-                    <p class="sc-desc">Cybersecurity awareness programs, staff training on threat detection, phishing simulation, and security best practices.</p>
-                    <div class="sc-tags"><span class="sc-tag">Training</span><span class="sc-tag">Awareness</span><span class="sc-tag">Policy</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 <!-- THE FOUR JOBS -->
-<section id="toolkit" class="section">
+<section id="toolkit" class="section section-alt">
 <div class="container">
 <div class="section-header text-center" data-aos="fade-up">
-<span class="section-badge"><i class="fas fa-layer-group" aria-hidden="true"></i> Toolkit</span>
+<span class="section-badge"><i class="fas fa-layer-group" aria-hidden="true"></i> Expertise</span>
 <h2 class="section-title">The Four Jobs <span class="text-gradient">I Do</span></h2>
-<p class="section-desc">What I work with, grouped by the four jobs a security function has to do, each with one example from my own record</p>
+<p class="section-desc">Everything I do, grouped by the four jobs a security function has to do, with the tools I use and one result from my own record.</p>
 <div class="section-line"></div>
 </div>
 <div class="row g-4">
@@ -4554,7 +4546,7 @@ html[data-theme="light"] .pj-card,html[data-theme="light"] .fq-item{border-color
 <article class="jb-card jb-build">
 <header class="jb-head"><span class="jb-num" aria-hidden="true">01</span><div class="jb-name"><h3>Build</h3><span>Engineering and automation</span></div><div class="jb-icon"><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i></div></header>
 <p class="jb-lede">Secure design, and the detection that catches what slips through it.</p>
-<ul class="jb-tools" aria-label="Build: tools and methods"><li><i class="fas fa-diagram-project" aria-hidden="true"></i>Wazuh detection engineering</li><li><i class="fas fa-sitemap" aria-hidden="true"></i>MITRE ATT&amp;CK mapping</li><li><i class="fas fa-terminal" aria-hidden="true"></i>auditd and whodata</li><li><i class="fas fa-file-shield" aria-hidden="true"></i>File integrity monitoring</li><li><i class="fas fa-robot" aria-hidden="true"></i>AI agents for SOC work</li><li><i class="fas fa-server" aria-hidden="true"></i>Linux and Windows hardening</li><li><i class="fas fa-list-check" aria-hidden="true"></i>CIS benchmarking</li><li><i class="fas fa-network-wired" aria-hidden="true"></i>FortiGate and Sophos</li><li><i class="fas fa-cloud" aria-hidden="true"></i>AWS workload security</li></ul>
+<div class="jb-groups" data-count="12" aria-label="Build: tools and methods"><div class="jb-group"><span class="jb-group-k">Detection</span><ul class="jb-tools"><li><i class="fas fa-diagram-project" aria-hidden="true"></i>Wazuh detection engineering</li><li><i class="fas fa-sitemap" aria-hidden="true"></i>MITRE ATT&amp;CK mapping</li><li><i class="fas fa-terminal" aria-hidden="true"></i>auditd and whodata</li><li><i class="fas fa-file-shield" aria-hidden="true"></i>File integrity monitoring</li><li><i class="fas fa-robot" aria-hidden="true"></i>AI agents for SOC work</li></ul></div><div class="jb-group"><span class="jb-group-k">Hardening</span><ul class="jb-tools"><li><i class="fas fa-server" aria-hidden="true"></i>Linux and Windows hardening</li><li><i class="fas fa-list-check" aria-hidden="true"></i>CIS benchmarking</li><li><i class="fas fa-network-wired" aria-hidden="true"></i>FortiGate and Sophos firewalls</li><li><i class="fas fa-wifi" aria-hidden="true"></i>VPN, VLAN and wireless security</li></ul></div><div class="jb-group"><span class="jb-group-k">Cloud and systems</span><ul class="jb-tools"><li><i class="fas fa-server" aria-hidden="true"></i>Windows Server and virtualisation</li><li><i class="fas fa-cloud" aria-hidden="true"></i>Microsoft Azure and Office 365</li><li><i class="fas fa-cloud" aria-hidden="true"></i>AWS workload security</li></ul></div></div>
 <div class="jb-proof"><span class="jb-proof-k"><i class="fas fa-circle-check" aria-hidden="true"></i>Proof</span><p>Built detection engineering from zero to <strong>124 custom Wazuh rules covering 43 MITRE ATT&amp;CK techniques</strong>, and designed <strong>eight AI agents</strong> for SIEM rule development, file integrity monitoring and continuous monitoring.</p></div>
 </article>
 </div>
@@ -4562,7 +4554,7 @@ html[data-theme="light"] .pj-card,html[data-theme="light"] .fq-item{border-color
 <article class="jb-card jb-break">
 <header class="jb-head"><span class="jb-num" aria-hidden="true">02</span><div class="jb-name"><h3>Break</h3><span>Offensive security</span></div><div class="jb-icon"><i class="fas fa-crosshairs" aria-hidden="true"></i></div></header>
 <p class="jb-lede">Finding the way in before someone else does.</p>
-<ul class="jb-tools" aria-label="Break: tools and methods"><li><i class="fas fa-globe" aria-hidden="true"></i>Web and API penetration testing</li><li><i class="fas fa-bug" aria-hidden="true"></i>OWASP Top 10</li><li><i class="fas fa-user-lock" aria-hidden="true"></i>Access control and business logic</li><li><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Vulnerability assessment</li><li><i class="fas fa-virus-slash" aria-hidden="true"></i>Malware and webshell analysis</li><li><i class="fas fa-code" aria-hidden="true"></i>Reverse engineering of third-party binaries</li><li><i class="fas fa-user-group" aria-hidden="true"></i>Social engineering testing</li><li><i class="fas fa-trophy" aria-hidden="true"></i>Bug bounty</li></ul>
+<div class="jb-groups" data-count="10" aria-label="Break: tools and methods"><div class="jb-group"><span class="jb-group-k">Testing</span><ul class="jb-tools"><li><i class="fas fa-globe" aria-hidden="true"></i>Web and API penetration testing</li><li><i class="fas fa-bug" aria-hidden="true"></i>OWASP Top 10</li><li><i class="fas fa-user-lock" aria-hidden="true"></i>Access control and business logic</li><li><i class="fas fa-magnifying-glass" aria-hidden="true"></i>Vulnerability assessment</li><li><i class="fas fa-mobile-screen-button" aria-hidden="true"></i>Mobile and network testing</li></ul></div><div class="jb-group"><span class="jb-group-k">Adversary</span><ul class="jb-tools"><li><i class="fas fa-people-arrows" aria-hidden="true"></i>Red team work</li><li><i class="fas fa-user-group" aria-hidden="true"></i>Social engineering testing</li><li><i class="fas fa-trophy" aria-hidden="true"></i>Bug bounty</li></ul></div><div class="jb-group"><span class="jb-group-k">Analysis</span><ul class="jb-tools"><li><i class="fas fa-virus-slash" aria-hidden="true"></i>Malware and webshell analysis</li><li><i class="fas fa-code" aria-hidden="true"></i>Reverse engineering of third-party binaries</li></ul></div></div>
 <div class="jb-proof"><span class="jb-proof-k"><i class="fas fa-circle-check" aria-hidden="true"></i>Proof</span><p>Tested the organisation's <strong>400+ domain estate</strong> personally, and now direct a scheduled programme across <strong>50+ core applications</strong>, with retesting to confirm each fix holds.</p></div>
 </article>
 </div>
@@ -4570,7 +4562,7 @@ html[data-theme="light"] .pj-card,html[data-theme="light"] .fq-item{border-color
 <article class="jb-card jb-defend">
 <header class="jb-head"><span class="jb-num" aria-hidden="true">03</span><div class="jb-name"><h3>Defend</h3><span>SOC, response and forensics</span></div><div class="jb-icon"><i class="fas fa-shield-halved" aria-hidden="true"></i></div></header>
 <p class="jb-lede">Watching, hunting, responding, and proving what happened.</p>
-<ul class="jb-tools" aria-label="Defend: tools and methods"><li><i class="fas fa-tower-broadcast" aria-hidden="true"></i>SOC operations</li><li><i class="fas fa-chart-line" aria-hidden="true"></i>Wazuh, QRadar and Elastic SIEM</li><li><i class="fas fa-desktop" aria-hidden="true"></i>Zabbix monitoring</li><li><i class="fas fa-binoculars" aria-hidden="true"></i>Threat hunting</li><li><i class="fas fa-shield-virus" aria-hidden="true"></i>Incident and ransomware response</li><li><i class="fas fa-mobile-screen" aria-hidden="true"></i>Oxygen Forensic Detective</li><li><i class="fas fa-microscope" aria-hidden="true"></i>Magnet AXIOM</li><li><i class="fas fa-mobile-screen-button" aria-hidden="true"></i>Mobiledit Ultra Pro</li><li><i class="fas fa-hard-drive" aria-hidden="true"></i>Imaging and chain of custody</li></ul>
+<div class="jb-groups" data-count="11" aria-label="Defend: tools and methods"><div class="jb-group"><span class="jb-group-k">SOC</span><ul class="jb-tools"><li><i class="fas fa-tower-broadcast" aria-hidden="true"></i>SOC operations</li><li><i class="fas fa-chart-line" aria-hidden="true"></i>Wazuh, QRadar and Elastic SIEM</li><li><i class="fas fa-desktop" aria-hidden="true"></i>Zabbix monitoring</li><li><i class="fas fa-binoculars" aria-hidden="true"></i>Threat hunting</li><li><i class="fas fa-shield-virus" aria-hidden="true"></i>Incident and ransomware response</li></ul></div><div class="jb-group"><span class="jb-group-k">Forensics</span><ul class="jb-tools"><li><i class="fas fa-mobile-screen" aria-hidden="true"></i>Oxygen Forensic Detective 18.2</li><li><i class="fas fa-microscope" aria-hidden="true"></i>Magnet AXIOM 10.1</li><li><i class="fas fa-mobile-screen-button" aria-hidden="true"></i>Mobiledit Ultra Pro 9.8</li><li><i class="fas fa-hard-drive" aria-hidden="true"></i>Disk imaging, data recovery and chain of custody</li></ul></div><div class="jb-group"><span class="jb-group-k">Endpoint</span><ul class="jb-tools"><li><i class="fas fa-laptop-medical" aria-hidden="true"></i>EDR and Open EDR</li><li><i class="fas fa-user-check" aria-hidden="true"></i>Employee and asset monitoring</li></ul></div></div>
 <div class="jb-proof"><span class="jb-proof-k"><i class="fas fa-circle-check" aria-hidden="true"></i>Proof</span><p>Led the response to a compromise of <strong>11 production hosting servers</strong> entered through compromised SSH keys: contained it, remediated every host and ran the root cause investigation.</p></div>
 </article>
 </div>
@@ -4578,16 +4570,22 @@ html[data-theme="light"] .pj-card,html[data-theme="light"] .fq-item{border-color
 <article class="jb-card jb-govern">
 <header class="jb-head"><span class="jb-num" aria-hidden="true">04</span><div class="jb-name"><h3>Govern</h3><span>Risk and compliance</span></div><div class="jb-icon"><i class="fas fa-scale-balanced" aria-hidden="true"></i></div></header>
 <p class="jb-lede">Policy, risk and audit, and the team that carries them.</p>
-<ul class="jb-tools" aria-label="Govern: tools and methods"><li><i class="fas fa-certificate" aria-hidden="true"></i>ISO/IEC 27001 and ISMS</li><li><i class="fas fa-file-contract" aria-hidden="true"></i>Security policy</li><li><i class="fas fa-triangle-exclamation" aria-hidden="true"></i>Risk assessment</li><li><i class="fas fa-clipboard-check" aria-hidden="true"></i>IS audit (CISA)</li><li><i class="fas fa-key" aria-hidden="true"></i>Access governance</li><li><i class="fas fa-list-check" aria-hidden="true"></i>Compliance</li><li><i class="fas fa-chalkboard-user" aria-hidden="true"></i>Security awareness training</li><li><i class="fas fa-fish" aria-hidden="true"></i>Phishing simulation</li><li><i class="fas fa-people-group" aria-hidden="true"></i>Team leadership</li></ul>
+<div class="jb-groups" data-count="9" aria-label="Govern: tools and methods"><div class="jb-group"><span class="jb-group-k">Standards and audit</span><ul class="jb-tools"><li><i class="fas fa-certificate" aria-hidden="true"></i>ISO/IEC 27001 and ISMS</li><li><i class="fas fa-file-contract" aria-hidden="true"></i>Security policy</li><li><i class="fas fa-list-check" aria-hidden="true"></i>Compliance</li><li><i class="fas fa-clipboard-check" aria-hidden="true"></i>IS audit (CISA)</li></ul></div><div class="jb-group"><span class="jb-group-k">Risk and access</span><ul class="jb-tools"><li><i class="fas fa-triangle-exclamation" aria-hidden="true"></i>Risk assessment</li><li><i class="fas fa-key" aria-hidden="true"></i>Access governance</li></ul></div><div class="jb-group"><span class="jb-group-k">People</span><ul class="jb-tools"><li><i class="fas fa-chalkboard-user" aria-hidden="true"></i>Security awareness training</li><li><i class="fas fa-fish" aria-hidden="true"></i>Phishing simulation</li><li><i class="fas fa-people-group" aria-hidden="true"></i>Team leadership</li></ul></div></div>
 <div class="jb-proof"><span class="jb-proof-k"><i class="fas fa-circle-check" aria-hidden="true"></i>Proof</span><p>Built the cybersecurity department from the ground up, set its scope across offensive, defensive and governance work, and now <strong>lead the team across penetration testing, DevSecOps and SOC</strong>.</p></div>
 </article>
 </div>
 </div>
+<div class="jb-note" data-aos="fade-up"><div class="achievement-box">
+                    <div class="ach-icon"><i class="fas fa-award" aria-hidden="true"></i></div>
+                    <div class="ach-text">
+                        <strong>Forensic note:</strong> I lead the forensic work myself, from ransomware response to internal investigations. One of them <strong>established the evidence in a PKR 80 million corruption case</strong> using Magnet AXIOM and Oxygen Forensic Detective, resulting in formal legal action.
+                    </div>
+                </div></div>
 </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="section section-alt">
+<section id="projects" class="section">
 <div class="container">
 <div class="section-header text-center" data-aos="fade-up">
 <span class="section-badge"><i class="fab fa-github" aria-hidden="true"></i> Open Source</span>
@@ -4661,125 +4659,18 @@ html[data-theme="light"] .pj-card,html[data-theme="light"] .fq-item{border-color
 </article>
 </div>
 </div>
+<div class="pj-private" data-aos="fade-up">
+<div class="pj-private-head"><span class="pj-private-k"><i class="fas fa-lock" aria-hidden="true"></i>Built inside the organisation</span><h3>AI and automation I run at work</h3><p>These are internal, so there is no code or screenshot to show. What they do, in general terms:</p></div>
+<div class="row g-4">
+<div class="col-lg-6"><article class="pj-card pj-card-private"><div class="pj-body"><div class="pj-head"><div class="pj-icon"><i class="fas fa-satellite-dish" aria-hidden="true"></i></div><div><span class="pj-cat">Automated security testing</span><h3 class="pj-title">Scanning platform for our own estate</h3></div></div><p class="pj-desc">Runs several vulnerability scanners on a schedule across the organisation's 400+ domains, has an AI model triage the findings, and keeps a running record for reporting. It only accepts targets on an approved list of the organisation's own domains, and every action is tied to a signed-in, role-based account.</p><ul class="pj-meta"><li><i class="fas fa-robot" aria-hidden="true"></i>AI triage</li><li><i class="fas fa-shield-halved" aria-hidden="true"></i>Allow-listed targets only</li><li><i class="fas fa-user-lock" aria-hidden="true"></i>Role-based access</li></ul></div><div class="pj-foot"><span class="pj-status pj-st-alpha">In development</span><span class="pj-private-tag"><i class="fas fa-lock" aria-hidden="true"></i>Internal</span></div></article></div>
+<div class="col-lg-6"><article class="pj-card pj-card-private"><div class="pj-body"><div class="pj-head"><div class="pj-icon"><i class="fas fa-robot" aria-hidden="true"></i></div><div><span class="pj-cat">SOC automation</span><h3 class="pj-title">Eight AI agents for security operations</h3></div></div><p class="pj-desc">Agents I designed for SIEM rule development, file integrity monitoring, continuous security monitoring, and internal tooling for assessment tracking and vulnerability dashboards. I define the tasks, workflows and security requirements, and review what they produce.</p><ul class="pj-meta"><li><i class="fas fa-diagram-project" aria-hidden="true"></i>SIEM rules</li><li><i class="fas fa-file-shield" aria-hidden="true"></i>File integrity</li><li><i class="fas fa-chart-line" aria-hidden="true"></i>Dashboards</li></ul></div><div class="pj-foot"><span class="pj-status pj-st-oss">In use</span><span class="pj-private-tag"><i class="fas fa-lock" aria-hidden="true"></i>Internal</span></div></article></div>
+</div>
+</div>
 <div class="pj-end" data-aos="fade-up"><a class="btn-cyber-outline" href="https://github.com/farhan6667?tab=repositories" target="_blank" rel="noopener noreferrer"><i class="fab fa-github me-2" aria-hidden="true"></i>View all repositories</a><p class="pj-note">The Wazuh tools are independent projects and are not affiliated with or endorsed by Wazuh.</p></div>
 </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills" class="section">
-    <div class="container">
-        <div class="section-header text-center" data-aos="fade-up">
-            <span class="section-badge"><i class="fas fa-code" aria-hidden="true"></i> Technical Arsenal</span>
-            <h2 class="section-title">My <span class="text-gradient">Expertise</span></h2>
-            <p class="section-desc">What I do day to day, built over nine years in security and 15 in IT</p>
-            <div class="section-line"></div>
-        </div>
-        <div class="row g-4">
-            <!-- Offensive Security -->
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="skill-card skill-card-cyan sc-skill-featured">
-                    <div class="skill-featured-tag">Core Expertise</div>
-                    <div class="skc-header">
-                        <div class="skc-icon"><i class="fas fa-crosshairs" aria-hidden="true"></i></div>
-                        <h3 class="skc-title">Offensive Security</h3>
-                    </div>
-                    <div class="skill-bar-group">
-                        <div class="skill-bar-item"><div class="sb-info"><span>Penetration Testing (CEH)</span><span class="sb-pct">Expert</span></div><div class="sb-track"><div class="sb-fill" data-width="96"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>Vulnerability Assessment</span><span class="sb-pct">Expert</span></div><div class="sb-track"><div class="sb-fill" data-width="94"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>Web Application Security</span><span class="sb-pct">Expert</span></div><div class="sb-track"><div class="sb-fill" data-width="92"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>Bug Bounty Hunting</span><span class="sb-pct">Expert</span></div><div class="sb-track"><div class="sb-fill" data-width="95"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>Social Engineering Testing</span><span class="sb-pct">Advanced</span></div><div class="sb-track"><div class="sb-fill" data-width="88"></div></div></div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Forensics - UPDATED -->
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="skill-card skill-card-purple sc-skill-featured">
-                    <div class="skill-featured-tag">Core Expertise</div>
-                    <div class="skc-header">
-                        <div class="skc-icon"><i class="fas fa-fingerprint" aria-hidden="true"></i></div>
-                        <h3 class="skc-title">Digital Forensics & DFIR</h3>
-                    </div>
-                    <div class="skill-bar-group">
-                        <div class="skill-bar-item"><div class="sb-info"><span>Mobile Forensics (Oxygen / Mobiledit)</span><span class="sb-pct">Expert</span></div><div class="sb-track"><div class="sb-fill" data-width="97"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>Windows Forensics (Magnet AXIOM)</span><span class="sb-pct">Expert</span></div><div class="sb-track"><div class="sb-fill" data-width="95"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>Evidence Collection & Chain of Custody</span><span class="sb-pct">Expert</span></div><div class="sb-track"><div class="sb-fill" data-width="96"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>Ransomware Mitigation & IR</span><span class="sb-pct">Expert</span></div><div class="sb-track"><div class="sb-fill" data-width="94"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>Threat Intelligence & APT Hunting</span><span class="sb-pct">Expert</span></div><div class="sb-track"><div class="sb-fill" data-width="92"></div></div></div>
-                    </div>
-                    <div class="tool-pills">
-                        <span class="tool-pill tool-pill-logo"><span class="tp-plate"><img class="tp-logo" src="data:image/png;base64,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" alt="Oxygen Forensics logo" width="96" height="96" loading="lazy" decoding="async"></span>Oxygen 18.2</span>
-                        <span class="tool-pill tool-pill-logo"><span class="tp-plate"><img class="tp-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAFIklEQVR42u3ayXITRxzH8e+/e0a7LXlhs8HGYDaDyQKkOKWKJ8gxp7xB3iA55ZKc8x455BFyzIU4MZg4bLExxgEMSJZsWZrpzkGSVxwgNiWp+H+q5iCNpkY9v5npf/cMKKWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFKq20m7/8DKyspSGIbpduw7iqJqLpc70s72B+0OIJlM9oRhmGnHvq21iXa3v+0BOOciAO89AP4tL0uR7b9qbf/Wl74IcRzXPvgAWtaqjofzFSrVGDG713vfSGewP8HoUAZrd6wHHj93LL3wePP6EL2HTAhjxyzZVGe0u2MCmF9c5dvvpvntQQVC8/qztu64cX2A77+5yJHB7UdwtQo//rzOT7/UceEe11DkuXTY8MPXGS6dtBrAVvW658k/VeYW1/YMgLrj95svWFiq7grg0XPHr1MRD5852CuAumfAQi3yndJsTCfVY2IErEBgGiHsXBKGueU69+YqOOe33f8Xnjvmlz0E8p+LWOmA2q8TA3irfyuU1iJmZ1eo1tzG17UI7vwd87TiwdJdTeq2UUsceaamX1Eq1/He4z1Uqp7bD2JqNUBEA3h/AQjOCncXVll+Wduof5bLnql5hzN01O2l+wPwzdpxa40fGp4urvHHTAnnGqvmlhyPnzp8sHPb5qIB/J+D3zh6su1z4wxfWY24dXeFKHbEDqbuxxRLbrM13mPwzWJqR4AawLtNVA32J+jLBdtCqIpw63aRl8U6azXPnQXHqpfNM9/B0awwccKQ0CtgHxeBg5NH01ybLBBuLTsFHj0os7BUZeG5Z/Ze1Lj/NxMQD+PDhrNDBtEA9jNR5DmUDfj8035yGxNFAkaYX65xb67Ck5eOJ8t+o5MGSHu4fj4glxKiWAPYVz8QGrh2uUChL7F5L7eN8cBfsyUsjmxKtnW8+ZRwddwiAk6vgP1Zrzl6egOGhzPIlsFXHHluThfpyzrOjNlmteMhgsOHhXMjBiNahu5bFHuy6YCrE73YVlkqgguEe49XcfU6Z0cMyWY21nkun7Dks0LsNYADkc1YPv6kj2w22LynBIZni2vM/FlkcsTQmwZiSITClfOW3rR0cvXZXQEEVjh3uoeRwQTEzbq+OR6YuV9m/LjQP2Cg7jmWEy6OWUKrI+EDdepEhvMTeWSzG6Aqwu2ZIgmJmRgymDqcGjKcPma6Zk6oawIo9IZMTuRJszm94AXm7pd59arK5ElLVmDyrOVIwehcEAf+AF347HKBvkK40RE3xgPrLD6pMHHaMNxnuDJmSQRoAO/hUQCnT+UYGc0g645WibNSiZidLVHIesbPWCZPWazRAN7DTLQwWEhwfbJANoCUgZQVQoHpmSL5tOOLGwmODppdb0x0dIFBF8llLF99OcqFiTxx8yBL7BnsT3DueMjFsYBMkq4SdNwMtPMQN0ud2Dc+t0r/wPDRxTyTF/LbJvoFMEZ2nfneNbePBcRD7BvfeQ3gtZ3sof6Q4wOJxkN5gLpnsDfEWNnSFwjGvvmtSgHyaWE4byBsDauFQz2GwOq7oZu1fLVaTCaTveVKxJ27JcqrMRuTOM5T6Ak5f6aHdMq+8xTG3UXH0vLWBzWQTQgXRi09GWF9fb2USqXyGkAy2dt6wL7Ho+B37li99xvzc7tef2l26p0QQNtvQcaYoFXlHGTxIiKNs0vevO8POoBarVZuvaBLG15PRymllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSap/+BU3f5+0OdW/pAAAAAElFTkSuQmCC" alt="Magnet Forensics logo" width="96" height="96" loading="lazy" decoding="async"></span>Magnet AXIOM 10.1</span>
-                        <span class="tool-pill tool-pill-logo"><span class="tp-plate"><img class="tp-logo" src="data:image/png;base64,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" alt="MOBILedit logo" width="96" height="96" loading="lazy" decoding="async"></span>Mobiledit Ultra Pro 9.8</span>
-                        <span class="tool-pill tool-pill-cyan">HDD Imaging</span>
-                        <span class="tool-pill tool-pill-cyan">Data Recovery</span>
-                        <span class="tool-pill tool-pill-cyan">Anti-Recovery</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SIEM & Compliance -->
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
-                <div class="skill-card skill-card-cyan">
-                    <div class="skc-header">
-                        <div class="skc-icon"><i class="fas fa-eye" aria-hidden="true"></i></div>
-                        <h3 class="skc-title">SIEM, SOC & Compliance</h3>
-                    </div>
-                    <div class="skill-bar-group">
-                        <div class="skill-bar-item"><div class="sb-info"><span>SIEM (Wazuh / QRadar / Elastic)</span><span class="sb-pct">Expert</span></div><div class="sb-track"><div class="sb-fill" data-width="95"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>ISO/IEC 27001 Compliance</span><span class="sb-pct">Expert</span></div><div class="sb-track"><div class="sb-fill" data-width="93"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>Firewall (FortiGate / Sophos)</span><span class="sb-pct">Expert</span></div><div class="sb-track"><div class="sb-fill" data-width="92"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>EDR / Open EDR Management</span><span class="sb-pct">Expert</span></div><div class="sb-track"><div class="sb-fill" data-width="91"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>Employee & Asset Monitoring</span><span class="sb-pct">Expert</span></div><div class="sb-track"><div class="sb-fill" data-width="90"></div></div></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Networking -->
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="skill-card skill-card-amber">
-                    <div class="skc-header">
-                        <div class="skc-icon"><i class="fas fa-network-wired" aria-hidden="true"></i></div>
-                        <h3 class="skc-title">Networking & Cloud</h3>
-                    </div>
-                    <div class="skill-bar-group">
-                        <div class="skill-bar-item"><div class="sb-info"><span>Network Architecture</span><span class="sb-pct">Proficient</span></div><div class="sb-track"><div class="sb-fill" data-width="76"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>Cisco (CCNA / ICS)</span><span class="sb-pct">Proficient</span></div><div class="sb-track"><div class="sb-fill" data-width="70"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>VPN & WAN Solutions</span><span class="sb-pct">Proficient</span></div><div class="sb-track"><div class="sb-fill" data-width="74"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>Microsoft Azure</span><span class="sb-pct">Working</span></div><div class="sb-track"><div class="sb-fill" data-width="65"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>Wireless Security</span><span class="sb-pct">Proficient</span></div><div class="sb-track"><div class="sb-fill" data-width="72"></div></div></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Systems -->
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="skill-card skill-card-green">
-                    <div class="skc-header">
-                        <div class="skc-icon"><i class="fas fa-server" aria-hidden="true"></i></div>
-                        <h3 class="skc-title">Systems & Administration</h3>
-                    </div>
-                    <div class="skill-bar-group">
-                        <div class="skill-bar-item"><div class="sb-info"><span>Windows Server & Virtualization</span><span class="sb-pct">Proficient</span></div><div class="sb-track"><div class="sb-fill" data-width="78"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>Office 365 Admin</span><span class="sb-pct">Proficient</span></div><div class="sb-track"><div class="sb-fill" data-width="74"></div></div></div>
-                        <div class="skill-bar-item"><div class="sb-info"><span>Hardware Support & Maintenance</span><span class="sb-pct">Advanced</span></div><div class="sb-track"><div class="sb-fill" data-width="80"></div></div></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Forensic Achievement Highlight -->
-            <div class="col-12" data-aos="fade-up" data-aos-delay="450">
-                <div class="achievement-box">
-                    <div class="ach-icon"><i class="fas fa-award" aria-hidden="true"></i></div>
-                    <div class="ach-text">
-                        <strong>Forensic note:</strong> Conducted advanced forensic investigations, collected digital evidence, and led incident response for ransomware attacks. My investigation <strong>established the evidence in a PKR 80 million corruption case</strong> using Magnet AXIOM and Oxygen Forensic Detective, resulting in formal legal action.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 
@@ -5901,6 +5792,24 @@ document.addEventListener('DOMContentLoaded', function () {
       mo.observe(document.body, { childList: true });
     }
   }
+
+  /* ---- on a phone, the two long Expertise cards fold behind a button --- */
+  Array.prototype.forEach.call(document.querySelectorAll('.jb-groups'), function (g) {
+    var n = +g.getAttribute('data-count') || 0;
+    if (n < 11) return;
+    g.classList.add('is-folded');
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'jb-more';
+    b.setAttribute('aria-expanded', 'false');
+    b.innerHTML = '<i class="fas fa-chevron-down" aria-hidden="true"></i>Show all ' + n + ' tools';
+    b.addEventListener('click', function () {
+      var open = g.classList.toggle('is-folded') === false;
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      b.innerHTML = open ? '<i class="fas fa-chevron-up" aria-hidden="true"></i>Show fewer'
+                         : '<i class="fas fa-chevron-down" aria-hidden="true"></i>Show all ' + n + ' tools';
+    });
+    g.parentNode.insertBefore(b, g.nextSibling);
+  });
 
   if (root.getAttribute('data-motion') !== 'full') return;
 
