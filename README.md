@@ -21,27 +21,33 @@ Cyber security · Digital forensics · Detection engineering
 
 A one-page personal site with a light and a dark theme. The sections are:
 
-- **About** and **Services**: who I am and what I take on.
-- **Skills**, **Experience**, **Education**: the working background.
-- **Certifications** and **Hall of Fame**: credentials and bug bounty recognition.
-- **Contact**: email, LinkedIn and WhatsApp.
+- **About** and **Experience**: who I am and the career path.
+- **Certifications**, **Expertise** and **Training**: credentials, the tools behind them and completed courses.
+- **Projects**: five open source tools, live from the GitHub API.
+- **Hall of Fame**, **FAQ** and **LinkedIn**: bug bounty recognition, quick answers and the same career in the format recruiters read.
+- **Contact**: email, phone, LinkedIn and WhatsApp.
 
 The CV is a two page PDF and sits in this repository next to the page.
 
 ## How it is built
 
-The whole site is a single static `index.html`. There is no build step and no framework to install, and GitHub Pages serves it as it is. To work on it locally, open `index.html` in a browser. The page carries a Content Security Policy and loads libraries only from a short list of known CDNs.
+The site is a static `index.html` plus one small `ribbon.js` animation file. There is no build step and no framework to install, and GitHub Pages serves it as it is. To work on it locally, open `index.html` in a browser. The page carries a Content Security Policy and loads libraries only from a short list of known CDNs; inline scripts are allow-listed by hash, so an edit to a `<script>` block in `index.html` needs its CSP hash recomputed too, or the browser will refuse to run it.
 
 | File | Purpose |
 |---|---|
 | `index.html` | The page, with its styles and scripts |
+| `ribbon.js` | The glowing ribbon animation behind the page |
 | `Syed_Farhan_Ahmed_CV.pdf` | Downloadable CV |
-| `profile.jpg`, `about-dark.jpg`, `about-light.jpg` | Photos used per theme |
+| `about-dark.jpg`, `about-light.jpg`, `hero-wide.jpg`/`.webp`, `portrait.jpg`/`.webp`, `linkedin-cover.webp`, `linkedin-photo.webp` | Photos used across the page |
+| `sfa-mark.webp`, `sfa-logo-nav.webp`, `favicon-64.png`, `apple-touch-icon.png`, `og-card.jpg` | Marks, favicon and the social preview image |
+| `robots.txt`, `sitemap.xml`, `llms.txt` | Metadata for search crawlers and AI assistants |
 | `readme-assets/` | Images for this README only |
 
 ## Other work
 
 - [no-api-media-mcp](https://github.com/farhan6667/no-api-media-mcp): make images and videos from Claude Code, Cursor or Codex with the subscriptions you already pay for.
+- [HexSwarm](https://github.com/farhan6667/hexswarm): runs a swarm of AI agents against authorised penetration testing and CTF targets, gated by a scope file.
+- [SFA Monitor](https://github.com/farhan6667/sfa-monitor): a performance widget and task manager for the Linux desktop. Free, not open source.
 - [Wazuh RuleGuard](https://github.com/farhan6667/wazuh-ruleguard): test Wazuh detection changes before they ship.
 - [Wazuh NoiseLens](https://github.com/farhan6667/wazuh-noiselens): see which alerts a proposed exception would hide.
 
