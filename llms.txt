@@ -8,7 +8,7 @@
 - Detection engineering: built 124 custom Wazuh rules covering 43 MITRE ATT&CK techniques, and eight AI agents for SIEM rule development, file integrity monitoring and continuous monitoring.
 - Incident response: led the response to a compromise of 11 production hosting servers, from containment to root cause.
 - Offensive security: personally tested a 400+ domain estate and directs a scheduled testing programme across 50+ core applications.
-- Certifications: 21 from 11 issuers, including CISM, CISA, CHFI, CEH, PNPT, eJPT, Certified SOC Analyst and ISO/IEC 27001 Information Security Associate.
+- Certifications: 22 from 12 issuers, including CISM, CISA, CHFI, CEH, PNPT, eJPT, Certified LLM Security Expert (CLLMSE), Certified SOC Analyst and ISO/IEC 27001 Information Security Associate.
 - Education: Bachelor of Technology (Hons), Telecommunication, Newports Institute of Communications and Economics, Karachi.
 - Languages: English, Urdu.
 
