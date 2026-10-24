@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://fonts.googleapis.com; script-src 'self' https://cdn.jsdelivr.net https://unpkg.com 'sha256-BG7zrvogdkPp0+Tnz/acJKARYK7eK3W9HK4hRWkJPQI=' 'sha256-1VG4h1SxNocN5XL8+Y/PQwjj4HZ/EkVLQOiQWX7PWHA=' 'sha256-0uD4JhpeimUplE5unTiDo7bpGLV03w1bSLR0mxQw++U=' 'sha256-U0cHG1lNYXdIvO9DlwC/TCrCP3wdvWOV34Z+4pCqHzI=' 'sha256-hwSBpZTLFFrTKQH3HJ5LLRn92bpsubOAKqi+BEpI/Qc=' 'sha256-Jq3C2OL/JiQPBJTmdrZG5c9aHxt3vVaQ8mQa5iXRClQ=' 'sha256-nB0awktbl6IWe9ugFssylgGkBXjeaO5eAVAmFAAYVqA=' 'sha256-bQr7rP83F/7k0d30PAKIE7Co+rI/8IoiUROBCcNMXxo=' 'sha256-ESTUyLlZetBBzA0LHC040LZE1td8dExKDuewLFKqAOE=' 'sha256-GhUTeYThMhhLkrgf0OmV4q4zsJpE2vQT/YoyCKIR4cM='; connect-src 'self' https://api.github.com">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; form-action 'none'; img-src 'self' data:; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://fonts.googleapis.com; script-src 'self' https://cdn.jsdelivr.net https://unpkg.com 'sha256-BG7zrvogdkPp0+Tnz/acJKARYK7eK3W9HK4hRWkJPQI=' 'sha256-1VG4h1SxNocN5XL8+Y/PQwjj4HZ/EkVLQOiQWX7PWHA=' 'sha256-BtRrJpijWWHEzEBTUBeO8y07lNvpy48sSVNqgVRxd1A=' 'sha256-U0cHG1lNYXdIvO9DlwC/TCrCP3wdvWOV34Z+4pCqHzI=' 'sha256-hwSBpZTLFFrTKQH3HJ5LLRn92bpsubOAKqi+BEpI/Qc=' 'sha256-Jq3C2OL/JiQPBJTmdrZG5c9aHxt3vVaQ8mQa5iXRClQ=' 'sha256-nB0awktbl6IWe9ugFssylgGkBXjeaO5eAVAmFAAYVqA=' 'sha256-bQr7rP83F/7k0d30PAKIE7Co+rI/8IoiUROBCcNMXxo=' 'sha256-ESTUyLlZetBBzA0LHC040LZE1td8dExKDuewLFKqAOE=' 'sha256-GhUTeYThMhhLkrgf0OmV4q4zsJpE2vQT/YoyCKIR4cM='; connect-src 'self' https://api.github.com">
     <meta name="referrer" content="no-referrer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Syed Farhan Ahmed (SFA), Head of Cyber Security in Karachi, Pakistan. Detection engineering, DFIR, pen testing and ISO 27001. CISM, CISA, CHFI, CEH, PNPT certified.">
@@ -5170,28 +5170,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // CONTACT FORM
-    /* A static page cannot deliver mail on its own. Rather than claim the
-       message was sent, hand it to the visitor's own mail client with every
-       field already filled in, so the message really does arrive. */
-    var cf = document.getElementById('contactForm');
-    if (cf) cf.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var f = function (n) {
-            var el = cf.querySelector('[name="' + n + '"]');
-            return el ? el.value.trim() : '';
-        };
-        var who = f('name'), from = f('email'), subj = f('subject'), msg = f('message');
-        var body = msg + '\n\n--\n' + who + (from ? '\n' + from : '');
-        var href = 'mailto:syedfarhan6669@gmail.com'
-                 + '?subject=' + encodeURIComponent(subj || ('Portfolio enquiry from ' + who))
-                 + '&body=' + encodeURIComponent(body);
-        var btn = cf.querySelector('button[type="submit"]'), orig = btn.innerHTML;
-        btn.innerHTML = '<span class="btn-content"><i class="fas fa-envelope-open-text me-2" aria-hidden="true">'
-                      + '</i>Opening your mail app</span>';
-        window.location.href = href;
-        setTimeout(function () { btn.innerHTML = orig; }, 4000);
-    });
 
     // PARTICLE SYSTEM
     var pCanvas = document.getElementById('particleCanvas');
