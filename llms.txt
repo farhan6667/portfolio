@@ -14,6 +14,7 @@
 
 ## Open source tools
 
+- [NexaForge SecureCode](https://github.com/farhan6667/securecode): a free, MIT-licensed virtual pentester for AI coding agents (Claude Code, Cursor, Codex, Gemini CLI, Antigravity). Version 7.0.0. Not a third-party audit.
 - [Wazuh RuleGuard](https://github.com/farhan6667/wazuh-ruleguard): checks a Wazuh rule change against sample logs through the logtest API before it ships. Early prototype.
 - [Wazuh NoiseLens](https://github.com/farhan6667/wazuh-noiselens): shows which alerts a proposed Wazuh exception would hide. Early prototype.
 - [HexSwarm](https://github.com/farhan6667/hexswarm): runs a swarm of AI agents against authorised penetration testing and CTF targets, gated by a scope file. Alpha.

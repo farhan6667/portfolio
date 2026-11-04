@@ -23,7 +23,7 @@ A one-page personal site with a light and a dark theme. The sections are:
 
 - **About** and **Experience**: who I am and the career path.
 - **Certifications**, **Expertise** and **Training**: credentials, the tools behind them and completed courses.
-- **Projects**: five open source tools, live from the GitHub API.
+- **Projects**: six tools, live from the GitHub API.
 - **Hall of Fame**, **FAQ** and **LinkedIn**: bug bounty recognition, quick answers and the same career in the format recruiters read.
 - **Contact**: email, phone, LinkedIn and WhatsApp.
 
@@ -45,6 +45,7 @@ The site is a static `index.html` plus one small `ribbon.js` animation file. The
 
 ## Other work
 
+- [NexaForge SecureCode](https://github.com/farhan6667/securecode): a free virtual pentester for AI coding agents.
 - [no-api-media-mcp](https://github.com/farhan6667/no-api-media-mcp): make images and videos from Claude Code, Cursor or Codex with the subscriptions you already pay for.
 - [HexSwarm](https://github.com/farhan6667/hexswarm): runs a swarm of AI agents against authorised penetration testing and CTF targets, gated by a scope file.
 - [SFA Monitor](https://github.com/farhan6667/sfa-monitor): a performance widget and task manager for the Linux desktop. Free, not open source.
